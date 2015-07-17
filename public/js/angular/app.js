@@ -11,9 +11,9 @@ angular.module('jointVentureApp', [
 			controller: 'MainController'
 		})
 
-		.when('/nerds', {
-			templateUrl: 'views/nerd.html',
-			controller: 'NerdController'
+		.when('/rent', {
+			templateUrl: 'views/section-rent.html',
+			controller: 'MainController'
 		})
 
 		.when('/geeks', {

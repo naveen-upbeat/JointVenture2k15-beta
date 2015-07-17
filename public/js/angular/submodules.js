@@ -4,7 +4,8 @@ angular.module('submodules', [
 	'submodules.servicesoffered',
 	'submodules.sectionabout',
 	'submodules.sectionportfolio',
-	'submodules.sectionhome'])
+	'submodules.sectionhome',
+	'submodules.sectionrent'])
 .controller('MainController', function($scope) {
 
 	$scope.tagline = 'To the moon and back!';	
