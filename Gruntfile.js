@@ -25,13 +25,30 @@ module.exports = function(grunt) {
                 dest: 'public/js/dist/angApp.js'
 
             }
+        },
+        execute:{
+            target:{
+                src: ['server.js'],
+                options:{
+                    args:['--port 8080']
+        }
+    }},
+    callback_sync: {
+            // simple inline function call 
+            call: function(grunt, options){
+                grunt.log.writeln('Hello!');
+            }
         }
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
+    grunt.loadNpmTasks('grunt-execute');
+
     // Default task(s).
     grunt.registerTask('default', ['uglify']);
+
+    grunt.registerTask('start',['execute']);
 
 };
