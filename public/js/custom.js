@@ -61,40 +61,40 @@ $(function() {
 
 
 var prevDocScrollTop = $(document).scrollTop(),
-        nowDocScrollTop;
+    nowDocScrollTop;
 
-    function addParallax(selector) {
-        var itemTopPos = [],
-            itemHeight = [],
-            origBgPosY = [];
+function addParallax(selector) {
+    var itemTopPos = [],
+        itemHeight = [],
+        origBgPosY = [];
+
+    $(selector).each(function(index, item) {
+        itemTopPos[index] = $(item).position().top;
+        itemHeight[index] = $(item).height();
+        origBgPosY[index] = parseInt($(item).css('background-position-y'));
+    });
+
+    $(document).on('scroll', function() {
+        nowDocScrollTop = $(this).scrollTop();
 
         $(selector).each(function(index, item) {
-            itemTopPos[index] = $(item).position().top;
-            itemHeight[index] = $(item).height();
-            origBgPosY[index] = parseInt($(item).css('background-position-y'));
+
+            var newBgPosY = [],
+                bgPosY = [],
+                $item = $(item);
+            newBgPosY[index] = bgPosY[index] = parseInt($item.css('background-position-y'));
+
+            if ((nowDocScrollTop > itemTopPos[index]) && (nowDocScrollTop < itemTopPos[index] + itemHeight[index])) {
+                newBgPosY[index] -= (nowDocScrollTop - prevDocScrollTop) * (100 / itemHeight[index]);
+                $item.css('background-position-y', newBgPosY[index] + 'px');
+            } else {
+                $item.css('background-position-y', origBgPosY[index] + 'px');
+            }
+
         });
-
-        $(document).on('scroll', function() {
-            nowDocScrollTop = $(this).scrollTop();
-
-            $(selector).each(function(index, item) {
-
-                var newBgPosY = [],
-                    bgPosY = [],
-                    $item = $(item);
-                newBgPosY[index] = bgPosY[index] = parseInt($item.css('background-position-y'));
-
-                if ((nowDocScrollTop > itemTopPos[index]) && (nowDocScrollTop < itemTopPos[index] + itemHeight[index])) {
-                    newBgPosY[index] -= (nowDocScrollTop - prevDocScrollTop) * (100 / itemHeight[index]);
-                    $item.css('background-position-y', newBgPosY[index] + 'px');
-                } else {
-                    $item.css('background-position-y', origBgPosY[index] + 'px');
-                }
-
-            });
-            prevDocScrollTop = nowDocScrollTop;
-        });
-    }
+        prevDocScrollTop = nowDocScrollTop;
+    });
+}
 
 // First, create an object containing LatLng and population for each city.
 var citymap = {};
@@ -146,3 +146,23 @@ $(function(){
         return false;
     })
 });*/
+
+var siteWideCommonFunctions = {
+
+
+    adjustngViewContainerHeight: function () {
+        var $pageView = $('.page-view'),
+            outerContentHeight = $pageView.children(0).outerHeight();
+        $pageView.height(outerContentHeight);
+        $('.ng-view-container').height(outerContentHeight);
+
+    }
+};
+
+
+$( window ).resize(function() {
+    siteWideCommonFunctions.adjustngViewContainerHeight();   
+});
+
+
+

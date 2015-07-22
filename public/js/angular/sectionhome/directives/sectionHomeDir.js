@@ -4,7 +4,7 @@ angular.module('submodules.sectionhome')
             restrict: "AE",
             templateUrl: 'templates/section-home.html',
             link: function(scope, element, attrs, tabsCtrl) {
-                addParallax(element);
+                //addParallax(element);
             }
         }
 

@@ -1,0 +1,446 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"outer",
+				"outerContentHeight"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"prev",
+				"prevDocScrollTop"
+			],
+			[
+				"new",
+				"newBgPosY〔variable〕"
+			],
+			[
+				"scro",
+				"scrollTop〔function〕"
+			],
+			[
+				"clear",
+				"clearTimeout〔function〕"
+			],
+			[
+				"head",
+				"headerSectionHeight"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"text",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"last_filter": "install package",
+		"selected_items":
+		[
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"prettify",
+				"HTMLPrettify"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packages",
+				"Preferences: Browse Packages"
+			],
+			[
+				"paca",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"for",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views"
+	],
+	"file_history":
+	[
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/custom.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css/styleAdd.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css/style.css",
+		"/C/Users/neo/AppData/Roaming/Sublime Text 3/Packages/User/grunt.sublime-build",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-jointventure.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/index.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/Gruntfile.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/bower.json",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-rent.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionjointventure/directives/sectionJointVentureDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/app.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionhome/directives/sectionHomeDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/main-navigation.html",
+		"/C/Users/neo/AppData/Roaming/Sublime Text 3/Packages/Sublime-HTMLPrettify/HTMLPrettify.sublime-settings",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-home.html",
+		"/D/1.Projects/HousingProject/Workspace/3.Softwares/1.1.GitInstallParams",
+		"/C/Users/neo/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/home.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-rent.html",
+		"/C/Users/neo/Desktop/DefiningOperatingModel",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_variables.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap/less/theme.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/main-footer.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-portfolio.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-about.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/footer/directives/mainFooterDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/services.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/footer/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/dist/angApp2.min.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/mainnavigation/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/mainCtrl.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/mainnavigation/directives/main-navigation.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/mainmodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/demo.html",
+		"/D/1.Projects/HousingProject/Workspace/1.DevTools/starter-node-angular-master/public/js/controllers/NerdCtrl.js",
+		"/D/1.Projects/HousingProject/Workspace/1.DevTools/starter-node-angular-master/public/js/app.js",
+		"/D/1.Projects/HousingProject/Workspace/1.DevTools/starter-node-angular-master/public/js/controllers/GeekCtrl.js",
+		"/D/1.Projects/HousingProject/Demo-Template/index.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/build/angApp.min.js",
+		"/D/1.Projects/HousingProject/Workspace/1.DevTools/starter-node-angular-master/public/js/appRoutes.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/build/angApp.min.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/js/build/angApp.min.js/submodules.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/js/build/angApp.min.js/app.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/appRoutes.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/controllers/GeekCtrl.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/controllers/MainCtrl.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/app.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/appDirectives.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules/mainnavigation/directives/main-navigation.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/controllers/NerdCtrl.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/package.json",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules/mainnavigation/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules/mainnavigation/module.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules/module.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/demoapp.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/main-navigation/templates/main-navigation.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/main-navigation/directives/main-navigation.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/routes.js",
+		"/D/1.Projects/HousingProject/Demo-Template/css/stylish-portfolio.css",
+		"/D/1.Projects/BlogLikeNeo-Node-Dev/blog/source/_posts/hello-world.md",
+		"/D/1.Projects/nodeJSProjects/blog/dev.neo.desi/_config.yml",
+		"/D/1.Projects/Playground/googleMaps/maps102.html",
+		"/D/1.Projects/HousingProject/Workspace/0.DevEnv/monogodb-data-json/owners.json",
+		"/D/1.Projects/HousingProject/Demo-Template/js/custom.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/config/db.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/Housing/config/db.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/Housing/.gitignore",
+		"/D/1.Projects/HousingProject/DevTools/help.html",
+		"/D/1.Projects/Playground/googleMaps/maps101.html",
+		"/D/1.Projects/ChromePlugins/OTPAutoFill/popup.js",
+		"/D/1.Projects/ChromePlugins/OTPAutoFill/popup.html",
+		"/D/1.Projects/ChromePlugins/OTPAutoFill/mycontentscript.js",
+		"/D/1.Projects/ChromePlugins/OTPAutoFill/manifest.json",
+		"/D/1.Projects/HousingProject/DevTools/plugin1.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"D:\\1.Projects\\HousingProject\\Workspace\\2.Projects\\JointVenture2k15-beta\\public"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"background:",
+			"ng-view",
+			"myTabContent",
+			"joint-venture-tabs",
+			"brand",
+			"uglify",
+			"ng-view",
+			"material",
+			"bootstrap",
+			"col-md-6",
+			"fa-3x",
+			"col-md-3",
+			"fa-4x",
+			"fa-2x",
+			"parallax",
+			"col-lg-3",
+			"custom",
+			"submodules.mainnavigation",
+			"directive",
+			"initialize",
+			"//",
+			"initialize",
+			" >",
+			")}]);",
+			"\").",
+			"when",
+			"templateUrl",
+			"rootController",
+			"bootstrap",
+			"public/js/angular/",
+			"/**/",
+			"submodule.mainnavigation",
+			"js/services/",
+			"js/controllers",
+			"/libs",
+			"venturemodal",
+			" \">",
+			"venturemodal",
+			"venture",
+			"search",
+			"searcj",
+			">\n",
+			"appartment",
+			"main",
+			"main-menu-dd",
+			"myTabContent",
+			"glyphicon",
+			"navbar-responsive",
+			"rent",
+			"population",
+			"renameDropDownToggle",
+			"<script",
+			"materialdesign",
+			".css",
+			"material-fullpalette.min.css",
+			"rent",
+			"args",
+			"carousel",
+			"carousel-",
+			"carousel-control",
+			"data-slide",
+			"prev",
+			"carousel-",
+			"carousel",
+			"trim",
+			"closest",
+			"</span>",
+			"<span>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"</div>",
+			"<div>"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/grunt.sublime-build",
+	"project": "sublime-project.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"index.html",
+				"public\\index.html"
+			],
+			[
+				"custom.js",
+				"public\\js\\custom.js"
+			],
+			[
+				"custom",
+				"public\\js\\custom.js"
+			],
+			[
+				"customjs",
+				"public\\js\\custom.js"
+			],
+			[
+				"styleadd",
+				"public\\css\\styleAdd.css"
+			],
+			[
+				"style.css",
+				"public\\css\\style.css"
+			],
+			[
+				"section-join",
+				"public\\templates\\section-jointventure.html"
+			],
+			[
+				"sytle",
+				"public\\css\\styleAdd.css"
+			],
+			[
+				"app.js",
+				"public\\js\\angular\\app.js"
+			],
+			[
+				"styl",
+				"public\\css\\style.css"
+			],
+			[
+				"bowerjson",
+				"bower.json"
+			],
+			[
+				"main-navigation",
+				"public\\templates\\main-navigation.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 288.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

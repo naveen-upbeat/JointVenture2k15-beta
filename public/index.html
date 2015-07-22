@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>{{page.pagetitle}}}</title>
+    <title ng-bind="appWideScope.appTitle"></title>
     <!-- Bootstrap Core CSS -->
     <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design CSS -->
@@ -16,8 +16,10 @@
     <link href="libs/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
     <link href="libs/bootstrap-material-design/dist/css/roboto.css" rel="stylesheet">
     <link href="libs/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="libs/ng-tags-input/ng-tags-input.min.css">
     <!-- Custom CSS -->
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/styleAdd.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -27,54 +29,47 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+    <!-- jQuery -->
+    <script src="libs/jquery/dist/jquery.js"></script>
     <!-- JS -->
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-route/angular-route.min.js"></script>
-    
+    <script type="text/javascript" src="libs/ng-tags-input/ng-tags-input.min.js"></script>
     <!-- ANGULAR CUSTOM 
     <script src="js/angular/submodules.js"></script>
     <script src="js/angular/mainnavigation/submodule.js"></script>
     <script src="js/angular/mainnavigation/directives/main-navigation.js"></script>
     <script src="js/angular/app.js"></script>
-	-->
+    -->
     <script src="/js/dist/angApp.js"></script>
-
 </head>
 
 <body>
-        <!-- Navigation -->
-        <div main-nav>
-
-        </div>
-        <!-- ANGULAR DYNAMIC CONTENT -->
-        <div ng-view class="view-animate">
-        	
-        </div>
-        
-        <div services-offered="">
-        
-        </div>
-
-        <div section-about="">
-        
-        </div>
-
-        <div section-portfolio="">
-
-        </div>
-
-        <footer main-footer="">
-        	
-    	</footer>
+    <!-- Navigation -->
+    <div main-nav>
+    </div>
+    <!-- ANGULAR DYNAMIC CONTENT -->
+    <div class="ng-view-container" back-animation="">
+        <div ng-view class="page slide page-view" site-wide-common="adjustngViewContainerHeight"></div>
+    </div>
+    <div services-offered="le">
+    </div>
+    <div section-about="">
+    </div>
+    <div section-portfolio="">
+    </div>
+    <!-- Login Modal -->
+    <div modal-login="">
+    </div>
+    <footer main-footer="">
+    </footer>
 </body>
-<!-- jQuery -->
-<script src="libs/jquery/dist/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Material Design Javascript -->
 <script src="libs/bootstrap-material-design/dist/js/material.min.js"></script>
 <script src="libs/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script src="libs/angular-animate/angular-animate.min.js"></script>
 <script>
 $.material.init();
 </script>

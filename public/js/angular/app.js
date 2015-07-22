@@ -1,5 +1,7 @@
 angular.module('jointVentureApp', [
 	'ngRoute',
+	'ngAnimate',
+	'ngTagsInput',
 	 'submodules'])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -7,7 +9,7 @@ angular.module('jointVentureApp', [
 
 		// home page
 		.when('/', {
-			templateUrl: 'views/home.html',
+			templateUrl: 'views/section-jointventure.html',
 			controller: 'MainController'
 		})
 
@@ -16,9 +18,9 @@ angular.module('jointVentureApp', [
 			controller: 'MainController'
 		})
 
-		.when('/geeks', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
+		.when('/jointventure', {
+			templateUrl: 'views/section-jointventure.html',
+			controller: 'MainController'	
 		});
 
 	//$locationProvider.html5Mode(true);

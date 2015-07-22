@@ -1,11 +1,14 @@
 {
-	"name": "angular",
-	"version": "1.0.0",
-	"dependencies": {
-		"bootstrap": "latest",
-		"angular": "latest",
-		"angular-route": "latest",
-		"bootstrap-material-design" : "latest",
-		"components-font-awesome" : "latest"	
-	}
+  "name": "angular",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-animate": "latest",
+    "ngView-animation-effects": "latest",
+    "bootstrap-material-design": "latest",
+    "components-font-awesome": "latest",
+    "ng-tags-input": "3.0.0"
+  }
 }
