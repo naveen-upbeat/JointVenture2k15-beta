@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row vertical-center">
+        <div class="col-md-10 col-md-offset-1">
+            <form class="form-horizontal">
+                <fieldset>
+                    <h2>List Property</h2>
+                    <hr>
+                    <div class="form-group">
+                        <label for="userType" class="col-lg-2 control-label">You are</label>
+                        <div class="radio radio-primary">
+                            <label>
+                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Owner"> Owner
+                            </label>
+                            <label>
+                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Agent"> Agent
+                            </label>
+                            <label>
+                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Builder"> Builder
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select" class="col-lg-2 control-label">List for</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="selectCity">
+                                <option>Rent</option>
+                                <option>Sale</option>
+                                <option>PG Hostels</option>
+                                <option>Farm</option>
+                                <option>Property</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullName" class="col-lg-2 control-label">Full Name</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="textFullName" placeholder="Your Full Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="textArea" class="col-lg-2 control-label">Address</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+                        <div class="col-lg-9">
+                            <input type="phone" class="form-control" id="inputPhone" placeholder="Phone Number">
+                            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="select" class="col-lg-2 control-label">City</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" id="selectCity">
+                                <option>Bangalore</option>
+                                <option>Pune</option>
+                                <option>Hyderabad</option>
+                                <option>Pune</option>
+                                <option>Mumbai</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="captcha" class="col-lg-2 control-label">Catcha</label>
+                        <img id="captcha" src="/captcha" alt="CAPTCHA Image" />
+                        <a href="#" onclick="document.getElementById('captcha').src = '/captcha?' + Math.random(); return false" class="btn btn-info btn-sm">Show a Different Image</a>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label class="col-lg-2"></label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="For security, please enter the code displayed in the box." />
+                            <span class="help-block" style="display: none;">Please enter the code displayed within the image.</span>
+                            <label class="col-lg-2"></label>
+                            <span class="help-block" style="display: none;">Please enter a the security code.</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-2">
+                                <button type="reset" class="btn btn-danger">Reset</button>
+                                <button type="submit" class="btn btn-primary">Send Details</button>
+                            </div>
+                        </div>
+                </fieldset>
+            </form>
+            </div>
+        </div>
+    </div>

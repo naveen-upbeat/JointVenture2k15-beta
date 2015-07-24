@@ -27,6 +27,16 @@ body {
 }
 
 
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+
+
 /* Custom Button Styles */
 
 .btn-dark {
@@ -176,6 +186,29 @@ hr.small {
     background: url(../img/bg-rent.jpg) no-repeat center center fixed;
 }
 
+.header-signup, .header-sell{
+    background: transparent;
+}
+
+
+.header-signup  form.form-horizontal, .header-sell form.form-horizontal{
+    background: #fff;
+}   
+
+.header-jointventure {
+    background: url(../img/bg-jv2.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
+    padding-top:50px;
+}
+
+.header-jointventure .form-control{
+    height:40px;
+}
+
+.header-jointventure select+div > .multiselect-container.dropdown-menu{
+    width: 100%;
+}
+
 
 /* About */
 
@@ -256,10 +289,12 @@ hr.small {
 /* Footer */
 
 footer {
+    background-color: #3e3e3e;
+    color:#eee;
     padding: 100px 0;
 }
 
-#top.header {
+#top.header, .header.header-sell {
     padding-top: 60px;
 }
 
@@ -319,9 +354,27 @@ footer {
     background-position: 100% 0;
 }
 
+.nav-pills-jv li a{
+    background-color: #47a7f4;
+    color: #fff;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius: 0;
+}
+.nav-pills-jv li:hover a,.nav-pills-jv li.active a,
+.nav-pills-jv li.active a:focus,.nav-pills-jv li.active:focus a{
+    color:#47a7f4;
+    background-color: #fff;
+}
+
+.panel-joint-venture-search {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
 .navbar .navbar-brand {
-    background: url(../img/logo.jpg) no-repeat center center scroll;
+    background: url(../img/logo.png) no-repeat 0% 125% #9DF;
     background-size: cover;
+    width: 75px;
 }
 
 
@@ -361,5 +414,18 @@ footer {
     left: -100%;
 }
 
+.content-bg-layer{
+    background-color: rgba(0,0,0,0.3);
+}
 
 /* end: ng-view animation */
+.main-navbar-responsive-collapse .user-profile-pic{
+    background: url(../img/default-user.png) no-repeat;
+    background-size: 100% 50%;
+    height: 60px;  
+    background-position-y: 15px;
+    vertical-align: middle;
+}
+
+
+

@@ -150,19 +150,31 @@ $(function(){
 var siteWideCommonFunctions = {
 
 
-    adjustngViewContainerHeight: function () {
+    adjustngViewContainerHeight: function() {
         var $pageView = $('.page-view'),
             outerContentHeight = $pageView.children(0).outerHeight();
+        if (outerContentHeight < 500) {
+            outerContentHeight = 500;
+        }
         $pageView.height(outerContentHeight);
         $('.ng-view-container').height(outerContentHeight);
 
+    },
+
+    initMaterialDesign: function() {
+        $.material.options = {
+            "withRipples": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
+            "inputElements": "input.form-control, textarea.form-control, select.form-control",
+            "checkboxElements": ".checkbox > label > input[type=checkbox],label.checkbox > input[type=checkbox]",
+            "radioElements": ".radio > label > input[type=radio]"
+        }
+        $.material.init();
+        $.material.checkbox();
+        $.material.radio();
     }
 };
 
 
-$( window ).resize(function() {
-    siteWideCommonFunctions.adjustngViewContainerHeight();   
+$(window).resize(function() {
+    siteWideCommonFunctions.adjustngViewContainerHeight();
 });
-
-
-
