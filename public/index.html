@@ -86,25 +86,4 @@ $.material.init();
 <script src="js/jquery-ui.js"></script>
 <script src="js/custom.js"></script>
 <!-- Custom Theme JavaScript -->
-<script>
-// Closes the sidebar menu
-$("#menu-close").click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
-
-// Opens the sidebar menu
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#sidebar-wrapper").toggleClass("active");
-});
-
-$(".navbar-collapse .dropdown-menu > a").on('click', function(e) {
-    var menuBtn = $(e.target).closest('.navbar-collapse');
-    if (menuBtn).hasClass('in') {
-        menuBtn.removeClass('in');
-    }
-});
-</script>
-
 </html>
