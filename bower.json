@@ -1,18 +1,18 @@
 {
-  "name": "angular",
-  "version": "1.0.0",
-  "dependencies": {
-    "bootstrap": "latest",
-    "angular": "latest",
-    "angular-ui-router": "latest",
-    "angular-animate": "latest",
-    "ngView-animation-effects": "latest",
-    "bootstrap-material-design": "latest",
-	"bootstrap-multiselect" : "latest",
-    "components-font-awesome": "latest",
-    "ng-tags-input": "3.0.0"
-  },
-  "devDependencies": {
-    "bootstrap-multiselect": "~0.9.13"
-  }
+    "name": "angular",
+    "version": "1.0.0",
+    "dependencies": {
+        "bootstrap": "latest",
+        "angular": "latest",
+        "angular-ui-router": "latest",
+        "angular-animate": "latest",
+        "ngView-animation-effects": "latest",
+        "bootstrap-material-design": "latest",
+        "bootstrap-multiselect": "latest",
+        "components-font-awesome": "latest",
+        "ng-tags-input": "3.0.0"
+    },
+    "devDependencies": {
+        "bootstrap-multiselect": "~0.9.13"
+    }
 }

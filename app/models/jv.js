@@ -39,14 +39,13 @@ userSchema.methods.hashPwd = function() {
   // convert password to hash
   var hash = md5(this.password);
   //this.password = this.password; 
-
   return hash;
 };
 
 
 // the schema is useless so far
 // we need to create a model using it
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('user', userSchema);
 
 // make this available to our users in our Node applications
 module.exports = User;

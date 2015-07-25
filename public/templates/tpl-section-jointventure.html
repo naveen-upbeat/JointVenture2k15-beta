@@ -1,14 +1,14 @@
 <div class="">
     <div class="container-fluid">
         <div class="row vertical-center">
-            <div class="col-lg-11 col-lg-offset-1 content-bg-layer">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 content-bg-layer">
                 <div class="row">
                     <div class="col-lg-6 col-lg-offset-3 text-center">
-                        <h1> Search for Ventures </h1>
+                        <h1 class="material-color-"> Search for Ventures </h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-11 col-lg-offset">
+                    <div class="col-lg-10 col-lg-offset-1 ">
                         <ul class="nav nav-pills nav-pills-jv">
                             <li class="active"><a class="" href="javascript:void(0)" data-target="#agriculture" data-toggle="tab">Agricultural / Farm </a></li>
                             <li><a class="" href="javascript:void(0)" data-target="#commercial" data-toggle="tab">Commercial</a></li>
@@ -18,19 +18,19 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="agriculture">
                                         <form class="form-inline">
-                                            <div class="form-group col-md-4 btn-group">
+                                            <div class="form-group col-xs-12 col-md-4 btn-group">
                                                 <label class="sr-only" for="area">Area</label>
                                                 <tags-input ng-model="addrtags" display-property="description" key-property="place_id" type="text" id="Area" placeholder="Location">
                                                     <auto-complete display-property="description" key-property="place_id" source="loadAddrTags($query)"></auto-complete>
                                                 </tags-input>
                                             </div>
-                                            <div class="form-group col-md-3">
+                                            <div class="form-group col-xs-12 col-md-3">
                                                 <select label="Select Type" id="farmtype" multiple="multiple">
                                                     <option value="1">Agriculture </option>
                                                     <option value="2" selected="selected">Farm Land</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-3">
+                                            <div class="form-group col-xs-12 col-md-3">
                                                 <select title="Select Budget" id="budget" multiple="multiple">
                                                     <option>less than 2 Lakh</option>
                                                     <option>2 - 3 lakh</option>
@@ -40,13 +40,13 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-1 pull-right">
-                                                <button type="button" class="btn btn-info pull-right">Search</button>
+                                                <a ui-sref="jointventureresults" type="button" class="btn btn-info pull-right">Search</a>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="tab-pane fade" id="commercial">
                                     <form class="form-inline">
-                                            <div class="form-group col-md-4 btn-group">
+                                            <div class="form-group col-xs-12 col-md-4 btn-group">
                                                 <label class="sr-only" for="area">Area</label>
                                                 <tags-input ng-model="addrtags" display-property="description" key-property="place_id" type="text" id="Area" placeholder="Location">
                                                     <auto-complete display-property="description" key-property="place_id" source="loadAddrTags($query)"></auto-complete>
@@ -71,7 +71,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-1 pull-right">
-                                                <button type="button" class="btn btn-info pull-right">Search</button>
+                                                <a ui-sref="jointventureresults" class="btn btn-info pull-right">Search</a>
                                             </div>
                                         </form>
                                     </div>

@@ -8,6 +8,7 @@ angular.module('submodules', [
         'submodules.sectionportfolio',
         'submodules.sectionhome',
         'submodules.sectionjointventure',
+        'submodules.sectionjointventureresults',
         'submodules.sectionrent',
 		'submodules.sectionsell',
         'submodules.modallogin',

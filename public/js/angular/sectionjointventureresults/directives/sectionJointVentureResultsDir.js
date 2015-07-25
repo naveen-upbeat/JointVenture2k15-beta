@@ -1,0 +1,72 @@
+angular.module('submodules.sectionjointventureresults')
+    .directive('sectionJointVentureResults', ['googleMapsAPI', function(googleMapsAPI) {
+        return {
+            restrict: "AE",
+            templateUrl: 'templates/tpl-section-jointventure-results.html',
+            link: function(scope, element, attrs, tabsCtrl) {
+                //addParallax(element);
+                scope.addrtags = [];
+				scope.ventures = [{
+					name:"Agricultural Land",
+					company:"",
+					location:"Bangalore",
+					status:"Ready to Move",
+					details:"Dimensions 147.7 x 147.6 ft",
+					price:"Rs. 88.5Lac",
+					sftprice:"406 per sft",
+					dpcount:"2"
+				},{
+					name:"Agricultural Land",
+					company:"",
+					location:"Kanakpura Road",
+					status:"Resale Freehold",
+					details:"",
+					price:"Rs. 19 Lac",
+					sftprice:"Negotiable",
+					dpcount:"5"
+				}];
+                scope.loadAddrTags = function(query) {
+                    var options = {
+                        input: query,
+                        types: "geocode",
+                        location: "12.9539975,77.6309395",
+                        radius: 25000
+                    };
+                    return googleMapsAPI.getLocationSuggestions(options)
+                        .then(function(response) {
+                            if (response.data.status == "OK") {
+                                return response.data.predictions
+                            }
+                        });
+                }
+
+                $(element).find('button').on('click', function(e) {
+                    var value = $(e.target).parent().find('input#Area').val();
+                });
+
+                $(element).find('#farmtype,#budget,#postedby').multiselect({
+                    buttonWidth: '100%',
+                    buttonText: function(options, select) {
+                        if (options.length === 0) {
+                            return $(select).attr('id').toString();
+                        } else {
+                            var labels = [];
+                            options.each(function() {
+                                if ($(this).attr('label') !== undefined) {
+                                    labels.push($(this).attr('label'));
+                                } else {
+                                    labels.push($(this).html());
+                                }
+                            });
+                            return labels.join(', ') + '';
+                        }
+                    }
+                });
+                
+				
+				scope.$emit('childLoading');
+            
+			}
+        }
+
+    }]);

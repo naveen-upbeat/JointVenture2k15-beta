@@ -29,25 +29,6 @@ $(function() {
         }, 500);
     });
 
-    $('.carousel-control').click(function(e) {
-        e.stopPropagation();
-        var goTo = $(this).data('slide');
-        if (goTo == "prev") {
-            $('#carousel-id').carousel('prev');
-        } else {
-            $('#carousel-id').carousel('next');
-        }
-    });
-
-    $('a[data-href-link]').on('click', function(evt) {
-        var linkId = $(evt.target).closest('a').data('href-link');
-        $('#' + linkId).tab('show');
-        setTimeout(function() {
-
-            //initialize();
-        }, 500);
-    });
-
     $('#rent-details-map-view').on('change', function(e) {
         if ($(e.target).get(0).checked) {
             $('#nav-rent-details-map').tab('show');
@@ -56,7 +37,8 @@ $(function() {
         }
     });
 
-    $('.main-menu-dd .dropdown-menu a').eq(0).click();
+    siteWideCommonFunctions.adjustngViewContainerHeight();
+
 });
 
 

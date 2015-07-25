@@ -13,6 +13,30 @@ body {
     height: 100%;
 }
 
+.mt2 {
+    margin-top: 2px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
 .text-vertical-center {
     display: table-cell;
     text-align: center;
@@ -26,15 +50,14 @@ body {
     font-weight: 700;
 }
 
-
 .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
+    min-height: 100%;
+    /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh;
+    /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
 }
-
 
 
 /* Custom Button Styles */
@@ -186,26 +209,45 @@ hr.small {
     background: url(../img/bg-rent.jpg) no-repeat center center fixed;
 }
 
-.header-signup, .header-sell{
+.header-signup,
+.header-sell {
     background: transparent;
 }
 
+.main-navigation .navbar-nav > li > a {
+    text-transform: uppercase;
+}
 
-.header-signup  form.form-horizontal, .header-sell form.form-horizontal{
+.header-signup form.form-horizontal,
+.header-sell form.form-horizontal {
     background: #fff;
-}   
+}
 
 .header-jointventure {
     background: url(../img/bg-jv2.jpg) no-repeat center center fixed;
     background-size: 100% 100%;
-    padding-top:50px;
+    padding-top: 50px;
 }
 
-.header-jointventure .form-control{
-    height:40px;
+.header-jointventure .content-bg-layer h1 {
+    color: #efc;
 }
 
-.header-jointventure select+div > .multiselect-container.dropdown-menu{
+.header-jointventure .form-control {
+    height: 40px;
+}
+
+.dropdown .fa-chevron-down {
+    transition: .5s;
+    transform-origin: center;
+}
+
+.dropdown.open .fa-chevron-down {
+    transition: .5s;
+    transform: rotatez(-180deg);
+}
+
+.header-jointventure select+div > .multiselect-container.dropdown-me`nu {
     width: 100%;
 }
 
@@ -288,13 +330,18 @@ hr.small {
 
 /* Footer */
 
-footer {
-    background-color: #3e3e3e;
-    color:#eee;
+footer.main-footer {
+    background-color: #000;
+    color: #fff;
     padding: 100px 0;
 }
 
-#top.header, .header.header-sell {
+footer.main-footer .social-plugins a {
+    color: #fff;
+}
+
+#top.header,
+.header.header-sell {
     padding-top: 60px;
 }
 
@@ -354,15 +401,18 @@ footer {
     background-position: 100% 0;
 }
 
-.nav-pills-jv li a{
+.nav-pills-jv li a {
     background-color: #47a7f4;
     color: #fff;
-    border-bottom-left-radius:0;
+    border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-.nav-pills-jv li:hover a,.nav-pills-jv li.active a,
-.nav-pills-jv li.active a:focus,.nav-pills-jv li.active:focus a{
-    color:#47a7f4;
+
+.nav-pills-jv li:hover a,
+.nav-pills-jv li.active a,
+.nav-pills-jv li.active a:focus,
+.nav-pills-jv li.active:focus a {
+    color: #47a7f4;
     background-color: #fff;
 }
 
@@ -372,7 +422,7 @@ footer {
 }
 
 .navbar .navbar-brand {
-    background: url(../img/logo.png) no-repeat 0% 125% #9DF;
+    background: url(../img/logo2.png) no-repeat -3px -3px;
     background-size: cover;
     width: 75px;
 }
@@ -414,18 +464,82 @@ footer {
     left: -100%;
 }
 
-.content-bg-layer{
-    background-color: rgba(0,0,0,0.3);
+.content-bg-layer {
+    background-color: rgba(0, 0, 0, 0.3);
 }
+
 
 /* end: ng-view animation */
-.main-navbar-responsive-collapse .user-profile-pic{
+
+.main-navbar-responsive-collapse .user-profile-pic {
     background: url(../img/default-user.png) no-repeat;
-    background-size: 100% 50%;
-    height: 60px;  
-    background-position-y: 15px;
-    vertical-align: middle;
+    background-size: 20px 20px;
+    height: 30px;
+    background-position-y: 0px;
 }
 
+@media(max-width:400px) {
+    .venture-dp img {
+        height: 60px;
+    }
+}
 
+@media(min-width:400px) {
+    .venture-dp img {
+        height: 177px;
+    }
+}
 
+.header-jointventure-results {
+    z-index: 0;
+}
+
+@media(min-width:1200px) {
+    .header-jointventure-results .navbar-fixed-top {
+        margin-top: 60px;
+    }
+}
+
+@media(max-width:1200px) {
+    .header-jointventure-results .navbar-fixed-top {
+        margin-top: 50px;
+    }
+}
+
+.header-jointventure-results {
+    background: url(../img/bg-jv3.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
+    background-color: #ceceea;
+}
+
+.header-sell {
+    background: url(../img/bg-sell.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
+    background-color: #ceceea;
+}
+
+.header-jointventure-results .content-bg-layer {
+    padding-top: 120px;
+}
+
+.venture-dp img {
+    width: 100%;
+    background: url('../img/sample-jv-thumbnail.jpg') no-repeat center center;
+}
+
+.venture-dp-count {
+    background-color: rgba(0, 0, 0, .7);
+    color: #fff;
+}
+
+tags-input .tags .input {
+    height: 18px;
+}
+.navbar-right li:last-child{
+    margin-right:10px;
+}
+
+.header-jointventure-results .navbar-white.navbar .dropdown-menu li>a:hover,
+ .header-jointventure-results .navbar-white.navbar .dropdown-menu li>a:focus{
+    color:initial;
+}

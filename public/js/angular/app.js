@@ -34,7 +34,7 @@ angular.module('jointVentureApp', [
     .config(function($stateProvider, $urlRouterProvider) {
         //
         // For any unmatched url, redirect to /state1
-        $urlRouterProvider.otherwise("/");
+        //$urlRouterProvider.otherwise("/");
         //
         // Now set up the states
         $stateProvider
@@ -72,5 +72,9 @@ angular.module('jointVentureApp', [
             .state('rent', {
                 url: "/rent",
                 templateUrl: "views/section-rent.html"
+            })
+            .state('jointventureresults', {
+                url: "/jointventureresults",
+                templateUrl: "views/section-jointventure-results.html"
             })
     });
