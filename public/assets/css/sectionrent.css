@@ -1,0 +1,9 @@
+.header-rent {
+  background: url(../img/bg-rent.jpg) no-repeat center center fixed;
+}
+#rent-tab-panel .tab-content {
+  padding-top: 80px;
+}
+#rent-tab-panel .tabpane {
+  background-color: rgba(0, 0, 0, 0.3);
+}

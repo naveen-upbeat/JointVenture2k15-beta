@@ -12,7 +12,6 @@
     <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design CSS -->
     <link href="libs/bootstrap-material-design/dist/css/material.min.css" rel="stylesheet">
-    <link href="libs/bootstrap-material-design/dist/css/material.min.css.map" rel="stylesheet">
     <link href="libs/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
     <link href="libs/bootstrap-material-design/dist/css/roboto.css" rel="stylesheet">
     <link href="libs/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
@@ -21,8 +20,22 @@
     <!-- fotorama.css & fotorama.js. -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/styleAdd.css" rel="stylesheet">
+    <script>
+    function jsoncallback(myjson) {
+        for (var i = 0; i < myjson.data.length; i++) {
+            var styles = document.createElement('link');
+            styles.rel = 'stylesheet';
+            styles.type = 'text/css';
+            styles.media = 'screen';
+            styles.href = 'assets/css/compiled/'+myjson.data[i].filename;
+            document.getElementsByTagName('head')[0].appendChild(styles);
+        }
+    }
+    </script>
+    <script src="/api/getcss/?callback=jsoncallback&id=123"></script>
+    <!-- <link href="dist/css/style.css" rel="stylesheet">
+    <link href="dist/css/styleAdd.css" rel="stylesheet">
+     -->
     <!-- Custom Fonts -->
     <link href="libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -44,12 +57,12 @@
     <script src="js/angular/mainnavigation/directives/main-navigation.js"></script>
     <script src="js/angular/app.js"></script>
     -->
-    <script src="/js/dist/angApp.js"></script>
+    <script src="assets/js/angApp.js"></script>
 </head>
 
 <body body-dir="">
     <!-- Navigation -->
-    <div main-nav="">
+    <div navigation-main="">
     </div>
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div class="ng-view-container" back-animation="">
@@ -66,7 +79,7 @@
     <!-- Login Modal -->
     <div modal-login="">
     </div>
-    <footer class="main-footer" main-footer="">
+    <footer class="main-footer" footer-main="">
     </footer>
 </body>
 <!-- Bootstrap Core JavaScript -->
@@ -83,7 +96,8 @@ $.material.init();
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <!-- Custome Javascript -->
-<script src="js/jquery-ui.js"></script>
-<script src="js/custom.js"></script>
+<script src="modules/0.1.3rdparty/js/jquery-ui.js"></script>
+<script src="modules/0.0.applicationbase/js/custom.js"></script>
 <!-- Custom Theme JavaScript -->
+
 </html>

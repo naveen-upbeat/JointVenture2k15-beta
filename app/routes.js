@@ -1,5 +1,7 @@
     var User = require('./models/jv')
     var md5 = require('MD5');
+    var fs = require('fs');
+    var path = require('path');
     module.exports = function(app) {
         // server routes ===========================================================
         // handle things like api calls
@@ -10,7 +12,7 @@
             // get the user starlord55
             User.find({
                 username: req.param('username')
-                
+
             }, function(err, user) {
                 if (err) throw err;
                 // object of the user
@@ -54,6 +56,26 @@
 
         });
 
+        app.get('/api/getcss/', function(req, res) {
+            
+            function getFiles(srcpath) {
+                return fs.readdirSync(srcpath).filter(function(file) {
+                    return fs.statSync(path.join(srcpath, file)).isFile();
+                });
+            }
+            var callbackfn = req.query.callback;
+            var path2 = path.join(__dirname,'../.','/public/assets/css/compiled/'),
+                cssString = "",
+                arrFileNames = getFiles(path2);
+            var output=[];
+            for( var i=0; i<arrFileNames.length; i++){
+                var print = { "filename" : arrFileNames[i] };
+                output.push(print);
+            }
+            output = JSON.stringify( output );
+            var myjson = '{"status" : "success","data" : '+ output +' }';
+            res.send(callbackfn +'('+ myjson  +')');
+        });
         // frontend routes =========================================================
         // route to handle all angular requests
         app.get('*', function(req, res) {
