@@ -1,7 +1,8 @@
-/*!
- * Bootstrap v3.3.4 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+/*
+ * @author: naveen
+ * @description: This file contains the list of functions used by various interactions 
+ * of the user with the content / div / etc
+ * 
  */
 
 $(function() {
@@ -17,7 +18,6 @@ $(function() {
     });
 
 
-
     $('.main-menu-dd .dropdown-menu a').on('click', function(el) {
         $('.navbar-brand').click();
         $(el.target).parents('.dropdown').find('.toggle-text').text($(el.target).text());
@@ -29,6 +29,7 @@ $(function() {
         }, 500);
     });
 
+    //The map is in different tab, switching tabb on clicking map-view
     $('#rent-details-map-view').on('change', function(e) {
         if ($(e.target).get(0).checked) {
             $('#nav-rent-details-map').tab('show');
@@ -37,11 +38,12 @@ $(function() {
         }
     });
 
+    //On page load set the containerHeight
     siteWideCommonFunctions.adjustngViewContainerHeight();
 
 });
 
-
+// variables used by addParallax() function
 var prevDocScrollTop = $(document).scrollTop(),
     nowDocScrollTop;
 
@@ -55,30 +57,31 @@ function addParallax(selector) {
         itemHeight[index] = $(item).height();
         origBgPosY[index] = parseInt($(item).css('background-position-y'));
     });
-
+    // adding a 'scroll' event that adjusts the background position
     $(document).on('scroll', function() {
         nowDocScrollTop = $(this).scrollTop();
-
         $(selector).each(function(index, item) {
+            //To restrict calling the function twice
+            if(!$(item).data('parallax-added')) {
+                var newBgPosY = [],
+                    bgPosY = [],
+                    $item = $(item);
+                newBgPosY[index] = bgPosY[index] = parseInt($item.css('background-position-y'));
 
-            var newBgPosY = [],
-                bgPosY = [],
-                $item = $(item);
-            newBgPosY[index] = bgPosY[index] = parseInt($item.css('background-position-y'));
-
-            if ((nowDocScrollTop > itemTopPos[index]) && (nowDocScrollTop < itemTopPos[index] + itemHeight[index])) {
-                newBgPosY[index] -= (nowDocScrollTop - prevDocScrollTop) * (100 / itemHeight[index]);
-                $item.css('background-position-y', newBgPosY[index] + 'px');
-            } else {
-                $item.css('background-position-y', origBgPosY[index] + 'px');
+                if ((nowDocScrollTop > itemTopPos[index]) && (nowDocScrollTop < itemTopPos[index] + itemHeight[index])) {
+                    newBgPosY[index] -= (nowDocScrollTop - prevDocScrollTop) * (100 / itemHeight[index]);
+                    $item.css('background-position-y', newBgPosY[index] + 'px');
+                } else {
+                    $item.css('background-position-y', origBgPosY[index] + 'px');
+                }
+                $(data).data('parallax-added',true);
             }
-
         });
         prevDocScrollTop = nowDocScrollTop;
     });
 }
 
-// First, create an object containing LatLng and population for each city.
+// First, create an object containing LatLng.
 var citymap = {};
 citymap['bangalore'] = {
     center: new google.maps.LatLng(12.9667, 77.5667),
@@ -86,7 +89,7 @@ citymap['bangalore'] = {
 };
 
 var cityCircle;
-
+// Google map initialize() method
 function initialize() {
     // Create the map.
     var mapOptions = {
@@ -119,19 +122,10 @@ function initialize() {
 }
 
 //google.maps.event.addDomListener(window, 'load', initialize);
-/*
 
-$(function(){
-    $(window).mousewheel(function(event, delta, deltaX, deltaY){
-        if(delta < 0) page.scrollTop(page.scrollTop() + 65);
-        else if(delta > 0) page.scrollTop(page.scrollTop() - 65);
-        return false;
-    })
-});*/
-
+// Collection of common functions to be used by angular directives
 var siteWideCommonFunctions = {
-
-
+    
     adjustngViewContainerHeight: function() {
         setTimeout(function() {
             var $pageView = $('.page-view'),
@@ -158,7 +152,7 @@ var siteWideCommonFunctions = {
     }
 };
 
-
+//adjust the angular view container height on window resize
 $(window).resize(function() {
     siteWideCommonFunctions.adjustngViewContainerHeight();
 });

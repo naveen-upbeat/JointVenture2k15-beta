@@ -1,3 +1,9 @@
+/**
+ * @ngdoc service
+ * @name submodules.sitewidecommon:googleMapsAPI
+ * @description
+ * A googleMapsApi service with useful functions
+ */
 angular.module('submodules.sitewidecommon')
     .service('googleMapsAPI', ['$http', function($http) {
 		

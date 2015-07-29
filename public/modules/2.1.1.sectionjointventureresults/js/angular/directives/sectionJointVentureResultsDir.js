@@ -1,3 +1,16 @@
+/**
+ * @ngdoc directive
+ * @name submodules.sectionjointventureresults:sectionJointVentureResults
+ * @scope
+ * @restrict AE
+ *
+ * @description
+ * The directive for Joint Venture Results section, loads the related template, 
+ * loads location suggestion dropown
+ *
+ * @param {object}  field   A field object
+ *
+ */
 angular.module('submodules.sectionjointventureresults')
     .directive('sectionJointVentureResults', ['googleMapsAPI', function(googleMapsAPI) {
         return {

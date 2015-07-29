@@ -1,5 +1,5 @@
 angular.module('submodules', [
-        'submodules.3party',
+        'submodules.3rdparty',
         'submodules.sitewidecommon',
         'submodules.navigationmain',
         'submodules.footermain',
