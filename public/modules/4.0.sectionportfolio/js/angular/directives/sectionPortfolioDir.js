@@ -6,7 +6,6 @@
  *
  * @description
  * The directive for Portfolio section, loads the related template, 
- * Adds a parallax to background image.
  * 
  * @param {object}  field   A field object
  *
