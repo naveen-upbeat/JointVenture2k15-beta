@@ -10,7 +10,7 @@
  * @param {object}  field   A field object
  *
  */
-angular.module('submodules.3party')
+angular.module('submodules.3rdparty')
     .directive('backAnimation', ['$browser', '$location', function($browser, $location) {
         return {
             link: function(scope, element) {
