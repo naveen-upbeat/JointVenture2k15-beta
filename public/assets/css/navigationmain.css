@@ -1,3 +1,6 @@
+/**
+* @description: the less file with navigation main styles
+*/
 .main-navigation .navbar-nav > li > a {
   text-transform: uppercase;
 }

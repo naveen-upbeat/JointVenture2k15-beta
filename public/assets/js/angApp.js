@@ -1,4 +1,4 @@
-angular.module("submodules.3party", []), angular.module("submodules.navigationmain", []), 
+angular.module("submodules.3rdparty", []), angular.module("submodules.navigationmain", []), 
 angular.module("submodules.sectionsignup", []), angular.module("submodules.modallogin", []), 
 angular.module("submodules.sectionhome", []), angular.module("submodules.sectionjointventure", []), 
 angular.module("submodules.sectionjointventureresults", []), angular.module("submodules.sectionrent", []), 
@@ -199,7 +199,7 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             });
         }
     };
-} ]), angular.module("submodules", [ "submodules.3party", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup" ]).controller("MainController", function($rootScope, $scope, scrollToDivSvc) {
+} ]), angular.module("submodules", [ "submodules.3rdparty", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup" ]).controller("MainController", function($rootScope, $scope, scrollToDivSvc) {
     $scope.appWideScope = {
         appTitle: "Joint Venture 2015"
     }, $scope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {

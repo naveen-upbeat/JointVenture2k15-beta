@@ -1,3 +1,6 @@
+/**
+* @description: the less file with navigation animation styles
+*/
 /* start: ng-view animation */
 .ng-view-container {
   min-height: 500px;
