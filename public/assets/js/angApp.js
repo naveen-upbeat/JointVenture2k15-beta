@@ -29,7 +29,7 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
     }, this.setCurrentDivId = function(strCurrentDivIdFromDom) {
         strCurrentDivId = strCurrentDivIdFromDom;
     };
-} ]), angular.module("submodules.3party").directive("backAnimation", [ "$browser", "$location", function($browser, $location) {
+} ]), angular.module("submodules.3rdparty").directive("backAnimation", [ "$browser", "$location", function($browser, $location) {
     return {
         link: function(scope, element) {
             $browser.onUrlChange(function(newUrl) {
