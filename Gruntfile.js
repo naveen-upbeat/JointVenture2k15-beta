@@ -68,7 +68,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-execute');
 
     // Default task(s).
-    grunt.registerTask('default', ['preparecss','preparejs','start']);
+    grunt.registerTask('default', ['preparecss','preparejs']);
 
     grunt.registerTask('start', ['execute']);
 
