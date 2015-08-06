@@ -13,11 +13,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var md5 = require('MD5');
 
-
 // create a schema
 var userSchema = new Schema({
-  name: String,
-  username: { type: String, required: true, unique: true },
+  name: String
+  /*username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   admin: Boolean,
   location: String,
@@ -27,7 +26,7 @@ var userSchema = new Schema({
     address: String
   },
   created_at: Date,
-  updated_at: Date
+  updated_at: Date*/
 });
 
 
@@ -42,10 +41,8 @@ userSchema.methods.hashPwd = function() {
   return hash;
 };
 
-
 // the schema is useless so far
 // we need to create a model using it
-var User = mongoose.model('user', userSchema);
-
+var User = mongoose.model('users', userSchema);
 // make this available to our users in our Node applications
 module.exports = User;

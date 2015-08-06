@@ -16,8 +16,10 @@ angular.module('submodules.modallogin')
 		restrict: "AE",
 		templateUrl : 'templates/tpl-modal-login.html',
 		link : function(scope,element){
-			
-			
+						
+				$(element).find('.link-singnup').on('click',function(){
+					$('#modalLogin').modal('hide');
+				});
 		
 		}
 	}

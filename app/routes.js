@@ -1,28 +1,44 @@
     var User = require('./models/jv')
     var md5 = require('MD5');
+    var mongo = require('mongoose')
     var fs = require('fs');
     var path = require('path');
     module.exports = function(app) {
         // server routes ===========================================================
         // handle things like api calls
         // authentication routes
+        app.get('/api/createSampleUser', function(req, res) {
 
-        app.get('/api/getUser', function(req, res) {
+            // get the user starlord55            
+            var newuser = User({
+                // create a user using schema
+                name: 'amit'
+            });
 
-            // get the user starlord55
+            // save the user
+            newuser.save(function(err) {
+                if (err) throw err;
+
+                console.log('User created!');
+                res.send('User Created');
+            });
+        });
+
+        app.post('/api/logincheck', function(req, res) {
+            //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
+
             User.find({
-                username: req.param('username')
-
+            name: req.body.username
             }, function(err, user) {
                 if (err) throw err;
                 // object of the user
                 console.log(user);
                 res.json(user);
             });
+
         });
 
         app.get('/api/insertDummy', function(req, res) {
-
             // get the user starlord55
             var newuser = User({
                 // create a schema
@@ -57,24 +73,26 @@
         });
 
         app.get('/api/getcss/', function(req, res) {
-            
+
             function getFiles(srcpath) {
                 return fs.readdirSync(srcpath).filter(function(file) {
                     return fs.statSync(path.join(srcpath, file)).isFile();
                 });
             }
             var callbackfn = req.query.callback;
-            var path2 = path.join(__dirname,'../.','/public/assets/css/compiled/'),
+            var path2 = path.join(__dirname, '../.', '/public/assets/css/compiled/'),
                 cssString = "",
                 arrFileNames = getFiles(path2);
-            var output=[];
-            for( var i=0; i<arrFileNames.length; i++){
-                var print = { "filename" : arrFileNames[i] };
+            var output = [];
+            for (var i = 0; i < arrFileNames.length; i++) {
+                var print = {
+                    "filename": arrFileNames[i]
+                };
                 output.push(print);
             }
-            output = JSON.stringify( output );
-            var myjson = '{"status" : "success","data" : '+ output +' }';
-            res.send(callbackfn +'('+ myjson  +')');
+            output = JSON.stringify(output);
+            var myjson = '{"status" : "success","data" : ' + output + ' }';
+            res.send(callbackfn + '(' + myjson + ')');
         });
         // frontend routes =========================================================
         // route to handle all angular requests

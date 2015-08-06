@@ -6,6 +6,24 @@
  */
 
 $(function() {
+    $(document).on('click', '.login-button', function() {
+
+        var $form = $('.login-form'),
+            username = $form.find("input[name='username']").val(),
+            url = $form.attr("action");
+
+        // Send the data using post
+        var posting = $.post(url, {
+            username: username
+        });
+
+        // Put the results in a div
+        posting.done(function(data) {
+            if(data.length > 0){
+                alert('welcome! '+data[0].name);
+            }
+        }); 
+    });
 
     // ADD SLIDEDOWN ANIMATION TO DROPDOWN //
     $('.dropdown').on('show.bs.dropdown', function(e) {
@@ -62,7 +80,7 @@ function addParallax(selector) {
         nowDocScrollTop = $(this).scrollTop();
         $(selector).each(function(index, item) {
             //To restrict calling the function twice
-            if(!$(item).data('parallax-added')) {
+            if (!$(item).data('parallax-added')) {
                 var newBgPosY = [],
                     bgPosY = [],
                     $item = $(item);
@@ -74,7 +92,7 @@ function addParallax(selector) {
                 } else {
                     $item.css('background-position-y', origBgPosY[index] + 'px');
                 }
-                $(data).data('parallax-added',true);
+                $(data).data('parallax-added', true);
             }
         });
         prevDocScrollTop = nowDocScrollTop;
@@ -125,7 +143,7 @@ function initialize() {
 
 // Collection of common functions to be used by angular directives
 var siteWideCommonFunctions = {
-    
+
     adjustngViewContainerHeight: function() {
         setTimeout(function() {
             var $pageView = $('.page-view'),

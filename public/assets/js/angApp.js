@@ -58,7 +58,11 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-modal-login.html",
-        link: function(scope, element) {}
+        link: function(scope, element) {
+            $(element).find(".link-singnup").on("click", function() {
+                $("#modalLogin").modal("hide");
+            });
+        }
     };
 }), angular.module("submodules.sectionhome").directive("sectionHome", function() {
     return {
