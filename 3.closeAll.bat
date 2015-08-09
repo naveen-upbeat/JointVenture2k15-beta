@@ -1,2 +1,4 @@
 taskkill /im node.exe
-..\..\0.DevEnv\mongodb\3\bin\mongod --shutdown
+cd ..\..\0.DevEnv\mongodb\3\bin\
+mongo admin --eval "db.shutdownServer()"
+exit
