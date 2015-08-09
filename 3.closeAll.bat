@@ -1,2 +1,2 @@
 taskkill /im node.exe
-taskkill /im mongod.exe
+..\..\0.DevEnv\mongodb\3\bin\mongod --shutdown
