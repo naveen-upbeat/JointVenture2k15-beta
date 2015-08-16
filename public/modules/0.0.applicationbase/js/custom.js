@@ -6,25 +6,6 @@
  */
 
 $(function() {
-    $(document).on('click', '.login-button', function() {
-
-        var $form = $('.login-form'),
-            username = $form.find("input[name='username']").val(),
-            url = $form.attr("action");
-
-        // Send the data using post
-        var posting = $.post(url, {
-            username: username
-        });
-
-        // Put the results in a div
-        posting.done(function(data) {
-            if(data.length > 0){
-                alert('welcome! '+data[0].name);
-            }
-        }); 
-    });
-
     // ADD SLIDEDOWN ANIMATION TO DROPDOWN //
     $('.dropdown').on('show.bs.dropdown', function(e) {
         $(this).find('.dropdown-menu').first().stop(true, true).slideDown('slow');

@@ -1,1 +1,1049 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"callba",
+				"callbackfn"
+			],
+			[
+				"css",
+				"cssString"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"backgroun",
+				"background-image"
+			],
+			[
+				"http",
+				"verbose_$http	AngularJS"
+			],
+			[
+				"outer",
+				"outerContentHeight"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"prev",
+				"prevDocScrollTop"
+			],
+			[
+				"new",
+				"newBgPosY〔variable〕"
+			],
+			[
+				"scro",
+				"scrollTop〔function〕"
+			],
+			[
+				"clear",
+				"clearTimeout〔function〕"
+			],
+			[
+				"head",
+				"headerSectionHeight"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"text",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
+			"settings":
+			{
+				"buffer_size": 1477,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/1.Projects/nodeJSProjects/blog/neo.desi/_config.yml",
+			"settings":
+			{
+				"buffer_size": 1760,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"last_filter": "instll page",
+		"selected_items":
+		[
+			[
+				"instll page",
+				"Package Control: Install Package"
+			],
+			[
+				"install pag",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"prettify",
+				"HTMLPrettify"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packages",
+				"Preferences: Browse Packages"
+			],
+			[
+				"paca",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"for",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 472.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/C/Users/neo/.ssh/id_rsa.pub",
+		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
+		"/C/Users/neo/naveen.upbeat@gmail.com.pub",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/index.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.2.modallogin/js/angular/controllers/loginCtrl.js",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/.gitignore",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/_config.yml",
+		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/public",
+		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/README.md",
+		"/D/1.Projects/nodeJSProjects/blog/blog.neo.desi/.gitignore",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.2.modallogin/js/angular/directives/modalLoginDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-modal-login.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/custom.js",
+		"/D/1.Projects/ChromePlugins/QuickShortcuts/popup.js",
+		"/D/1.Projects/ChromePlugins/QuickShortcuts/manifest.json",
+		"/D/1.Projects/ChromePlugins/QuickShortcuts/popup.html",
+		"/D/1.Projects/ChromePlugins/QuickShortcuts/mycontentscript.js",
+		"/D/1.Projects/ChromePlugins/InternetConnectionMonitor/manifest.json",
+		"/D/1.Projects/Playground/gplus.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/routes.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/services/transformRequestSvc.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/models/jv.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/angular/submodules.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/server.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/config/db.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/test-login-check.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/0.firstRun.bat",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/1.startMongoDB.bat",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/angular-ui-router/src/stateDirectives.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.1.sectionsignup/js/angular/directives/sectionSignupDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/Gruntfile.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/2.startNodeServer.bat",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/3.closeAll.bat",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/tags/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/categories/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/_posts/hello-world.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/_partial/archive-post.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/_partial/archive.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/tag.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/post.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/page.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/layout.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/_partial/index.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/layout/index.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/_source/tags/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/public/all-archives/index.html",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/all-tags/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/all-categories/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/tranquilpeak/_config.yml",
+		"/C/Users/neo/AppData/Roaming/Sublime Text 3/Packages/User/grunt.sublime-build",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/_posts/hello-world2.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/_source/categories/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/about/index.md",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/_partial/archive.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/layout.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/archive.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/index.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/_partial/about.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/about.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/_partial/archive-post.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/_partial/footer.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/_partial/article.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/page.ejs",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/_config.yml",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/source/css/style.styl",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/source/css/_variables.styl",
+		"/C/Users/neo/AppData/Roaming/Sublime Text 3/Packages/Sublime-HTMLPrettify/HTMLPrettify.sublime-settings",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/categories.ejs",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/node_modules/mongoose/examples/express/connection-sharing/routes.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/js/angApp.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/node_modules/grunt-contrib-uglify/node_modules/uglify-js/node_modules/source-map/Makefile.dryice.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.0.navigationmain/js/angular/directives/navigationMainDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/footer.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/compiled/app.0.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/applicationbase.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/less/styles.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/material.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/less/applicationbase.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_alerts.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap/less/variables.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_variables.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/less/footer.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/less/bootstrap-material-variables-custom.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.1.3rdparty/less/bootstrap-material-custom.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_mixins.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/less/bootstrap-variables-custom.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_progress.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/material-fullpalette.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.1.3rdparty/less/bootstrap-material-fullpallete-custom.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/package.json",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-signup.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-main-navigation.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-jointventure-results.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-jointventure.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css/styleAdd.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css/style.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/custom.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sitewidecommon/directives/siteWideCommonDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-main-footer.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionjointventureresults/directives/sectionJointVentureResultsDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure-results.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/app.js",
+		"/D/1.Projects/HousingProject/Demo-Template/js/custom.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-sell.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/bower.json",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/console-browserify/test/static/index.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-sell.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionsell/directives/sectionSellDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionjointventure/directives/sectionJointVentureDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-home.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-home.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionhome/directives/sectionHomeDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionabout/directives/sectionAboutDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/modallogin/directives/modalLoginDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/mainnavigation/directives/mainNavigationDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/footer/directives/mainFooterDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-about.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-signup.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionportfolio/directives/sectionPortfolioDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionrent/directives/sectionHomeDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionsignup/directives/sectionSignupDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/servicesoffered/directives/servicesOfferedDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-jointventure.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/main-footer.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/main-navigation.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sitewidecommon/services/scrollToDivSvc.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"D:\\1.Projects\\nodeJSProjects\\blog\\neo.desi",
+			"D:\\1.Projects\\HousingProject\\Workspace\\2.Projects\\JointVenture2k15-beta\\public\\libs",
+			"D:\\1.Projects\\HousingProject\\Workspace\\2.Projects\\JointVenture2k15-beta\\public"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".",
+			"user",
+			"ng-model",
+			" {",
+			":{",
+			"\" ",
+			"hexo.route.set(",
+			"Cannot GET",
+			"Cannot GET /all-categories",
+			"tags",
+			"archives",
+			"assets",
+			"Cannot GET",
+			"categories",
+			"\\",
+			"categories",
+			"categoriess",
+			"categories",
+			"about",
+			"media",
+			"@media",
+			"asset",
+			"toggle",
+			"menu-toggle",
+			"scrollToDivSvc",
+			"maincontroller",
+			"navigationmain",
+			"),",
+			"\n,angular",
+			"@",
+			"path",
+			"fs",
+			"dirs2",
+			"includeAllLess",
+			"inclueAllLess",
+			"green",
+			"@green",
+			"\\",
+			"material",
+			"\\",
+			"/**",
+			"modules/",
+			"/js",
+			"DB",
+			"db",
+			"mongoose",
+			"Container",
+			"col-lg-9",
+			"class=\"help-bl",
+			"col-lg-2",
+			"clas=",
+			"bg",
+			"transform",
+			"main-navigation",
+			"fixed-top",
+			"main-menu-dd",
+			"caret",
+			"common",
+			"resize",
+			"footer",
+			"500",
+			"jv",
+			"footer",
+			"\n@media(max-width:400px) {\n    .venture-dp img {\n        height: 60px;\n    }\n}",
+			"Search",
+			"venture-dp",
+			"{{",
+			"\">\n",
+			"\n.dropdown .fa-chevron-down{\n    transition: .5s;\n    transform: rotatez(180deg);\n}\n",
+			"<div class=\"btn btn-primary contact-builder\"></div>",
+			"\n.dropdown .fa-chevron-down{\n    transition: .5s;\n    transform: rotatez(180deg);\n}\n",
+			"dropdown",
+			"}\n",
+			"caret",
+			"col-xs-12 col-sm-10",
+			"col-sm-10",
+			"display-pic",
+			"jv.js",
+			"models",
+			"img",
+			"login",
+			"footer",
+			"joint venture",
+			"btn-primary",
+			"jointventure",
+			"params: ['scrollTo'],",
+			"a.match",
+			"params: {scrollTo: null},",
+			"alert(",
+			"\\",
+			"initmate",
+			"col-lg-10",
+			"legend",
+			"site-Wide-Common",
+			"radio",
+			"blue-300",
+			"vertical-center",
+			"jv",
+			"joint-venture",
+			"jv",
+			"window",
+			"resize",
+			"head",
+			"autoComplete",
+			"300",
+			"modal",
+			"ng-view",
+			"background:",
+			"ng-view",
+			"myTabContent",
+			"joint-venture-tabs",
+			"brand",
+			"uglify",
+			"ng-view",
+			"material",
+			"bootstrap",
+			"col-md-6",
+			"fa-3x",
+			"col-md-3",
+			"fa-4x",
+			"fa-2x",
+			"parallax",
+			"col-lg-3",
+			"custom",
+			"submodules.mainnavigation",
+			"directive",
+			"initialize",
+			"//"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"</div>",
+			"<div>"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 18.0,
+						"translation.y": 715.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "/D/1.Projects/nodeJSProjects/blog/neo.desi/_config.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1760,
+								1760
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 924.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/grunt.sublime-build",
+	"project": "sublime-project.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"logincontroller",
+				"JointVenture2k15-beta\\public\\modules\\1.2.modallogin\\js\\angular\\controllers\\loginCtrl.js"
+			],
+			[
+				"custom.js",
+				"JointVenture2k15-beta\\public\\modules\\0.0.applicationbase\\js\\custom.js"
+			],
+			[
+				"tpl-modal",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"index.html",
+				"JointVenture2k15-beta\\public\\index.html"
+			],
+			[
+				"modal-login",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"submodules",
+				"JointVenture2k15-beta\\public\\modules\\0.0.applicationbase\\js\\angular\\submodules.js"
+			],
+			[
+				"logindir",
+				"JointVenture2k15-beta\\public\\modules\\1.2.modallogin\\js\\angular\\directives\\modalLoginDir.js"
+			],
+			[
+				"tpl--",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"routes.js",
+				"JointVenture2k15-beta\\app\\routes.js"
+			],
+			[
+				"routses.js",
+				"JointVenture2k15-beta\\public\\libs\\angular-ui-router\\src\\stateDirectives.js"
+			],
+			[
+				"tpl-modal-login",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"moda",
+				"JointVenture2k15-beta\\public\\modules\\1.2.modallogin\\js\\angular\\directives\\modalLoginDir.js"
+			],
+			[
+				"sectionsignu",
+				"JointVenture2k15-beta\\public\\modules\\1.1.sectionsignup\\js\\angular\\directives\\sectionSignupDir.js"
+			],
+			[
+				"routesjs",
+				"JointVenture2k15-beta\\app\\routes.js"
+			],
+			[
+				"rorutes.js",
+				"JointVenture2k15-beta\\app\\routes.js"
+			],
+			[
+				"route",
+				"JointVenture2k15-beta\\node_modules\\mongoose\\examples\\express\\connection-sharing\\routes.js"
+			],
+			[
+				"gruntfile",
+				"JointVenture2k15-beta\\Gruntfile.js"
+			],
+			[
+				"ngapp",
+				"JointVenture2k15-beta\\public\\assets\\js\\angApp.js"
+			],
+			[
+				"gruntfile.js",
+				"JointVenture2k15-beta\\Gruntfile.js"
+			],
+			[
+				"gruntfile..js",
+				"JointVenture2k15-beta\\node_modules\\grunt-contrib-uglify\\node_modules\\uglify-js\\node_modules\\source-map\\Makefile.dryice.js"
+			],
+			[
+				"index.hml",
+				"JointVenture2k15-beta\\public\\index.html"
+			],
+			[
+				"mainnavigation",
+				"JointVenture2k15-beta\\public\\modules\\1.0.navigationmain\\js\\angular\\directives\\navigationMainDir.js"
+			],
+			[
+				"runtfile",
+				"JointVenture2k15-beta\\Gruntfile.js"
+			],
+			[
+				"angapp.js",
+				"JointVenture2k15-beta\\public\\assets\\js\\angApp.js"
+			],
+			[
+				"grunt",
+				"JointVenture2k15-beta\\Gruntfile.js"
+			],
+			[
+				"material.less",
+				"JointVenture2k15-beta\\public\\libs\\bootstrap-material-design\\less\\material.less"
+			],
+			[
+				"_mixins.less",
+				"JointVenture2k15-beta\\public\\libs\\bootstrap-material-design\\less\\_mixins.less"
+			],
+			[
+				"app.js",
+				"JointVenture2k15-beta\\public\\js\\angular\\app.js"
+			],
+			[
+				"cutomjs",
+				"JointVenture2k15-beta\\public\\js\\custom.js"
+			],
+			[
+				"resultsdir",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventureresults\\directives\\sectionJointVentureResultsDir.js"
+			],
+			[
+				"resultsdire",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventureresults\\directives\\sectionJointVentureResultsDir.js"
+			],
+			[
+				"sitewidw",
+				"JointVenture2k15-beta\\public\\js\\angular\\sitewidecommon\\directives\\siteWideCommonDir.js"
+			],
+			[
+				"venture-results",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure-results.html"
+			],
+			[
+				"tpl-section-si",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-signup.html"
+			],
+			[
+				"styl",
+				"JointVenture2k15-beta\\public\\css\\style.css"
+			],
+			[
+				"results.html",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure-results.html"
+			],
+			[
+				"style.css",
+				"JointVenture2k15-beta\\public\\css\\style.css"
+			],
+			[
+				"",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"main",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"style",
+				"JointVenture2k15-beta\\public\\css\\style.css"
+			],
+			[
+				"main-nav",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"main-naviga",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"main-navig",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"customjs",
+				"Demo-Template\\js\\custom.js"
+			],
+			[
+				"sitewid",
+				"JointVenture2k15-beta\\public\\js\\angular\\sitewidecommon\\directives\\siteWideCommonDir.js"
+			],
+			[
+				"main-footer",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-footer.html"
+			],
+			[
+				"tpl-section-jointventure",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure-results.html"
+			],
+			[
+				"tpl-section-",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure.html"
+			],
+			[
+				"tpl-joint",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure-results.html"
+			],
+			[
+				"jointventure",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure.html"
+			],
+			[
+				"mainnva",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"sty",
+				"JointVenture2k15-beta\\public\\css\\styleAdd.css"
+			],
+			[
+				"tpl-sell",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-sell.html"
+			],
+			[
+				"moda-login",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"tpl-main-navi",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"tpl-",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure.html"
+			],
+			[
+				"joint-venture.",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-jointventure.html"
+			],
+			[
+				"server.js",
+				"JointVenture2k15-beta\\server.js"
+			],
+			[
+				"jv.js",
+				"JointVenture2k15-beta\\app\\models\\jv.js"
+			],
+			[
+				"modallogin",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"index.ht",
+				"JointVenture2k15-beta\\public\\index.html"
+			],
+			[
+				"login",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+			],
+			[
+				"custom.j",
+				"JointVenture2k15-beta\\public\\js\\custom.js"
+			],
+			[
+				"mainnavigai",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"main-navigation",
+				"JointVenture2k15-beta\\public\\templates\\tpl-main-navigation.html"
+			],
+			[
+				"sell",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-sell.html"
+			],
+			[
+				"views/",
+				"JointVenture2k15-beta\\public\\views\\section-sell.html"
+			],
+			[
+				"sell.html",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-sell.html"
+			],
+			[
+				"selldir",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionsell\\directives\\sectionSellDir.js"
+			],
+			[
+				"jointventurejs",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventure\\directives\\sectionJointVentureDir.js"
+			],
+			[
+				"sectionsell",
+				"JointVenture2k15-beta\\public\\templates\\tpl-section-sell.html"
+			],
+			[
+				"section-sell",
+				"JointVenture2k15-beta\\public\\views\\section-sell.html"
+			],
+			[
+				"section-about",
+				"JointVenture2k15-beta\\public\\templates\\section-about.html"
+			],
+			[
+				"section-home",
+				"JointVenture2k15-beta\\public\\templates\\section-home.html"
+			],
+			[
+				"sectin-home",
+				"JointVenture2k15-beta\\public\\views\\section-home.html"
+			],
+			[
+				"sectionjointventure",
+				"JointVenture2k15-beta\\public\\templates\\section-jointventure.html"
+			],
+			[
+				"jointvent",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventure\\directives\\sectionJointVentureDir.js"
+			],
+			[
+				"sytle.css",
+				"JointVenture2k15-beta\\public\\css\\style.css"
+			],
+			[
+				"submodules.js",
+				"JointVenture2k15-beta\\public\\js\\angular\\submodules.js"
+			],
+			[
+				"mainnaviga",
+				"JointVenture2k15-beta\\public\\templates\\main-navigation.html"
+			],
+			[
+				"index.htl",
+				"JointVenture2k15-beta\\public\\index.html"
+			],
+			[
+				"mainnavig",
+				"JointVenture2k15-beta\\public\\templates\\main-navigation.html"
+			],
+			[
+				"sit",
+				"JointVenture2k15-beta\\node_modules\\grunt\\node_modules\\findup-sync\\node_modules\\glob\\node_modules\\inherits\\test.js"
+			],
+			[
+				"signup",
+				"JointVenture2k15-beta\\public\\templates\\section-signup.html"
+			],
+			[
+				"index",
+				"JointVenture2k15-beta\\public\\index.html"
+			],
+			[
+				"sitewide",
+				"JointVenture2k15-beta\\public\\js\\angular\\sitewidecommon\\directives\\siteWideCommonDir.js"
+			],
+			[
+				"customejs",
+				"JointVenture2k15-beta\\node_modules\\grunt\\node_modules\\js-yaml\\examples\\custom_types.js"
+			],
+			[
+				"sectionsignup",
+				"JointVenture2k15-beta\\public\\templates\\section-signup.html"
+			],
+			[
+				"sectionsingup",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionsignup\\directives\\sectionSignupDir.js"
+			],
+			[
+				"section-signup",
+				"JointVenture2k15-beta\\public\\views\\section-signup.html"
+			],
+			[
+				"ssectionsign",
+				"JointVenture2k15-beta\\public\\templates\\section-signup.html"
+			],
+			[
+				"section-",
+				"JointVenture2k15-beta\\public\\views\\section-signup.html"
+			],
+			[
+				"sectionsigup",
+				"JointVenture2k15-beta\\public\\templates\\section-signup.html"
+			],
+			[
+				"sectionsign",
+				"JointVenture2k15-beta\\public\\views\\section-signup.html"
+			],
+			[
+				"joint",
+				"JointVenture2k15-beta\\public\\templates\\section-jointventure.html"
+			],
+			[
+				"jointven",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventure\\directives\\sectionJointVentureDir.js"
+			],
+			[
+				"services.",
+				"JointVenture2k15-beta\\public\\templates\\services-offered.html"
+			],
+			[
+				"venture",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventure\\directives\\sectionJointVentureDir.js"
+			],
+			[
+				"jointventjr",
+				"JointVenture2k15-beta\\public\\js\\angular\\sectionjointventure\\directives\\sectionJointVentureDir.js"
+			],
+			[
+				"mdallogin",
+				"JointVenture2k15-beta\\public\\js\\angular\\modallogin\\directives\\modalLoginDir.js"
+			],
+			[
+				"mainnavi",
+				"JointVenture2k15-beta\\public\\templates\\main-navigation.html"
+			],
+			[
+				"sitwi",
+				"public\\js\\angular\\sitewidecommon\\directives\\siteWideCommonDir.js"
+			],
+			[
+				"custom",
+				"public\\js\\custom.js"
+			],
+			[
+				"styleadd",
+				"public\\css\\styleAdd.css"
+			],
+			[
+				"section-join",
+				"public\\templates\\section-jointventure.html"
+			],
+			[
+				"sytle",
+				"public\\css\\styleAdd.css"
+			],
+			[
+				"bowerjson",
+				"bower.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 288.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

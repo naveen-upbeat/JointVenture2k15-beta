@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionportfolio:sectionPortfolio
+ * @name submodules.sectionportfolio:appJvSectionPortfolio
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sectionportfolio')
-.directive('sectionPortfolio', function() {
+.directive('appJvSectionPortfolio', function() {
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-section-portfolio.html'

@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionrent:sectionRents
+ * @name submodules.sectionrent:appJvSectionRent
  * @scope
  * @restrict AE
  *
@@ -12,7 +12,7 @@
  *
  */
 angular.module('submodules.sectionrent')
-    .directive('sectionRent', function() {
+    .directive('appJvSectionRent', function() {
         return {
             restrict: "AE",
             templateUrl: 'templates/tpl-section-rent.html',

@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sitewidecommon:siteWideCommon
+ * @name submodules.sitewidecommon:appJvSiteWideCommon
  * @scope
  * @restrict AE
  *
@@ -11,13 +11,13 @@
  *
  */
 angular.module('submodules.sitewidecommon')
-    .directive('siteWideCommon', [function() {
+    .directive('appJvSiteWideCommon', [function() {
         return {
             link: function(scope, element, attrs) {
 
                 scope.$on('childLoading', function() {
 
-                    var commonFns = attrs.siteWideCommon.split(",");
+                    var commonFns = attrs.appJvSiteWideCommon.split(",");
                     for (var i = 0; i < commonFns.length; i++) {
                         if (typeof siteWideCommonFunctions[commonFns[i].toString().trim()] != 'undefined') {
                             siteWideCommonFunctions[commonFns[i].toString().trim()]();

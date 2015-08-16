@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.servicesoffered:servicesOffered
+ * @name submodules.servicesoffered:appJvServicesOffered
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.servicesoffered')
-.directive('servicesOffered', function() {
+.directive('appJvServicesOffered', function() {
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-services-offered.html'

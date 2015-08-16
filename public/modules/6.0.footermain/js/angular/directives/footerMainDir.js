@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.footermain:footerMain
+ * @name submodules.footermain:appJvFooterMain
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.footermain')
-.directive('footerMain', function() {
+.directive('appJvFooterMain', function() {
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-footer-main.html'

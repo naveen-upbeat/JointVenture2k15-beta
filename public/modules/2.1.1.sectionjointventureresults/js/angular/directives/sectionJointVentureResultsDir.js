@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionjointventureresults:sectionJointVentureResults
+ * @name submodules.sectionjointventureresults:appJvSectionJointVentureResults
  * @scope
  * @restrict AE
  *
@@ -12,7 +12,7 @@
  *
  */
 angular.module('submodules.sectionjointventureresults')
-    .directive('sectionJointVentureResults', ['googleMapsAPI', function(googleMapsAPI) {
+    .directive('appJvSectionJointVentureResults', ['googleMapsAPI', function(googleMapsAPI) {
         return {
             restrict: "AE",
             templateUrl: 'templates/tpl-section-jointventure-results.html',

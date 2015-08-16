@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.modallogin:modalLogin
+ * @name submodules.modallogin:appJvModalLogin
  * @scope
  * @restrict AE
  *
@@ -11,17 +11,25 @@
  *
  */
 angular.module('submodules.modallogin')
-.directive('modalLogin', function() {
-	return{
-		restrict: "AE",
-		templateUrl : 'templates/tpl-modal-login.html',
-		link : function(scope,element){
-						
-				$(element).find('.link-singnup').on('click',function(){
-					$('#modalLogin').modal('hide');
-				});
-		
-		}
-	}
+    .directive('appJvModalLogin', function() {
+        return {
+            restrict: "AE",
+            templateUrl: 'templates/tpl-modal-login.html',
+            link: function(scope, element) {
+                
 
-});
+                $(element).find('.link-singnup').on('click', function() {
+                    $('#modalLogin').modal('hide');
+                });
+
+                
+               scope.$watch('user',function(newVal, oldVal){
+               		if(newVal && newVal != oldVal){
+               			newVal.user
+               		}
+               }, true);
+
+            }
+        }
+
+    });

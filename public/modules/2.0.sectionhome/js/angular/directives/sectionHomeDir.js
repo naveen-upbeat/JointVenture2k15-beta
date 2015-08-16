@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionhome:sectionHome
+ * @name submodules.sectionhome:appJvSectionHome
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sectionhome')
-    .directive('sectionHome', function() {
+    .directive('appJvSectionHome', function() {
         return {
             restrict: "AE",
             templateUrl: 'templates/tpl-section-home.html',

@@ -29,7 +29,46 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
     }, this.setCurrentDivId = function(strCurrentDivIdFromDom) {
         strCurrentDivId = strCurrentDivIdFromDom;
     };
-} ]), angular.module("submodules.3rdparty").directive("backAnimation", [ "$browser", "$location", function($browser, $location) {
+} ]), angular.module("submodules.sitewidecommon").factory("transformRequestAsFormPost", function() {
+    function transformRequest(data, getHeaders) {
+        var headers = getHeaders();
+        return headers["Content-type"] = "application/x-www-form-urlencoded; charset=utf-8", 
+        serializeData(JSON.stringify(data));
+    }
+    function serializeData(data) {
+        if (!angular.isObject(data)) return null == data ? "" : data.toString();
+        var buffer = [];
+        for (var name in data) if (data.hasOwnProperty(name)) {
+            var value = data[name];
+            buffer.push(encodeURIComponent(name) + "=" + encodeURIComponent(null == value ? "" : value));
+        }
+        var source = buffer.join("&").replace(/%20/g, "+");
+        return source;
+    }
+    return transformRequest;
+}), angular.module("submodules.modallogin").controller("modalLoginController", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
+    $scope.user = {
+        usernamemodel: "",
+        passwordmodel: "",
+        valid: !0
+    }, $scope.origUserCopy = angular.copy($scope.user), $scope.resetForm = function() {
+        $scope.user = angular.copy($scope.origUserCopy);
+    }, $scope.loginUser = function(userModel) {
+        $http({
+            method: "POST",
+            url: "/api/logincheck",
+            transformRequest: transformRequestAsFormPost,
+            data: {
+                username: userModel.usernamemodel,
+                password: userModel.password
+            }
+        }).success(function(data, status, headers, cfg) {
+            data.length > 0 ? userModel.valid = !0 : userModel.valid = !1;
+        }).error(function(data, status, headers, cfg) {
+            userModel.valid = !1;
+        });
+    };
+} ]), angular.module("submodules.3rdparty").directive("appJvBackAnimation", [ "$browser", "$location", function($browser, $location) {
     return {
         link: function(scope, element) {
             $browser.onUrlChange(function(newUrl) {
@@ -41,12 +80,12 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             });
         }
     };
-} ]), angular.module("submodules.navigationmain").directive("navigationMain", function() {
+} ]), angular.module("submodules.navigationmain").directive("appJvNavigationMain", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-navigation-main.html"
     };
-}), angular.module("submodules.sectionsignup").directive("sectionSignup", function() {
+}), angular.module("submodules.sectionsignup").directive("appJvSectionSignup", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-signup.html",
@@ -54,23 +93,25 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             $("#modalLogin").modal("hide"), scope.$emit("childLoading");
         }
     };
-}), angular.module("submodules.modallogin").directive("modalLogin", function() {
+}), angular.module("submodules.modallogin").directive("appJvModalLogin", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-modal-login.html",
         link: function(scope, element) {
             $(element).find(".link-singnup").on("click", function() {
                 $("#modalLogin").modal("hide");
-            });
+            }), scope.$watch("user", function(newVal, oldVal) {
+                newVal && newVal != oldVal && newVal.user;
+            }, !0);
         }
     };
-}), angular.module("submodules.sectionhome").directive("sectionHome", function() {
+}), angular.module("submodules.sectionhome").directive("appJvSectionHome", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-home.html",
         link: function(scope, element, attrs, tabsCtrl) {}
     };
-}), angular.module("submodules.sectionjointventure").directive("sectionJointVenture", [ "googleMapsAPI", function(googleMapsAPI) {
+}), angular.module("submodules.sectionjointventure").directive("appJvSectionJointVenture", [ "googleMapsAPI", function(googleMapsAPI) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-jointventure.html",
@@ -99,7 +140,7 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             }), scope.$emit("childLoading");
         }
     };
-} ]), angular.module("submodules.sectionjointventureresults").directive("sectionJointVentureResults", [ "googleMapsAPI", function(googleMapsAPI) {
+} ]), angular.module("submodules.sectionjointventureresults").directive("appJvSectionJointVentureResults", [ "googleMapsAPI", function(googleMapsAPI) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-jointventure-results.html",
@@ -146,7 +187,7 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             }), scope.$emit("childLoading");
         }
     };
-} ]), angular.module("submodules.sectionrent").directive("sectionRent", function() {
+} ]), angular.module("submodules.sectionrent").directive("appJvSectionRent", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-rent.html",
@@ -154,7 +195,7 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             addParallax(element);
         }
     };
-}), angular.module("submodules.sectionsell").directive("sectionSell", function() {
+}), angular.module("submodules.sectionsell").directive("appJvSectionSell", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-sell.html",
@@ -162,27 +203,27 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             scope.$emit("childLoading");
         }
     };
-}), angular.module("submodules.servicesoffered").directive("servicesOffered", function() {
+}), angular.module("submodules.servicesoffered").directive("appJvServicesOffered", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-services-offered.html"
     };
-}), angular.module("submodules.sectionportfolio").directive("sectionPortfolio", function() {
+}), angular.module("submodules.sectionportfolio").directive("appJvSectionPortfolio", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-portfolio.html"
     };
-}), angular.module("submodules.sectionabout").directive("sectionAbout", function() {
+}), angular.module("submodules.sectionabout").directive("appJvSectionAbout", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-about.html"
     };
-}), angular.module("submodules.footermain").directive("footerMain", function() {
+}), angular.module("submodules.footermain").directive("appJvFooterMain", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-footer-main.html"
     };
-}), angular.module("submodules.sitewidecommon").directive("bodyDir", [ "scrollToDivSvc", function(scrollToDivSvc) {
+}), angular.module("submodules.sitewidecommon").directive("appJvBodyDir", [ "scrollToDivSvc", function(scrollToDivSvc) {
     return {
         link: function(scope, element, attrs) {
             scope.$watch(scrollToDivSvc.getCurrentDivId, function(newVal, oldVal) {
@@ -195,17 +236,21 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             });
         }
     };
-} ]), angular.module("submodules.sitewidecommon").directive("siteWideCommon", [ function() {
+} ]), angular.module("submodules.sitewidecommon").directive("appJvSiteWideCommon", [ function() {
     return {
         link: function(scope, element, attrs) {
             scope.$on("childLoading", function() {
-                for (var commonFns = attrs.siteWideCommon.split(","), i = 0; i < commonFns.length; i++) "undefined" != typeof siteWideCommonFunctions[commonFns[i].toString().trim()] && siteWideCommonFunctions[commonFns[i].toString().trim()]();
+                for (var commonFns = attrs.appJvSiteWideCommon.split(","), i = 0; i < commonFns.length; i++) "undefined" != typeof siteWideCommonFunctions[commonFns[i].toString().trim()] && siteWideCommonFunctions[commonFns[i].toString().trim()]();
             });
         }
     };
 } ]), angular.module("submodules", [ "submodules.3rdparty", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup" ]).controller("MainController", function($rootScope, $scope, scrollToDivSvc) {
     $scope.appWideScope = {
-        appTitle: "Joint Venture 2015"
+        appTitle: "Joint Venture 2015",
+        user: {
+            username: "",
+            email: ""
+        }
     }, $scope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {
         console.log(toState.name), toParams && "undefined" != typeof toParams.scrollTo && scrollToDivSvc.setCurrentDivId(toParams.scrollTo);
     });

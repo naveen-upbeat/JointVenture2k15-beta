@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionsignup:sectionSignup
+ * @name submodules.sectionsignup:appJvSectionSignup
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sectionsignup')
-    .directive('sectionSignup', function() {
+    .directive('appJvSectionSignup', function() {
         return {
             restrict: "AE",
             templateUrl: 'templates/tpl-section-signup.html',

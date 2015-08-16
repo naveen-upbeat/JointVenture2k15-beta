@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionabout:sectionAbout
+ * @name submodules.sectionabout:appJvSectionAbout
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sectionabout')
-.directive('sectionAbout', function() {
+.directive('appJvSectionAbout', function() {
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-section-about.html'

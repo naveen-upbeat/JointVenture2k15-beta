@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sitewidecommon:bodyDir
+ * @name submodules.sitewidecommon:appJvBodyDir
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sitewidecommon')
-    .directive('bodyDir', ['scrollToDivSvc', function(scrollToDivSvc) {
+    .directive('appJvBodyDir', ['scrollToDivSvc', function(scrollToDivSvc) {
         return {
             link: function(scope, element, attrs) {
 

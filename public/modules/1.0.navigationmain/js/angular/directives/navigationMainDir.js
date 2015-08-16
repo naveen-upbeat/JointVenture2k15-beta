@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.navigationmain:navigationMain
+ * @name submodules.navigationmain:appJvNavigationMain
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.navigationmain')
-.directive('navigationMain', function() {
+.directive('appJvNavigationMain', function() {
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-navigation-main.html'

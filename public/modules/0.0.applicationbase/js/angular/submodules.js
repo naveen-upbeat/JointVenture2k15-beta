@@ -17,7 +17,11 @@ angular.module('submodules', [
     .controller('MainController', function($rootScope, $scope, scrollToDivSvc) {
 
         $scope.appWideScope = {
-            appTitle: 'Joint Venture 2015'
+            appTitle : 'Joint Venture 2015',
+            user : {
+                username : '',
+                email : ''
+            }
         };
 
         $scope.$on('$stateChangeSuccess',

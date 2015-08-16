@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" ng-app="jointVentureApp" ng-controller="MainController">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +27,7 @@
             styles.rel = 'stylesheet';
             styles.type = 'text/css';
             styles.media = 'screen';
-            styles.href = 'assets/css/compiled/'+myjson.data[i].filename;
+            styles.href = 'assets/css/compiled/' + myjson.data[i].filename;
             document.getElementsByTagName('head')[0].appendChild(styles);
         }
     }
@@ -51,26 +52,28 @@
     <script src="assets/js/angApp.js"></script>
 </head>
 
-<body body-dir="">
+<body app-jv-body-dir="">
     <!-- Navigation -->
-    <div navigation-main="">
+    <div app-jv-navigation-main="">
     </div>
     <!-- ANGULAR DYNAMIC CONTENT -->
-    <div class="ng-view-container" back-animation="">
-        <div ui-view class="page slide page-view" site-wide-common="adjustngViewContainerHeight, initMaterialDesign"></div>
+    <div class="ng-view-container" app-jv-back-animation="">
+        <div ui-view class="page slide page-view" app-jv-site-wide-common="adjustngViewContainerHeight, initMaterialDesign"></div>
     </div>
     <!-- <div services-offered="le">
     </div>
      -->
-    <div section-about="">
+    <div app-jv-section-about="">
     </div>
     <!-- <div section-portfolio="">
     </div>
      -->
     <!-- Login Modal -->
-    <div modal-login="">
+    <div ng-controller="modalLoginController">
+        <div app-jv-modal-login="">
+        </div>
     </div>
-    <footer class="main-footer" footer-main="">
+    <footer class="main-footer" app-jv-footer-main="">
     </footer>
 </body>
 <!-- Bootstrap Core JavaScript -->
@@ -82,10 +85,10 @@
 <script src="libs/angular-animate/angular-animate.min.js"></script>
 <!-- Fotorama plugin for image preview -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <!-- Custome Javascript -->
 <script src="modules/0.1.3rdparty/js/jquery-ui.js"></script>
 <script src="modules/0.0.applicationbase/js/custom.js"></script>
 <!-- Custom Theme JavaScript -->
+
 </html>

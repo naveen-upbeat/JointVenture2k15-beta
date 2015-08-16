@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.3rdparty:backAnimation
+ * @name submodules.3rdparty:appJvBackAnimation
  * @scope
  * @restrict AE
  *
@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.3rdparty')
-    .directive('backAnimation', ['$browser', '$location', function($browser, $location) {
+    .directive('appJvBackAnimation', ['$browser', '$location', function($browser, $location) {
         return {
             link: function(scope, element) {
 

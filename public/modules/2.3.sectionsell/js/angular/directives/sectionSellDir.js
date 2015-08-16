@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name submodules.sectionsell:sectionSell
+ * @name submodules.sectionsell:appJvSectionSell
  * @scope
  * @restrict AE
  *
@@ -12,7 +12,7 @@
  *
  */
 angular.module('submodules.sectionsell')
-    .directive('sectionSell', function() {
+    .directive('appJvSectionSell', function() {
         return {
             restrict: "AE",
             templateUrl: 'templates/tpl-section-sell.html',

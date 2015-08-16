@@ -1,4 +1,4 @@
-    var User = require('./models/jv')
+    var dbSchemas = require('./models/jv')
     var md5 = require('MD5');
     var mongo = require('mongoose')
     var fs = require('fs');
@@ -10,7 +10,7 @@
         app.get('/api/createSampleUser', function(req, res) {
 
             // get the user starlord55            
-            var newuser = User({
+            var newuser = dbSchemas.users({
                 // create a user using schema
                 name: 'amit'
             });
@@ -23,10 +23,27 @@
                 res.send('User Created');
             });
         });
+        app.get('/api/createEmp', function(req, res) {
+
+            // get the user starlord55            
+            var newuser2 = dbSchemas.emp({
+                // create a user using schema
+                fname: 'amit',
+                lname:'dwivedi'
+            });
+
+            // save the user
+            newuser2.save(function(err) {
+                if (err) throw err;
+
+                console.log('Emp created!');
+                res.send('Emp Created');
+            });
+        });
 
         app.post('/api/logincheck', function(req, res) {
             //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
-
+            console.log(req.body);
             User.find({
             name: req.body.username
             }, function(err, user) {
