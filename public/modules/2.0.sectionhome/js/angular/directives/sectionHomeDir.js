@@ -18,6 +18,5 @@ angular.module('submodules.sectionhome')
             link: function(scope, element, attrs, tabsCtrl) {
                 //addParallax(element);
             }
-        }
-
+        };
     });

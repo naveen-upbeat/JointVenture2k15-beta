@@ -15,6 +15,5 @@ angular.module('submodules.sectionportfolio')
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-section-portfolio.html'
-	}
-
+	};
 });

@@ -1,1 +1,1 @@
-angular.module('submodules.modallogin', [])
+angular.module('submodules.modallogin', []);

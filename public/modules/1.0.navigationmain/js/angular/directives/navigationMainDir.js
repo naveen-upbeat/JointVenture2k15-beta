@@ -15,6 +15,6 @@ angular.module('submodules.navigationmain')
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-navigation-main.html'
-	}
+	};
 
 });

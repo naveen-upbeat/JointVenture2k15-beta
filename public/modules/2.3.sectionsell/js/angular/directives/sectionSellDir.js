@@ -20,6 +20,5 @@ angular.module('submodules.sectionsell')
                 //addParallax(element);
                 scope.$emit('childLoading');
             }
-        }
-
+        };
     });

@@ -1,1 +1,1 @@
-angular.module('submodules.sectionjointventure', [])
+angular.module('submodules.sectionjointventure', []);

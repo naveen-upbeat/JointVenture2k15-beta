@@ -1,1 +1,1 @@
-angular.module('submodules.sectionsignup', [])
+angular.module('submodules.sectionsignup', []);

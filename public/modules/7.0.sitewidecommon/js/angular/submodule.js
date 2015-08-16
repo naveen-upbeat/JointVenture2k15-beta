@@ -1,1 +1,1 @@
-angular.module('submodules.sitewidecommon', [])
+angular.module('submodules.sitewidecommon', []);

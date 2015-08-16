@@ -1,1 +1,1 @@
-angular.module('submodules.sectionportfolio', [])
+angular.module('submodules.sectionportfolio', []);

@@ -30,10 +30,10 @@ angular.module('submodules.sectionjointventure')
                     return googleMapsAPI.getLocationSuggestions(options)
                         .then(function(response) {
                             if (response.data.status == "OK") {
-                                return response.data.predictions
+                                return response.data.predictions;
                             }
                         });
-                }
+                };
 
                 $(element).find('button').on('click', function(e) {
                     var value = $(e.target).parent().find('input#Area').val();
@@ -63,6 +63,6 @@ angular.module('submodules.sectionjointventure')
                 });
                 scope.$emit('childLoading');
             }
-        }
+        };
 
     }]);

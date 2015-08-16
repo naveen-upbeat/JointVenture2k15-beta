@@ -1,1 +1,1 @@
-angular.module('submodules.footermain', [])
+angular.module('submodules.footermain', []);

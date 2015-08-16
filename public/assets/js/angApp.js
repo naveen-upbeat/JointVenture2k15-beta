@@ -36,11 +36,11 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
         serializeData(JSON.stringify(data));
     }
     function serializeData(data) {
-        if (!angular.isObject(data)) return null == data ? "" : data.toString();
+        if (!angular.isObject(data)) return null === data ? "" : data.toString();
         var buffer = [];
         for (var name in data) if (data.hasOwnProperty(name)) {
             var value = data[name];
-            buffer.push(encodeURIComponent(name) + "=" + encodeURIComponent(null == value ? "" : value));
+            buffer.push(encodeURIComponent(name) + "=" + encodeURIComponent(null === value ? "" : value));
         }
         var source = buffer.join("&").replace(/%20/g, "+");
         return source;
@@ -100,9 +100,7 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
         link: function(scope, element) {
             $(element).find(".link-singnup").on("click", function() {
                 $("#modalLogin").modal("hide");
-            }), scope.$watch("user", function(newVal, oldVal) {
-                newVal && newVal != oldVal && newVal.user;
-            }, !0);
+            }), scope.$watch("user", function(newVal, oldVal) {}, !0);
         }
     };
 }), angular.module("submodules.sectionhome").directive("appJvSectionHome", function() {
@@ -262,29 +260,57 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
                 value: null
             }
         },
-        templateUrl: "views/section-home.html",
-        controller: "MainController"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-home.html",
+                controller: "MainController"
+            }
+        }
     }).state("home", {
         url: "/home",
-        templateUrl: "views/section-home.html",
-        controller: "MainController"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-home.html",
+                controller: "MainController"
+            }
+        }
     }).state("jointventure", {
         url: "/jointventure",
-        templateUrl: "views/section-jointventure.html",
-        controller: "MainController"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-jointventure.html",
+                controller: "MainController"
+            }
+        }
     }).state("sell", {
         url: "/sell",
-        templateUrl: "views/section-sell.html",
-        controller: "MainController"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-sell.html",
+                controller: "MainController"
+            }
+        }
     }).state("signup", {
         url: "/signup",
-        templateUrl: "views/section-signup.html",
-        controller: "MainController"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-signup.html",
+                controller: "MainController"
+            }
+        }
     }).state("rent", {
         url: "/rent",
-        templateUrl: "views/section-rent.html"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-rent.html"
+            }
+        }
     }).state("jointventureresults", {
         url: "/jointventureresults",
-        templateUrl: "views/section-jointventure-results.html"
+        views: {
+            "top-section": {
+                templateUrl: "views/section-jointventure-results.html"
+            }
+        }
     });
 });

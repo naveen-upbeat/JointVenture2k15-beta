@@ -1,1 +1,1 @@
-angular.module('submodules.sectionrent', [])
+angular.module('submodules.sectionrent', []);

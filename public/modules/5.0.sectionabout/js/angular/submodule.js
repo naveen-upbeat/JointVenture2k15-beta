@@ -1,1 +1,1 @@
-angular.module('submodules.sectionabout', [])
+angular.module('submodules.sectionabout', []);

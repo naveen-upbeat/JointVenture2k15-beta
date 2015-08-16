@@ -3,16 +3,25 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        jshint: {
+            beforeUglify: ['Gruntfile.js', 'public/modules/**/*.js'],
+            afterUglify: ['public/assets/js/*.js'],
+            options: {
+                ignores: ['public/modules/**/jquery-ui.js'],
+                reporter: require('jshint-stylish')
+            }
+        },
+
         uglify: {
             options2: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             options: {
-                mangle: false
-                ,beautify: true
+                mangle: false,
+                beautify: true
             },
             build: {
-
                 expand: false,
                 src: [
                     'public/modules/**/js/angular/submodule.js',
@@ -24,6 +33,12 @@ module.exports = function(grunt) {
                 ],
 
                 dest: 'public/assets/js/angApp.js'
+
+            }
+        },
+        lesslint: {
+            src: ['public/modules/**/*.less'],
+            options:{
 
             }
         },
@@ -62,13 +77,15 @@ module.exports = function(grunt) {
 
     var arrDirNames = [];
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-lesslint');
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('assemble-less');
     grunt.loadNpmTasks('grunt-execute');
 
     // Default task(s).
-    grunt.registerTask('default', ['preparecss','preparejs']);
+    grunt.registerTask('default', ['preparecss', 'jshint:beforeUglify', 'preparejs']);
 
     grunt.registerTask('start', ['execute']);
 
@@ -121,7 +138,7 @@ module.exports = function(grunt) {
             for (var j = 1; j <= arrFileNames.length; j++) {
                 cssString += "@import '../" + arrFileNames[j - 1] + "'; ";
 
-                if (j == arrFileNames.length || j % 20 == 0) {
+                if (j === arrFileNames.length || j % 20 === 0) {
                     var appCSSfileName = path2 + 'compiled/app.' + Math.floor(j / 20) + '.css';
                     grunt.file.write(appCSSfileName, cssString);
                     cssString = '';
@@ -132,5 +149,5 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('preparecss', ['includeAllLess', 'less', 'createSingleCssFile']);
-    grunt.registerTask('preparejs',['uglify']);
+    grunt.registerTask('preparejs', ['uglify']);
 };

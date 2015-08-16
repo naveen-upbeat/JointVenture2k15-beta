@@ -24,13 +24,13 @@ angular.module('submodules.sitewidecommon')
     			location : bangaloreLatLang,
     			radius: "25000",
     			key: googleAPIKey	
-    		}
+    		};
 
     		var httpOptions = {
     			method: 'GET',
     			url : autoCompleteURL,
     			params : post
-    		}
+    		};
 			responseJson = $http(httpOptions);
 
     		return responseJson;

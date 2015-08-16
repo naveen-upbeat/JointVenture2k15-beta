@@ -1,1 +1,1 @@
-angular.module('submodules.servicesoffered', [])
+angular.module('submodules.servicesoffered', []);

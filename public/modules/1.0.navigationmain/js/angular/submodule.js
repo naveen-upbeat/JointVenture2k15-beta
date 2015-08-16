@@ -1,1 +1,1 @@
-angular.module('submodules.navigationmain', [])
+angular.module('submodules.navigationmain', []);

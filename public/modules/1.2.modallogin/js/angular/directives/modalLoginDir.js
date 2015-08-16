@@ -16,20 +16,17 @@ angular.module('submodules.modallogin')
             restrict: "AE",
             templateUrl: 'templates/tpl-modal-login.html',
             link: function(scope, element) {
-                
 
                 $(element).find('.link-singnup').on('click', function() {
                     $('#modalLogin').modal('hide');
                 });
 
-                
-               scope.$watch('user',function(newVal, oldVal){
-               		if(newVal && newVal != oldVal){
-               			newVal.user
-               		}
-               }, true);
+                scope.$watch('user', function(newVal, oldVal) {
+                    if (newVal && newVal != oldVal) {
+                        //newVal.user
+                    }
+                }, true);
 
             }
-        }
-
+        };
     });

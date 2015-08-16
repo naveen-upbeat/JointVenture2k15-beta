@@ -31,7 +31,7 @@ angular.module('submodules.sitewidecommon')
         function serializeData(data) {
             // If this is not an object, defer to native stringification.
             if (!angular.isObject(data)) {
-                return ((data == null) ? "" : data.toString());
+                return ((data === null) ? "" : data.toString());
             }
             var buffer = [];
             // Serialize each key in the object.
@@ -43,7 +43,7 @@ angular.module('submodules.sitewidecommon')
                 buffer.push(
                     encodeURIComponent(name) +
                     "=" +
-                    encodeURIComponent((value == null) ? "" : value)
+                    encodeURIComponent((value === null) ? "" : value)
                 );
             }
             // Serialize the buffer and clean it up for transportation.

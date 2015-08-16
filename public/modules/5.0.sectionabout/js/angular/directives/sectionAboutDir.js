@@ -15,6 +15,6 @@ angular.module('submodules.sectionabout')
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-section-about.html'
-	}
+	};
 
 });

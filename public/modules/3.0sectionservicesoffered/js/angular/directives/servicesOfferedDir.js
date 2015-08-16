@@ -15,6 +15,5 @@ angular.module('submodules.servicesoffered')
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-services-offered.html'
-	}
-
+	};
 });

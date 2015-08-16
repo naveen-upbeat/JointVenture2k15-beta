@@ -19,6 +19,5 @@ angular.module('submodules.sectionrent')
             link: function(scope, element, attrs, tabsCtrl) {
                 addParallax(element);
             }
-        }
-
+        };
     });

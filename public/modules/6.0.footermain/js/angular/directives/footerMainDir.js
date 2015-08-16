@@ -15,6 +15,5 @@ angular.module('submodules.footermain')
 	return{
 		restrict: "AE",
 		templateUrl : 'templates/tpl-footer-main.html'
-	}
-
+	};
 });

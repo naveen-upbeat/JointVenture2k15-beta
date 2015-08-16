@@ -82,7 +82,7 @@ function addParallax(selector) {
 
 // First, create an object containing LatLng.
 var citymap = {};
-citymap['bangalore'] = {
+citymap.bangalore = {
     center: new google.maps.LatLng(12.9667, 77.5667),
     population: 200
 };
@@ -144,7 +144,7 @@ var siteWideCommonFunctions = {
             "inputElements": "input.form-control, textarea.form-control, select.form-control",
             "checkboxElements": ".checkbox > label > input[type=checkbox],label.checkbox > input[type=checkbox]",
             "radioElements": ".radio > label > input[type=radio]"
-        }
+        };
         $.material.init();
         $.material.checkbox();
         $.material.radio();

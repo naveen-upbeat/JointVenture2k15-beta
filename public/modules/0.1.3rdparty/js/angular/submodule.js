@@ -1,1 +1,1 @@
-angular.module('submodules.3rdparty', [])
+angular.module('submodules.3rdparty', []);

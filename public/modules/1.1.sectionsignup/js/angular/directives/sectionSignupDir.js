@@ -18,11 +18,8 @@ angular.module('submodules.sectionsignup')
             link: function(scope, element, attrs, tabsCtrl) {
                 //addParallax(element);
                 $('#modalLogin').modal('hide');
-            
+
                 scope.$emit('childLoading');
             }
-
-
-        }
-
+        };
     });
