@@ -12,7 +12,8 @@ angular.module('submodules', [
         'submodules.sectionrent',
 		'submodules.sectionsell',
         'submodules.modallogin',
-        'submodules.sectionsignup'
+        'submodules.sectionsignup',
+        'submodules.sectionsample'
     ])
     .controller('MainController', function($rootScope, $scope, scrollToDivSvc) {
 

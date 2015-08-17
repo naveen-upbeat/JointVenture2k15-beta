@@ -5,7 +5,7 @@ angular.module("submodules.sectionjointventureresults", []), angular.module("sub
 angular.module("submodules.sectionsell", []), angular.module("submodules.servicesoffered", []), 
 angular.module("submodules.sectionportfolio", []), angular.module("submodules.sectionabout", []), 
 angular.module("submodules.footermain", []), angular.module("submodules.sitewidecommon", []), 
-angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", function($http) {
+angular.module("submodules.sectionsample", []), angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", function($http) {
     var googleAPIKey = "AIzaSyBVb3vFIGCpc3et0NSf42IfMFyzrxHzogM", bangaloreLatLang = "12.9539975,77.6309395";
     this.getLocationSuggestions = function(options) {
         var input = options.input || options[0], responseJson = (options.types || options[1] || "regions", 
@@ -242,7 +242,12 @@ angular.module("submodules.sitewidecommon").service("googleMapsAPI", [ "$http", 
             });
         }
     };
-} ]), angular.module("submodules", [ "submodules.3rdparty", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup" ]).controller("MainController", function($rootScope, $scope, scrollToDivSvc) {
+} ]), angular.module("submodules.sectionsample").directive("appJvSectionSample", function() {
+    return {
+        restrict: "AE",
+        templateUrl: "templates/tpl-section-sample.html"
+    };
+}), angular.module("submodules", [ "submodules.3rdparty", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup", "submodules.sectionsample" ]).controller("MainController", function($rootScope, $scope, scrollToDivSvc) {
     $scope.appWideScope = {
         appTitle: "Joint Venture 2015",
         user: {

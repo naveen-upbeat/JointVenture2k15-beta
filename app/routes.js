@@ -6,21 +6,30 @@
     module.exports = function(app) {
         // server routes ===========================================================
         // handle things like api calls
-        // Creating a Sample User
-        app.get('/api/createSampleUser', function(req, res) {
+        // Creating a Sample Emp
+        app.get('/api/createEmp', function(req, res) {
 
-            // get the user starlord55            
-            var newuser = dbSchemas.users({
+            var newEmp = dbSchemas.emps({
                 // create a user using schema
-                name: 'amit'
+                fname: 'amit',
+                lname: 'dwivedi'
             });
 
             // save the user
-            newuser.save(function(err) {
+            newEmp.save(function(err) {
                 if (err) throw err;
 
-                console.log('User created!');
-                res.send('User Created');
+                console.log('Emp created!');
+                res.send('Emp Created');
+            });
+        });
+
+        app.get('/api/getEmp', function(req, res) {
+
+            dbSchemas.emps.find({}, function(err, emplist) {
+                // get the Emp
+                if (err) throw err;
+                res.json(emplist);
             });
         });
 
@@ -29,7 +38,7 @@
             //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
             console.log(req.body);
             User.find({
-            name: req.body.username
+                name: req.body.username
             }, function(err, user) {
                 if (err) throw err;
                 // object of the user
