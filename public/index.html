@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en" ng-app="jointVentureApp" ng-controller="MainController">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,18 +20,19 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <!-- Custom CSS -->
     <script>
-    function jsoncallback(myjson) {
-        for (var i = 0; i < myjson.data.length; i++) {
+    //Custom function to load the compiles 'css'
+    function loadCompiledCSS(cssFilesJson) {
+        for (var i = 0; i < cssFilesJson.data.length; i++) {
             var styles = document.createElement('link');
             styles.rel = 'stylesheet';
             styles.type = 'text/css';
             styles.media = 'screen';
-            styles.href = 'assets/css/compiled/' + myjson.data[i].filename;
+            styles.href = 'assets/css/compiled/' + cssFilesJson.data[i].filename;
             document.getElementsByTagName('head')[0].appendChild(styles);
         }
     }
     </script>
-    <script src="/api/getcss/?callback=jsoncallback"></script>
+    <script src="/api/getcss/?callback=loadCompiledCSS"></script>
     <!-- Custom Fonts -->
     <link href="libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -44,7 +44,7 @@
     <![endif]-->
     <!-- jQuery -->
     <script src="libs/jquery/dist/jquery.js"></script>
-    <!-- JS -->
+    <!-- JS, Angular base and angular ui -->
     <script src="libs/angular/angular.min.js"></script>
     <script src="/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="libs/ng-tags-input/ng-tags-input.min.js"></script>
@@ -86,9 +86,7 @@
 <!-- Fotorama plugin for image preview -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-<!-- Custome Javascript -->
+<!-- Custom Javascript -->
 <script src="modules/0.1.3rdparty/js/jquery-ui.js"></script>
 <script src="modules/0.0.applicationbase/js/custom.js"></script>
-<!-- Custom Theme JavaScript -->
-
 </html>
