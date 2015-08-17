@@ -1,6 +1,19 @@
 {
   "name": "JointVenture2k15",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/naveen-upbeat/JointVenture2k15-beta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/naveen-upbeat/JointVenture2k15-beta/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  ],
   "dependencies": {
     "express": "~4.5.1",
     "mongoose": "~3.8.0",
