@@ -46,7 +46,36 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         return source;
     }
     return transformRequest;
-}), angular.module("submodules.modallogin").controller("modalLoginController", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
+}), angular.module("submodules.sectionsignup").controller("sectionSignupCtrl", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
+    $scope.signupUser = {
+        emailmodel: "sample",
+        valid: !0
+    }, $scope.$watch("signupUser", function(newVal, oldVal) {
+        newVal.emailmodel !== oldVal.emailmodel && $scope.checkUserExists(newVal);
+    }, !0), $scope.usertypes = {}, $scope.origUserCopy = angular.copy($scope.user), 
+    $scope.resetForm = function() {
+        $scope.user = angular.copy($scope.origUserCopy);
+    }, $scope.checkUserExists = function(signupUser) {
+        $http({
+            method: "GET",
+            url: "/api/checkemailid",
+            params: {
+                email: signupUser.emailmodel
+            }
+        }).success(function(data, status, headers, cfg) {
+            data.length > 0 ? signupUser.valid = !1 : signupUser.valid = !0;
+        }).error(function(data, status, headers, cfg) {
+            signupUser.valid = !1;
+        });
+    }, $scope.getUserTypes = function(userModel) {
+        $http({
+            method: "GET",
+            url: "/api/getusertypes"
+        }).success(function(data, status, headers, cfg) {
+            data.length > 0 && ($scope.usertypes = data);
+        }).error(function(data, status, headers, cfg) {});
+    }, $scope.getUserTypes();
+} ]), angular.module("submodules.modallogin").controller("modalLoginController", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
     $scope.user = {
         usernamemodel: "",
         passwordmodel: "",
@@ -90,7 +119,13 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-signup.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            $("#modalLogin").modal("hide"), scope.$emit("childLoading");
+            $("#modalLogin").modal("hide"), scope.$watch("usertypes", function(newVal, oldVal) {
+                newVal.length !== oldVal.length && scope.$emit("childLoading");
+            }), $(element).find("#inputEmail").on("blur", function(event) {
+                scope.$apply(function() {
+                    scope.signupUser.emailmodel = $(event.target).val();
+                });
+            }), scope.$emit("childLoading");
         }
     };
 }), angular.module("submodules.modallogin").directive("appJvModalLogin", function() {

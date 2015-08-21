@@ -8,14 +8,8 @@
                     <div class="form-group">
                         <label for="userType" class="col-sm-2 control-label">User Type</label>
                         <div class="radio radio-primary col-sm-9">
-                            <label>
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Owner"> Owner
-                            </label>
-                            <label>
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Agent"> Agent
-                            </label>
-                            <label>
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Builder"> Builder
+                            <label ng-repeat="usertype in usertypes">
+                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="{{usertype.usertype}}"> {{usertype.usertype_label}}
                             </label>
                         </div>
                     </div>
@@ -25,7 +19,7 @@
                             <input type="text" class="form-control" id="textFullName" placeholder="Your Full Name">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error':signupUser.valid===false}">
                         <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-9">
                             <input type="email" class="form-control" id="inputEmail" placeholder="Email">
@@ -50,6 +44,7 @@
                             </select>
                         </div>
                     </div>
+                    model :{{signupUser.emailmodel}}
                     <div class="form-group">
                         <label for="captcha" class="col-sm-2 control-label">Catcha</label>
                         <img id="captcha" src="/captcha" alt="CAPTCHA Image" />

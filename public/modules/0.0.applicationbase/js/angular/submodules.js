@@ -24,7 +24,15 @@ angular.module('submodules', [
                 email : ''
             }
         };
-
+        /**
+         * StateChangeSuccess - triggered everytime a change in state happens
+         * @param  {[type]} event       [description]
+         * @param  {[type]} toState     [description]
+         * @param  {[type]} toParams    [description]
+         * @param  {[type]} fromState   [description]
+         * @param  {[type]} fromParams) {                           console.log(toState.name);                if(toParams && typeof toParams.scrollTo ! [description]
+         * @return {[type]}             [description]
+         */
         $scope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
             	console.log(toState.name);

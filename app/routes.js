@@ -37,6 +37,44 @@
         app.post('/api/logincheck', function(req, res) {
             //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
             console.log(req.body);
+            dbSchemas.users.find({
+                name: req.body.username
+            }, function(err, user) {
+                if (err) throw err;
+                // object of the user
+                console.log(user);
+                res.json(user);
+            });
+
+        });
+
+        // Check user exists
+        app.get('/api/checkemailid', function(req, res) {
+            console.log(req);
+            dbSchemas.users.find({
+                email: req.query.email || req.params.email
+            }, function(err, user) {
+                if (err) throw err;
+                // object of the user
+                //console.log(user);
+                res.json(user);
+            });
+
+        });
+
+        // Get User types
+        app.get('/api/getusertypes', function(req, res) {
+            dbSchemas.usertypes.find({}, function(err, usertypeslist) {
+                // get the Emp
+                if (err) throw err;
+                res.json(usertypeslist);
+            });
+        });
+
+        // add a new user
+        app.post('/api/adduser', function(req, res) {
+            //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
+            console.log(req.body);
             User.find({
                 name: req.body.username
             }, function(err, user) {

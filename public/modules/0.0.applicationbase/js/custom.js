@@ -145,9 +145,9 @@ var siteWideCommonFunctions = {
             "checkboxElements": ".checkbox > label > input[type=checkbox],label.checkbox > input[type=checkbox]",
             "radioElements": ".radio > label > input[type=radio]"
         };
-        $.material.init();
-        $.material.checkbox();
-        $.material.radio();
+        //$.material.init();
+        //$.material.checkbox();
+        //$.material.radio();
     }
 };
 

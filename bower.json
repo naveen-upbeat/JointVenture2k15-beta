@@ -2,14 +2,14 @@
     "name": "jointventurefrondend",
     "version": "1.0.0",
     "dependencies": {
-        "bootstrap": "latest",
-        "angular": "latest",
-        "angular-ui-router": "latest",
-        "angular-animate": "latest",
-        "ngView-animation-effects": "latest",
-        "bootstrap-material-design": "latest",
-        "bootstrap-multiselect": "latest",
-        "components-font-awesome": "latest",
+        "bootstrap": "~3.3.5",
+        "angular": "~1.4.3",
+        "angular-ui-router": "~1.4.3",
+        "angular-animate": "~1.4.3",
+        "ngView-animation-effects": "~1.4.3",
+        "bootstrap-material-design": "~0.3.0",
+        "bootstrap-multiselect": "~0.9.13",
+        "components-font-awesome": "~4.3.0",
         "ng-tags-input": "3.0.0"
     },
     "devDependencies": {

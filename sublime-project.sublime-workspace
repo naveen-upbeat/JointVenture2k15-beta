@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"emp",
+				"emplist"
+			],
+			[
 				"callba",
 				"callbackfn"
 			],
@@ -72,19 +76,11 @@
 	"buffers":
 	[
 		{
-			"file": "/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
+			"file": "public/modules/0.0.applicationbase/js/angular/submodules.js",
 			"settings":
 			{
-				"buffer_size": 1477,
+				"buffer_size": 1177,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/1.Projects/nodeJSProjects/blog/neo.desi/_config.yml",
-			"settings":
-			{
-				"buffer_size": 1760,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -156,40 +152,104 @@
 	},
 	"expanded_folders":
 	[
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/models",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/angular",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/js/angular",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/js/angular/directives",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/js/angular",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/js/angular/directives",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates"
 	],
 	"file_history":
 	[
-		"/C/Users/neo/.ssh/id_rsa.pub",
-		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
-		"/C/Users/neo/naveen.upbeat@gmail.com.pub",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/less/sectionsample.less",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-sample.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/js/angular/directives/sectionSampleDir.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/index.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/package.json",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.2.modallogin/js/angular/directives/modalLoginDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/routes.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/8.sectionsample/js/angular/directives/tpl-section-sample.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/NO-LICENSE.md",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/services/googleMapsAPISvc.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/~$ojectWalkthrough.docx",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/Gruntfile.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/models/jv.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.0.sectionhome/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/js/angApp.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.2.modallogin/js/angular/controllers/loginCtrl.js",
-		"/D/1.Projects/nodeJSProjects/blog/neo.desi/.gitignore",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.2.modallogin/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.0.sectionhome/js/angular/directives/sectionHomeDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.2.sectionrent/js/angular/directives/sectionRentDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.2.sectionrent/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/3.0sectionservicesoffered/js/angular/directives/servicesOfferedDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/3.0sectionservicesoffered/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/4.0.sectionportfolio/js/angular/directives/sectionPortfolioDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/4.0.sectionportfolio/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/5.0.sectionabout/js/angular/directives/sectionAboutDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/5.0.sectionabout/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/js/angular/directives/footerMainDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/directives/bodyDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/services/transformRequestSvc.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.3.sectionsell/js/angular/directives/sectionSellDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.3.sectionsell/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.1.1.sectionjointventureresults/js/angular/directives/sectionJointVentureResultsDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.1.1.sectionjointventureresults/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.1.0.sectionjointventure/js/angular/directives/sectionJointVentureDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.1.0.sectionjointventure/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.1.3rdparty/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/custom.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.0.navigationmain/js/angular/directives/navigationMainDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.0.navigationmain/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.1.sectionsignup/js/angular/directives/sectionSignupDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.1.sectionsignup/js/angular/submodule.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/sectionhome.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/modallogin.css",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/angular/app.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-home.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.1.3rdparty/js/angular/directives/backAnimationDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/2.2.sectionrent/js/angular/directives/sectionHomeDir.js",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure-results.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-rent.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-sell.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-signup.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/test-login-check.html",
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/directives/siteWideCommonDir.js",
 		"/D/1.Projects/nodeJSProjects/blog/neo.desi/_config.yml",
+		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
+		"/C/Users/neo/.ssh/id_rsa.pub",
+		"/C/Users/neo/naveen.upbeat@gmail.com.pub",
+		"/D/1.Projects/nodeJSProjects/blog/neo.desi/.gitignore",
 		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/public",
 		"/D/1.Projects/nodeJSProjects/blog/hexo-openshift/README.md",
 		"/D/1.Projects/nodeJSProjects/blog/blog.neo.desi/.gitignore",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.2.modallogin/js/angular/directives/modalLoginDir.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-modal-login.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/custom.js",
 		"/D/1.Projects/ChromePlugins/QuickShortcuts/popup.js",
 		"/D/1.Projects/ChromePlugins/QuickShortcuts/manifest.json",
 		"/D/1.Projects/ChromePlugins/QuickShortcuts/popup.html",
 		"/D/1.Projects/ChromePlugins/QuickShortcuts/mycontentscript.js",
 		"/D/1.Projects/ChromePlugins/InternetConnectionMonitor/manifest.json",
 		"/D/1.Projects/Playground/gplus.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/routes.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/7.0.sitewidecommon/js/angular/services/transformRequestSvc.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/app/models/jv.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/js/angular/submodules.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/server.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/config/db.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/test-login-check.html",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/0.firstRun.bat",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/1.startMongoDB.bat",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/angular-ui-router/src/stateDirectives.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.1.sectionsignup/js/angular/directives/sectionSignupDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/Gruntfile.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/2.startNodeServer.bat",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/3.closeAll.bat",
 		"/D/1.Projects/nodeJSProjects/blog/neo.desi/source/tags/index.md",
@@ -228,9 +288,7 @@
 		"/C/Users/neo/AppData/Roaming/Sublime Text 3/Packages/Sublime-HTMLPrettify/HTMLPrettify.sublime-settings",
 		"/D/1.Projects/nodeJSProjects/blog/neo.desi/themes/minos/layout/categories.ejs",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/node_modules/mongoose/examples/express/connection-sharing/routes.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/js/angApp.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/node_modules/grunt-contrib-uglify/node_modules/uglify-js/node_modules/source-map/Makefile.dryice.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/1.0.navigationmain/js/angular/directives/navigationMainDir.js",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/footer.css",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/compiled/app.0.css",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/assets/css/applicationbase.css",
@@ -241,52 +299,7 @@
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap/less/variables.less",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_variables.less",
 		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/6.0.footermain/less/footer.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/less/bootstrap-material-variables-custom.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.1.3rdparty/less/bootstrap-material-custom.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_mixins.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/less/bootstrap-variables-custom.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/_progress.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/libs/bootstrap-material-design/less/material-fullpalette.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.1.3rdparty/less/bootstrap-material-fullpallete-custom.less",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/package.json",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-signup.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-main-navigation.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-jointventure-results.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-jointventure.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css/styleAdd.css",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/css/style.css",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/custom.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sitewidecommon/directives/siteWideCommonDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-main-footer.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionjointventureresults/directives/sectionJointVentureResultsDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/submodules.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure-results.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/app.js",
-		"/D/1.Projects/HousingProject/Demo-Template/js/custom.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/tpl-section-sell.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/bower.json",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/console-browserify/test/static/index.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-sell.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionsell/directives/sectionSellDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionjointventure/directives/sectionJointVentureDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-home.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-home.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionhome/directives/sectionHomeDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionabout/directives/sectionAboutDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/modallogin/directives/modalLoginDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/mainnavigation/directives/mainNavigationDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/footer/directives/mainFooterDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-about.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-signup.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionportfolio/directives/sectionPortfolioDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionrent/directives/sectionHomeDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sectionsignup/directives/sectionSignupDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/servicesoffered/directives/servicesOfferedDir.js",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/section-jointventure.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/main-footer.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/templates/main-navigation.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/views/section-jointventure.html",
-		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/js/angular/sitewidecommon/services/scrollToDivSvc.js"
+		"/D/1.Projects/HousingProject/Workspace/2.Projects/JointVenture2k15-beta/public/modules/0.0.applicationbase/less/bootstrap-material-variables-custom.less"
 	],
 	"find":
 	{
@@ -307,6 +320,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"jsoncallback",
+			"myjson",
+			"afteruglify",
+			"==",
+			"op",
+			"module",
+			"jshint",
+			"beforeUglify",
+			"ui-view",
+			"app.get('/api/createSampleUser', function(req, res) {\n\n            // get the user starlord55            \n            var newuser = User({\n                // create a user using schema\n                name: 'amit'\n            });\n\n            // save the user\n            newuser.save(function(err) {\n                if (err) throw err;\n\n                console.log('User created!');\n                res.send('User Created');\n            });\n        });",
+			"siteWideCommon",
+			"jv-",
 			".",
 			"user",
 			"ng-model",
@@ -422,19 +447,7 @@
 			"uglify",
 			"ng-view",
 			"material",
-			"bootstrap",
-			"col-md-6",
-			"fa-3x",
-			"col-md-3",
-			"fa-4x",
-			"fa-2x",
-			"parallax",
-			"col-lg-3",
-			"custom",
-			"submodules.mainnavigation",
-			"directive",
-			"initialize",
-			"//"
+			"bootstrap"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -459,66 +472,32 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/D/1.Projects/nodeJSProjects/blog/hexo-openshift/hexo/_config.yml",
+					"file": "public/modules/0.0.applicationbase/js/angular/submodules.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1477,
+						"buffer_size": 1177,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								570,
+								570
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 18.0,
-						"translation.y": 715.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 1,
-					"file": "/D/1.Projects/nodeJSProjects/blog/neo.desi/_config.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1760,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1760,
-								1760
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 924.0,
+						"translation.y": 62.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -541,18 +520,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -584,20 +556,48 @@
 		"selected_items":
 		[
 			[
-				"logincontroller",
-				"JointVenture2k15-beta\\public\\modules\\1.2.modallogin\\js\\angular\\controllers\\loginCtrl.js"
+				"index.html",
+				"public\\index.html"
+			],
+			[
+				"package.json",
+				"package.json"
+			],
+			[
+				"gruntfile",
+				"JointVenture2k15-beta\\Gruntfile.js"
+			],
+			[
+				"angapp.js",
+				"JointVenture2k15-beta\\public\\assets\\js\\angApp.js"
+			],
+			[
+				"navigationmaindir",
+				"JointVenture2k15-beta\\public\\modules\\1.0.navigationmain\\js\\angular\\directives\\navigationMainDir.js"
 			],
 			[
 				"custom.js",
 				"JointVenture2k15-beta\\public\\modules\\0.0.applicationbase\\js\\custom.js"
 			],
 			[
-				"tpl-modal",
-				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
+				"gruntfile.js",
+				"JointVenture2k15-beta\\Gruntfile.js"
 			],
 			[
-				"index.html",
-				"JointVenture2k15-beta\\public\\index.html"
+				"app.js",
+				"JointVenture2k15-beta\\public\\modules\\0.0.applicationbase\\js\\angular\\app.js"
+			],
+			[
+				"sitewidecommondir",
+				"JointVenture2k15-beta\\public\\modules\\7.0.sitewidecommon\\js\\angular\\directives\\siteWideCommonDir.js"
+			],
+			[
+				"logincontroller",
+				"JointVenture2k15-beta\\public\\modules\\1.2.modallogin\\js\\angular\\controllers\\loginCtrl.js"
+			],
+			[
+				"tpl-modal",
+				"JointVenture2k15-beta\\public\\templates\\tpl-modal-login.html"
 			],
 			[
 				"modal-login",
@@ -648,16 +648,8 @@
 				"JointVenture2k15-beta\\node_modules\\mongoose\\examples\\express\\connection-sharing\\routes.js"
 			],
 			[
-				"gruntfile",
-				"JointVenture2k15-beta\\Gruntfile.js"
-			],
-			[
 				"ngapp",
 				"JointVenture2k15-beta\\public\\assets\\js\\angApp.js"
-			],
-			[
-				"gruntfile.js",
-				"JointVenture2k15-beta\\Gruntfile.js"
 			],
 			[
 				"gruntfile..js",
@@ -676,10 +668,6 @@
 				"JointVenture2k15-beta\\Gruntfile.js"
 			],
 			[
-				"angapp.js",
-				"JointVenture2k15-beta\\public\\assets\\js\\angApp.js"
-			],
-			[
 				"grunt",
 				"JointVenture2k15-beta\\Gruntfile.js"
 			],
@@ -690,10 +678,6 @@
 			[
 				"_mixins.less",
 				"JointVenture2k15-beta\\public\\libs\\bootstrap-material-design\\less\\_mixins.less"
-			],
-			[
-				"app.js",
-				"JointVenture2k15-beta\\public\\js\\angular\\app.js"
 			],
 			[
 				"cutomjs",
@@ -1040,7 +1024,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 237.0,
+	"side_bar_width": 309.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
