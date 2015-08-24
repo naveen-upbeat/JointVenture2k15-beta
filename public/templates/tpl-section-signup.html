@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row vertical-center">
         <div class="col-xs-10 col-xs-offset-1">
-            <form class="form-horizontal">
+            <form class="form-horizontal" novalidate>
                 <fieldset>
                     <h2>New User Registration</h2>
                     <hr>
@@ -23,6 +23,7 @@
                         <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-9">
                             <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                             <p class="help-block" ng-show="signupUser.valid===false"> Email ID address exists. Please use anothe email</p>
                         </div>
                     </div>
                     <div class="form-group">
