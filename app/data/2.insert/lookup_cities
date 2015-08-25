@@ -1,7 +1,2 @@
-[{
-	city_id:'bangalore',
-	city_label:'Bangalore'
-},{
-	city_id:'pune',
-	city_label:'Pune'
-}]
+{'city_id':'bangalore', 'city_label':'Bangalore'}
+{'city_id':'pune', 'city_label':'Pune'}
