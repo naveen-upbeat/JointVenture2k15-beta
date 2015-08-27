@@ -38,7 +38,7 @@
             //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
             console.log(req.body);
             dbSchemas.users.find({
-                name: req.body.username
+                email: req.body.username
             }, function(err, user) {
                 if (err) throw err;
                 // object of the user
