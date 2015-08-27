@@ -11,8 +11,7 @@ var userTypesSchema = new Schema({
 
 // create a User Schema
 var userSchema = new Schema({
-  lname: String,
-  fname: String,
+  name: String,
   password: String,
   password_hash: String,
   email: {type: String, match : /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/},
