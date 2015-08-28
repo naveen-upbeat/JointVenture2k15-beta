@@ -29,23 +29,31 @@ angular.module('submodules.modallogin')
 
         // A loginUser function, to handle the User Login
         $scope.loginUser = function(userModel) {
-
-            $http({
-                method: 'POST',
-                url: '/api/logincheck',
-                transformRequest: transformRequestAsFormPost,
-                data: {
-                    'username': userModel.usernamemodel,
-                    'password': userModel.password
-                }
-            }).success(function(data, status, headers, cfg) {
-                if (data.length > 0) {
-                    userModel.valid = true;
-                } else {
-                    userModel.valid = false;
-                }
-            }).error(function(data, status, headers, cfg) {
+            if (userModel.usernamemodel === '' || userModel.passwordmodel === '') {
                 userModel.valid = false;
-            });
+                $scope.loginForm.username.$setDirty();
+                $scope.loginForm.password.$setDirty();
+            }
+
+            if (userModel.valid) {
+
+                $http({
+                    method: 'POST',
+                    url: '/api/logincheck',
+                    transformRequest: transformRequestAsFormPost,
+                    data: {
+                        'username': userModel.usernamemodel,
+                        'password': userModel.password
+                    }
+                }).success(function(data, status, headers, cfg) {
+                    if (data.length > 0) {
+                        userModel.valid = true;
+                    } else {
+                        userModel.valid = false;
+                    }
+                }).error(function(data, status, headers, cfg) {
+                    userModel.valid = false;
+                });
+            }
         };
     }]);

@@ -5,7 +5,7 @@ var md5 = require('MD5');
 
 //UserTypes Schema
 var userTypesSchema = new Schema({
-	usertype:String,
+	usertype_id:String,
 	usertype_label:String
 });
 

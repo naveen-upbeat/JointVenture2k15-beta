@@ -83,7 +83,8 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
     }, $scope.origUserCopy = angular.copy($scope.user), $scope.resetForm = function() {
         $scope.user = angular.copy($scope.origUserCopy);
     }, $scope.loginUser = function(userModel) {
-        $http({
+        ("" === userModel.usernamemodel || "" === userModel.passwordmodel) && (userModel.valid = !1, 
+        $scope.loginForm.username.$setDirty(), $scope.loginForm.password.$setDirty()), userModel.valid && $http({
             method: "POST",
             url: "/api/logincheck",
             transformRequest: transformRequestAsFormPost,
