@@ -10,7 +10,8 @@
         "bootstrap-material-design": "~0.3.0",
         "bootstrap-multiselect": "~0.9.13",
         "components-font-awesome": "~4.3.0",
-        "ng-tags-input": "3.0.0"
+        "ng-tags-input": "3.0.0",
+        "selectize":"~0.12.1"
     },
     "devDependencies": {
         "bootstrap-multiselect": "~0.9.13"

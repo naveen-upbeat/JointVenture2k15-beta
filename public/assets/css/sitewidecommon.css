@@ -1,6 +1,22 @@
 /**
 * @description: the less file for sitewide common
 */
-.sample {
-  color: #ff0000;
+.page-view > header {
+  padding-top: 110px;
+}
+.btn-site-brand {
+  background-color: #3f51b5;
+  color: rgba(255, 255, 255, 0.84);
+}
+.btn-site-brand.btn {
+  background-color: #3f51b5 !important;
+  color: rgba(255, 255, 255, 0.84) !important;
+}
+.multiselect-container.dropdown-menu li a {
+  background-color: #fff !important;
+  color: initial !important;
+}
+.multiselect-container.dropdown-menu li a:focus,
+.multiselect-container.dropdown-menu li a:hover {
+  color: initial !important;
 }
