@@ -1,5 +1,5 @@
 angular.module('submodules', [
-        'submodules.3rdparty',
+        'submodules.3rdparty',  
         'submodules.sitewidecommon',
         'submodules.navigationmain',
         'submodules.footermain',
@@ -10,20 +10,35 @@ angular.module('submodules', [
         'submodules.sectionjointventure',
         'submodules.sectionjointventureresults',
         'submodules.sectionrent',
-		'submodules.sectionsell',
+        'submodules.sectionsell',
         'submodules.modallogin',
         'submodules.sectionsignup',
         'submodules.sectionsample'
     ])
-    .controller('MainController', function($rootScope, $scope, scrollToDivSvc) {
+    .controller('MainController', ['$rootScope', '$scope', 'userLoginSvc', function($rootScope, $scope, userLoginSvc) {
 
         $scope.appWideScope = {
-            appTitle : 'Joint Venture 2015',
-            user : {
-                username : '',
-                email : ''
+            'str_app_title': 'Joint Venture 2015',
+            'user_session_data': {
+                'is_logged_in' : false,
+                'user_data' : {}
             }
         };
+
+        userLoginSvc.getUserFromServerSession().success(function(data, status, headers, cfg) {
+            if ('user_data' in data && ('_id' in data.user_data)) {
+                userLoginSvc.setUserSessionData(data.user_data);
+            }
+        });
+
+        $scope.$watch(function() {
+            return userLoginSvc.getUserSessionData();
+        }, function(newVal, oldVal) {
+            if (newVal && (newVal.bln_logged_in !== oldVal.bln_logged_in)) {
+                $scope.appWideScope.user_session_data.is_logged_in = newVal.bln_logged_in;
+                $scope.appWideScope.user_session_data.user_data = newVal.user_data;
+            }
+        }, true);
         /**
          * StateChangeSuccess - triggered everytime a change in state happens
          * @param  {[type]} event       [description]
@@ -35,10 +50,7 @@ angular.module('submodules', [
          */
         $scope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
-            	console.log(toState.name);
-                if(toParams && typeof toParams.scrollTo !== 'undefined' ){
-            		scrollToDivSvc.setCurrentDivId(toParams.scrollTo);
-            	}
+
             });
 
-    });
+    }]);

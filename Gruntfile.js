@@ -38,15 +38,30 @@ module.exports = function(grunt) {
         },
         lesslint: {
             src: ['public/modules/**/*.less'],
-            options:{
+            options: {
 
+            }
+        },
+        sass: {
+            dist: {
+                options: {
+                    loadPath: ['public/modules/0.0.applicationbase/_sass'],
+                    sourcemap: "none"
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'public/modules/',
+                    src: ['*.scss'],
+                    dest: 'public/assets/css/',
+                    ext: '.css'
+                }]
             }
         },
         less: {
             options: {
-                paths: ['public/libs/bootstrap/less', 'public/libs/bootstrap-material-design/less', 'public/modules/0.0.applicationbase/less'],
+                paths: ['public/modules/0.0.applicationbase/less'],
                 imports: {
-                    reference: ['_colors.less', '_variables.less', 'applicationbase.less'],
+                    reference: ['applicationbase.less'],
                 }
             },
             components: {
@@ -82,6 +97,7 @@ module.exports = function(grunt) {
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('assemble-less');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-execute');
 
     // Default task(s).
@@ -89,7 +105,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('start', ['execute']);
 
-    grunt.registerTask('includeAllLess', function() {
+    grunt.registerTask('includeAllLessSass', function() {
         var fs = require('fs'),
             path = require('path');
 
@@ -101,7 +117,10 @@ module.exports = function(grunt) {
 
         var path2 = require('path').resolve(__dirname) + "/public/modules/";
         var conf = grunt.config.get('less');
+        var confSass = grunt.config.get('sass');
+
         conf.components.files = [];
+        confSass.dist.files = [];
 
         arrDirNames = getDirectories(path2);
 
@@ -113,9 +132,27 @@ module.exports = function(grunt) {
                 "dest": "public/assets/css/",
                 "ext": '.css'
             };
+            var newSassConf = {
+                "expand": true,
+                "cwd": 'public/modules/' + arrDirNames[j] + "/saas/",
+                "src": '*.scss',
+                "dest": 'public/assets/css/',
+                "ext": '.css'
+            };
+            var new_SassConf = {
+                "expand": true,
+                "cwd": 'public/modules/' + arrDirNames[j] + "/_sass/",
+                "src": '*_.scss',
+                "dest": 'public/assets/css/',
+                "ext": '.css'
+            };
             conf.components.files.push(newConf);
+            confSass.dist.files.push(newSassConf);
+            confSass.dist.files.push(new_SassConf);
         }
         grunt.config.set('less', conf);
+        console.log(confSass);
+        grunt.config.set('sass', confSass);
     });
 
 
@@ -148,6 +185,6 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask('preparecss', ['includeAllLess', 'less', 'createSingleCssFile']);
+    grunt.registerTask('preparecss', ['includeAllLessSass', 'less', 'sass', 'createSingleCssFile']);
     grunt.registerTask('preparejs', ['uglify']);
 };

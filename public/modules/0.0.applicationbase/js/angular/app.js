@@ -1,7 +1,5 @@
 angular.module('jointVentureApp', [
         'ui.router',
-        'ngAnimate',
-        'ngTagsInput',
         'submodules'
     ])
     .config(function($stateProvider, $urlRouterProvider) {

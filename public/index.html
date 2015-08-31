@@ -1,21 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="jointVentureApp" ng-controller="MainController">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="">
     <meta name="author" content="">
-    <title ng-bind="appWideScope.appTitle"></title>
-    <!-- Bootstrap Core CSS -->
-    <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design CSS -->
-    <link href="libs/bootstrap-material-design/dist/css/material.min.css" rel="stylesheet">
-    <link href="libs/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
-    <link href="libs/bootstrap-material-design/dist/css/roboto.css" rel="stylesheet">
-    <link href="libs/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="libs/ng-tags-input/ng-tags-input.min.css">
-    <link rel="stylesheet" href="libs/bootstrap-multiselect/dist/css/bootstrap-multiselect.css">
+    <title ng-bind="appWideScope.str_app_title"></title>
+    <!-- Materialize Core CSS -->
+    <!-- <link href="libs/Materialize/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" /> -->
     <!-- fotorama.css & fotorama.js. -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -35,7 +29,9 @@
     <script src="/api/getcss/?callback=loadCompiledCSS"></script>
     <!-- Custom Fonts -->
     <link href="libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="libs/selectize/dist/css/selectize.css" rel="stylesheet" type="text/css">
+    <link href="libs/selectize/dist/css/selectize.default.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,50 +42,49 @@
     <script src="libs/jquery/dist/jquery.js"></script>
     <!-- JS, Angular base and angular ui -->
     <script src="libs/angular/angular.min.js"></script>
-    <script src="/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script type="text/javascript" src="libs/ng-tags-input/ng-tags-input.min.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
     <!-- ANGULAR APP -->
     <script src="assets/js/angApp.js"></script>
+    <script src="libs/selectize/dist/js/standalone/selectize.min.js"></script>
 </head>
 
 <body app-jv-body-dir="">
     <!-- Navigation -->
     <div class="navigation-main" app-jv-navigation-main="">
     </div>
-    <!-- ANGULAR DYNAMIC CONTENT -->
-    <div class="ng-view-container" app-jv-back-animation="">
-        <div ui-view="top-section" class="page slide page-view" app-jv-site-wide-common="adjustngViewContainerHeight, initMaterialDesign"></div>
-    </div>
-    <!-- <div services-offered="le">
-    </div>
-     -->
-    <div app-jv-section-about="">
-    </div>
-    <!-- <div section-portfolio="">
+    <div class="">
+        <!-- ANGULAR DYNAMIC CONTENT -->
+        <div class="ng-view-container" id="top">
+            <div ui-view="top-section" class="page slide page-view" app-jv-site-wide-common="initMaterialDesign"></div>
+        </div>
+        <!-- <div services-offered="le">
     </div>
      -->
-    <!-- Login Modal -->
-    <div ng-controller="modalLoginController">
-        <div app-jv-modal-login="">
+        <div class="row">
+            <div app-jv-section-about="">
+            </div>
+        </div>
+        <!-- <div section-portfolio="">
+    </div>
+     -->
+        <!-- Login Modal -->
+        <div ng-controller="modalLoginCtrl">
+            <div app-jv-modal-login="">
+            </div>
         </div>
     </div>
-    <footer class="main-footer" app-jv-footer-main="">
+    <footer class="main-footer page-footer" id="contact" app-jv-footer-main="">
     </footer>
     <!-- Sample section -->
-    <div app-jv-section-sample="">
-    </div>
+    <!-- <div app-jv-section-sample="">
+    </div> -->
 </body>
-<!-- Bootstrap Core JavaScript -->
-<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="libs/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
 <!-- Material Design Javascript -->
-    <script src="libs/bootstrap-material-design/dist/js/material.min.js"></script>
-<script src="libs/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script src="libs/Materialize/dist/js/materialize.min.js"></script>
 <script src="libs/angular-animate/angular-animate.min.js"></script>
 <!-- Fotorama plugin for image preview -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <!-- Custom Javascript -->
-<script src="modules/0.1.3rdparty/js/jquery-ui.js"></script>
 <script src="modules/0.0.applicationbase/js/custom.js"></script>
+
 </html>

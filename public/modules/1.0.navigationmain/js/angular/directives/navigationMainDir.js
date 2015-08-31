@@ -11,10 +11,25 @@
  *
  */
 angular.module('submodules.navigationmain')
-.directive('appJvNavigationMain', function() {
-	return{
-		restrict: "AE",
-		templateUrl : 'templates/tpl-navigation-main.html'
-	};
+    .directive('appJvNavigationMain', function(userLoginSvc) {
+        return {
+            restrict: "AE",
+            templateUrl: 'templates/tpl-navigation-main.html',
+            link: function(scope, element, attrs) {
+                scope.$emit('childLoading');
 
-});
+                scope.fn_logoutUser = function() {
+                    userLoginSvc.logoutUser().success(function(data, status, headers, cfg) {
+                        userLoginSvc.clearUserSessionData();
+                    });
+                };
+
+                element.find('.link_logout').on('click', function() {
+                    scope.$apply(function() {
+                        scope.fn_logoutUser();
+                    });
+                });
+            }
+        };
+
+    });

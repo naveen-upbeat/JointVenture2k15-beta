@@ -1,17 +1,34 @@
 /**
 * @description: the less file for sitewide common
 */
-.page-view > header {
-  padding-top: 110px;
+.row .col.pad-left-0 {
+  padding-left: 0;
 }
-.btn-site-brand {
-  background-color: #3f51b5;
-  color: rgba(255, 255, 255, 0.84);
+/*.page-view > header, .page-view > div{
+	padding-top: 60px;
 }
-.btn-site-brand.btn {
-  background-color: #3f51b5 !important;
-  color: rgba(255, 255, 255, 0.84) !important;
+.input-field label{
+    left: 0rem;
 }
+*/
+.btn-brand-primary {
+  background-color: #9c27b0;
+  color: #fff;
+}
+.btn-brand-dismiss {
+  background-color: #f44336;
+  color: #fff;
+}
+/*
+.btn-site-brand{
+	background-color: @indigo;
+	color: rgba(255, 255, 255, 0.84);
+	&.btn{
+		background-color: @indigo !important;
+		color: rgba(255, 255, 255, 0.84) !important;
+	}
+}
+*/
 .multiselect-container.dropdown-menu li a {
   background-color: #fff !important;
   color: initial !important;
@@ -19,4 +36,13 @@
 .multiselect-container.dropdown-menu li a:focus,
 .multiselect-container.dropdown-menu li a:hover {
   color: initial !important;
+}
+.form-group input + span.hint {
+  font-size: 85%;
+}
+label.control-label.input-required:after {
+  content: "*";
+}
+.rotate-right {
+  transform: rotateZ(90deg);
 }

@@ -1,54 +1,163 @@
-<div class="navbar main-navigation navbar-fixed-top">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#/" class="home-link">{{brandname}}</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse main-navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-            <li class="dropdown main-menu-dd btn-site-brand">
-                <a href="javascript:void(0);" class="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><span class="toggle-text">Joint Venture</span> <b class="fa fa-chevron-down"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a ui-sref="jointventure">Joint Venture</a></li>
-                    <li><a href="#">Rent - Coming Soon</a></li>
-                    <li><a href="#">Buy  - Coming Soon</a></li>
-                    <li><a ui-sref="sell">Sell</a></li>
-                </ul>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="javascript:void(0);" data-activates="mobile-menu" class="button-collapse left">
+                <i class="material-icons">menu</i>
+            </a>
+            <a ui-sref="home" class="col left s12 brand-logo"></a>
+            <ul id="nav-mobile" class="col offset-s1 left hide-on-med-and-down">
+                <li>
+                    <a href="javascript:void(0);" data-beloworigin="true" data-activates="dropdown-jv" class="dropdown-button"><span class="toggle-text">Joint Venture</span>  <b class="fa fa-chevron-down"></b></a>
+                    <ul class="dropdown-content" id="dropdown-jv">
+                        <li><a ui-sref="jointventure">Joint Venture</a></li>
+                        <li><a href="#">Rent - Coming Soon</a></li>
+                        <li><a href="#">Buy  - Coming Soon</a></li>
+                        <li><a ui-sref="sell">Sell</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li ng-class="{'show':!appWideScope.user_session_data.is_logged_in,'hide':appWideScope.user_session_data.is_logged_in}">
+                    <a class="waves-effect waves-light modal-trigger" data-target="modalLogin">Login</a>
+                </li>
+                <li ng-class="{'show':appWideScope.user_session_data.is_logged_in,'hide':!appWideScope.user_session_data.is_logged_in}">
+                    <a href="javascript:void(0)" class="waves-effect waves-light dropdown-button" data-beloworigin="true" data-activates="dropdown-user"><b class="fa fa-user"></b> {{appWideScope.user_session_data.user_data.fname}} <b class="fa fa-chevron-down"></b></a>
+                    <ul class="dropdown-content" id="dropdown-user">
+                        <li><a href="#Shortlisted">Shortlisted</a></li>
+                        <li><a href="#">Contacted</a></li>
+                        <li><a href="#">Alert</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)" class="link_logout">Logout</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="waves-effect waves-light dropdown-button" data-beloworigin="true" data-activates="dropdown-quick-links">Quick Links <b class="fa fa-chevron-down"></b></a>
+                    <ul class="dropdown-content" id="dropdown-quick-links">
+                        <li>
+                            <a ui-sref="home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#/?scrollTo=services">Services</a>
+                        </li>
+                        <li>
+                            <a href="#/?scrollTo=portfolio">Portfolio</a>
+                        </li>
+                        <li class="divider "></li>
+                        <li>
+                            <a href="#/?scrollTo=about">About</a>
+                        </li>
+                        <li>
+                            <a href="#/?scrollTo=contact">Contact</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-menu">
+                <li>
+                    <a href="javascript:void(0);"   data-activates="dropdown-jv-mobile" class="dropdown-button"><span class="toggle-text">Joint Venture</span>  <b class="fa fa-chevron-down"></b></a>
+                    <ul class="dropdown-content" id="dropdown-jv-mobile">
+                        <li><a ui-sref="jointventure">Joint Venture</a></li>
+                        <li><a href="#">Rent - Coming Soon</a></li>
+                        <li><a href="#">Buy  - Coming Soon</a></li>
+                        <li><a ui-sref="sell">Sell</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <li ng-class="{'show':!appWideScope.user_session_data.is_logged_in,'hide':appWideScope.user_session_data.is_logged_in}">
+                        <a class="waves-effect waves-light modal-trigger" data-target="modalLogin">Login</a>
+                    </li>
+                    <li ng-class="{'show':appWideScope.user_session_data.is_logged_in,'hide':!appWideScope.user_session_data.is_logged_in}">
+                        <a href="javascript:void(0)" class="waves-effect waves-light dropdown-button" data-activates="dropdown-user-mobile"><b class="fa fa-user"></b> {{appWideScope.user_session_data.user_data.fname}} <b class="fa fa-chevron-down"></b></a>
+                        <ul class="dropdown-content" id="dropdown-user-mobile">
+                            <li><a href="#Shortlisted">Shortlisted</a></li>
+                            <li><a href="#">Contacted</a></li>
+                            <li><a href="#">Alert</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)" class="link_logout">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="waves-effect waves-light dropdown-button" data-beloworigin="true" data-activates="dropdown-quick-links-mobile">Quick Links <b class="fa fa-chevron-down"></b></a>
+                        <ul class="dropdown-content" id="dropdown-quick-links-mobile">
+                            <li>
+                                <a ui-sref="home">Home</a>
+                            </li>
+                            <li>
+                                <a href="#/?scrollTo=services">Services</a>
+                            </li>
+                            <li>
+                                <a href="#/?scrollTo=portfolio">Portfolio</a>
+                            </li>
+                            <li class="divider "></li>
+                            <li>
+                                <a href="#/?scrollTo=about">About</a>
+                            </li>
+                            <li>
+                                <a href="#/?scrollTo=contact">Contact</a>
+                            </li>
+                        </ul>
+                    </li>
+            </ul>
             </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <!-- <li>
+            </ul>
+        </div>
+    </nav>
+    <!--
+    <div class="navbar main-navigation navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/" class="home-link">{{brandname}}</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse main-navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown main-menu-dd btn-site-brand">
+                    <a href="javascript:void(0);" class="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><span class="toggle-text">Joint Venture</span> <b class="fa fa-chevron-down"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="jointventure">Joint Venture</a></li>
+                        <li><a href="#">Rent - Coming Soon</a></li>
+                        <li><a href="#">Buy  - Coming Soon</a></li>
+                        <li><a ui-sref="sell">Sell</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li>
                             <a href="#"> Sell / Rent Property  </a>
                         </li>
-                         -->
-            <li>
-                <a href="javascript:void();" data-toggle="modal" data-target="#modalLogin "> 
-                <span class="user-profile-pic"></span>Login </a>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:void(0);" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Quick Links <b class="fa fa-chevron-down"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a ui-sref="home ">Home</a>
-                    </li>
-                    <li>
-                        <a href="#/?scrollTo=services ">Services</a>
-                    </li>
-                    <li>
-                        <a href="#/?scrollTo=portfolio ">Portfolio</a>
-                    </li>
-                    <li class="divider "></li>
-                    <li>
-                        <a href="#/?scrollTo=about ">About</a>
-                    </li>
-                    <li>
-                        <a href="#/?scrollTo=contact ">Contact</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+                        
+                <li>
+                    <a href="javascript:void();" data-toggle="modal" data-target="#modalLogin ">
+                        <span class="user-profile-pic"></span>Login </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Quick Links <b class="fa fa-chevron-down"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a ui-sref="home" app-jv-scroll-to-div="top">Home</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" app-jv-scroll-to-div="services">Services</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" app-jv-scroll-to-div="portfolio">Portfolio</a>
+                        </li>
+                        <li class="divider "></li>
+                        <li>
+                            <a href="javascript:void(0);" app-jv-scroll-to-div="about">About</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" app-jv-scroll-to-div="contact">Contact</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
+-->
 </div>

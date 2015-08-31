@@ -1,82 +1,74 @@
 <div class="">
-    <div class="container-fluid">
-        <div class="row vertical-center">
-            <div class="col-xs-12 col-sm-10 col-sm-offset-1 content-bg-layer">
-                <div class="row">
-                    <div class="col-lg-6 col-lg-offset-3 text-center">
-                        <h1 class="material-color-"> Search for Ventures </h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1 ">
-                        <ul class="nav nav-pills nav-pills-jv">
-                            <li class="active"><a class="" href="javascript:void(0)" data-target="#agriculture" data-toggle="tab">Agricultural / Farm </a></li>
-                            <li><a class="btn-site-brand" href="javascript:void(0)" data-target="#commercial" data-toggle="tab">Commercial</a></li>
-                        </ul>
-                        <div class="panel panel-default panel-joint-venture-search">
-                            <div class="panel-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane fade active in" id="agriculture">
-                                        <form class="form-inline">
-                                            <div class="form-group col-xs-12 col-md-4 btn-group">
-                                                <label class="sr-only" for="area">Area</label>
-                                                <tags-input ng-model="addrtags" display-property="description" key-property="place_id" type="text" id="Area" placeholder="Location">
-                                                    <auto-complete display-property="description" key-property="place_id" source="loadAddrTags($query)"></auto-complete>
-                                                </tags-input>
-                                            </div>
-                                            <div class="form-group col-xs-12 col-md-3">
-                                                <select label="Select Type" id="farmtype" multiple="multiple">
-                                                    <option value="1">Agriculture </option>
-                                                    <option value="2" selected="selected">Farm Land</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-xs-12 col-md-3">
-                                                <select title="Select Budget" id="budget" multiple="multiple">
-                                                    <option>less than 2 Lakh</option>
-                                                    <option>2 - 3 lakh</option>
-                                                    <option>3 - 10 lakh</option>
-                                                    <option>10 - 20 lakh</option>
-                                                    <option>20+ lakh</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-1 pull-right">
-                                                <a ui-sref="jointventureresults" type="button" class="btn btn-site-brand pull-right">Search</a>
-                                            </div>
-                                        </form>
+    <div class="row vertical-center">
+        <div class="col s12 content-bg-layer">
+            <div class="col s12 center">
+                <h4 class="text-white"> Search for Ventures </h4>
+            </div>
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="row">
+                        <div class="col s12">
+                            <ul class="tabs">
+                                <li class="tab col s6 m3 l1"><a href="#test1">Agriculture</a></li>
+                                <li class="tab col s6 m3 l1"><a class="active" href="#test2">Commercial</a></li>
+                            </ul>
+                        </div>
+                        <div id="test1" class="col s12 white">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6 m3">
+                                            <input id="searchcity" name="searchcity" type="text" class="validate">
+                                            <label for="icon_prefix" class="active">Search city</label>
+                                        </div>
+                                        <div class="input-field col s6 m3">
+                                            <a href="javascript:void(0);" data-beloworigin="true" data-activates="dropdown-property-type" class="dropdown-button" data-constrainwidth="false"><span class="toggle-text">Property Type</span>  <b class="fa fa-chevron-down"></b></a>
+                                            <ul class="dropdown-content" id="dropdown-property-type">
+                                                <li>Residential</li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col s4 m3">
+                                                            <div class="input-field">
+                                                                <input type="checkbox" name="prop-type" value="flat">
+                                                                <label>Flat</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s4 m3">
+                                                            <div class="input-field">
+                                                                <input type="checkbox" name="prop-type" value="house">
+                                                                <label>House / Villa</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col s4 m3">
+                                                            <div class="input-field">
+                                                                <input type="checkbox" name="prop-type" value="plot">
+                                                                <label>Plot</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>Commercial</li>
+                                                <li class="divider"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="input-field col s6 m3">
+                                            <select id="property_value" class="validate">
+                                                <option value="10">0 to 10 Lakh</option>
+                                                <option value="20">0 to 20 Lakh</option>
+                                                <option value="30">0 to 30 Lakh</option>
+                                            </select>
+                                            <label for="icon_telephone">Value</label>
+                                        </div>
+                                        <div class="input-field col s6 m2">
+                                            <button class="btn btn-primary waves-effect">Search</button>
+                                        </div>
                                     </div>
-                                    <div class="tab-pane fade" id="commercial">
-                                    <form class="form-inline">
-                                            <div class="form-group col-xs-12 col-md-4 btn-group">
-                                                <label class="sr-only" for="area">Area</label>
-                                                <tags-input ng-model="addrtags" display-property="description" key-property="place_id" type="text" id="Area" placeholder="Location">
-                                                    <auto-complete display-property="description" key-property="place_id" source="loadAddrTags($query)"></auto-complete>
-                                                </tags-input>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <select label="Select Type" id="farmtype" multiple="multiple">
-                                                    <option value="1"> Office </option>
-                                                    <option value="2" selected="selected">Commercial Land</option>
-                                                    <option value="2" selected="selected">Industrial Building</option>
-                                                    <option value="2" selected="selected">Industrial Shed</option>
-                                                    <option value="2" selected="selected">Warehouse / Godown</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <select title="Select Budget" id="budget" multiple="multiple">
-                                                    <option>less than 2 Lakh</option>
-                                                    <option>2 - 3 lakh</option>
-                                                    <option>3 - 10 lakh</option>
-                                                    <option>10 - 20 lakh</option>
-                                                    <option>20+ lakh</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-1 pull-right">
-                                                <a ui-sref="jointventureresults" class="btn btn-site-brand pull-right">Search</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
+                        </div>
+                        <div id="test2" class="col s12">
+                            In progress
                         </div>
                     </div>
                 </div>

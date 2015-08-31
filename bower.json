@@ -1,19 +1,12 @@
 {
-    "name": "jointventurefrondend",
-    "version": "1.0.0",
-    "dependencies": {
-        "bootstrap": "~3.3.5",
-        "angular": "~1.4.3",
-        "angular-ui-router": "~0.2.15",
-        "angular-animate": "latest",
-        "ngView-animation-effects": "latest",
-        "bootstrap-material-design": "~0.3.0",
-        "bootstrap-multiselect": "~0.9.13",
-        "components-font-awesome": "~4.3.0",
-        "ng-tags-input": "3.0.0",
-        "selectize":"~0.12.1"
-    },
-    "devDependencies": {
-        "bootstrap-multiselect": "~0.9.13"
-    }
+  "name": "jointventurefrontend",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-animate": "latest",
+    "angular-ui-router": "~0.2.15",
+    "components-font-awesome": "~4.4.0",
+    "Materialize": "materialize#~0.97.0",
+    "selectize": "~0.12.1"
+  }
 }

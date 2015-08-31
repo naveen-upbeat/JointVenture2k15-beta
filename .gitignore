@@ -18,3 +18,4 @@ node_modules
 
 public/libs
 sublime-project.sublime-workspace
+*.scssc

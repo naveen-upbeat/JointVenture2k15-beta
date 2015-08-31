@@ -1,72 +1,92 @@
-<div class="container-fluid">
-    <div class="row vertical-center">
-        <div class="col-xs-10 col-xs-offset-1">
-            <form class="form-horizontal" novalidate>
-                <fieldset>
-                    <h2>New User Registration</h2>
-                    <hr>
-                    <div class="form-group">
-                        <label for="userType" class="col-sm-2 control-label">User Type</label>
-                        <div class="radio radio-primary col-sm-9">
-                            <label ng-repeat="usertype in usertypes">
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="{{usertype.usertype}}"> {{usertype.usertype_label}}
-                            </label>
+<div class="row vertical-center">
+    <div class="col s12">
+        <form name="formUserSignup" novalidate>
+            <fieldset>
+                <h2>New User Registration</h2>
+                <hr>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s3 input-field">
+                            <label for="userType" class="col-sm-2 control-label">User Type</label>
+                        </div>
+                        <div class="col s8">
+                            <div ng-repeat="usertype in usertypes" class="radio-user-types">
+                                <input type="radio" name="userTypeRadios" id="userTypeRadios{{usertype.usertype_id}}" value="{{usertype.usertype_id}}">
+                                <label for="userTypeRadios{{usertype.usertype_id}}"> {{usertype.usertype_label}}</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="fullName" class="col-sm-2 control-label">Full Name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="textFullName" placeholder="Your Full Name">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" name="fname" class="" id="textLName">
+                            <label for="fullName">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="lname" class="" id="textFName">
+                            <label for="fullName">Last Name</label>
                         </div>
                     </div>
-                    <div class="form-group" ng-class="{'has-error':signupUser.valid===false}">
-                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                             <p class="help-block" ng-show="signupUser.valid===false"> Email ID address exists. Please use anothe email</p>
+                    <div class="row">
+                        <div class="input-field col s12" ng-class="{'has-error':signupUser.valid===false}">
+                            <input type="email" name="email" class="" id="inputEmail" ng-model="emailmodel.emailmodel">
+                            <label for="inputEmail" class="">Email</label>
+                            <p class="help-block" ng-show="signupUser.valid===false"> Email ID address exists. Please use anothe email</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-9">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="password" name="password" class="form-control" id="inputPassword">
+                            <label for="inputPassword" class="">Password</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="select" class="col-sm-2 control-label">City</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="selectCity">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="checkbox" name="showpassword" class="form-control" id="showPassword">
+                            <label for="showPassword" class="">Show Password</label>
+                        </div>
+                        <div class="input-field col s12 field-confirm-password">
+                            <input type="password" name="confirmpassword" class="form-control" id="inputConfirmPassword">
+                            <label for="inputConfirmPassword" class="">Confirm Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select class="" id="selectCity" name="city">
                                 <option>Bangalore</option>
                                 <option>Pune</option>
                                 <option>Hyderabad</option>
                                 <option>Pune</option>
                                 <option>Mumbai</option>
                             </select>
+                            <label>City</label>
                         </div>
                     </div>
-                    <!-- model :{{signupUser.emailmodel}} -->
-                    <div class="form-group">
-                        <label for="captcha" class="col-sm-2 control-label">Catcha</label>
-                        <img id="captcha" src="/captcha" alt="CAPTCHA Image" />
-                        <a href="#" onclick="document.getElementById('captcha').src = '/captcha?' + Math.random(); return false" class="btn btn-site-brand btn-sm">Show a Different Image</a>
-                    </div>
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label class="col-sm-2"></label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="For security, please enter the code displayed in the box." />
-                            <span class="help-block" style="display: none;">Please enter the code displayed within the image.</span>
-                            <label class="col-sm-2"></label>
-                            <span class="help-block" style="display: none;">Please enter a the security code.</span>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-6 col-xs-offset-4">
-                                <button type="reset" class="btn btn-danger btn-sm">Reset</button>
-                                <button type="submit" class="btn btn-primary btn-sm">Register Now!</button>
+                    <div class="row">
+                        <!-- model :{{signupUser.emailmodel}} -->
+                        <div class="col s3 input-field">
+                            <div class="valign-wrapper" >
+                                <div class="valign">
+                                    <label for="captcha" class="">Catcha</label>
+                                </div>
                             </div>
                         </div>
-                </fieldset>
-            </form>
-            </div>
+                        <div class="col s8">
+                            <div class="valign-wrapper">
+                                <div class="valign">
+                                    <div class="g-recaptcha col-sm-9" data-sitekey="6LdQ_QsTAAAAAM8IyCCqBrm8LMQVYkcZzZ0mQe_q"></div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <button type="reset" class="btn btn-danger btn-sm">Reset</button>
+                        </div>
+                        <div class="col s6">
+                            <button ng-click="signupNewUser(formUserSignup)" class="btn btn-primary btn-sm">Register Now!</button>
+                        </div>
+                    </div>
+            </fieldset>
+        </form>
         </div>
     </div>

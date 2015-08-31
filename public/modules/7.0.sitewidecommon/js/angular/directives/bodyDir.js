@@ -11,21 +11,21 @@
  *
  */
 angular.module('submodules.sitewidecommon')
-    .directive('appJvBodyDir', ['scrollToDivSvc', function(scrollToDivSvc) {
+    .directive('appJvBodyDir', [ function() {
         return {
             link: function(scope, element, attrs) {
 
-                scope.$watch(scrollToDivSvc.getCurrentDivId, function(newVal, oldVal) {
-                    if ( newVal && newVal !== oldVal ) {
-
-                        var target = $('#' + newVal);
-                        target = target.length ? target : $('[name=' + newVal + ']');
-                        if ( target.length ) {
-                            $('html,body').animate({
-                                scrollTop: target.offset().top
-                            }, 1000);
-                        }
-                    }
+                /**
+                 * LocationChangeSuccess - triggered everytime URL changes
+                 * @param  {[type]} event       [description]
+                 * @param  {[type]} newUrl      [description]
+                 * @param  {[type]} oldUrl      [description]
+                 * @param  {[type]} newState    [description]
+                 * @param  {[type]} oldState){                     } [description]
+                 * @return {[type]}             [description]
+                 */
+                scope.$on('$locationChangeSuccess', function(event, newURL, oldURL, newState, oldState) {
+                    siteWideCommonFunctions.scrollToSection(newURL.split('?scrollTo=')[1]);
                 });
             }
         };

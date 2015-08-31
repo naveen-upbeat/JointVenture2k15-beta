@@ -17,6 +17,7 @@ angular.module('submodules.sectionhome')
             templateUrl: 'templates/tpl-section-home.html',
             link: function(scope, element, attrs, tabsCtrl) {
                 //addParallax(element);
+                scope.$emit('childLoading');
             }
         };
     });
