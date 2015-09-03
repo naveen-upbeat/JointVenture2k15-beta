@@ -13,7 +13,7 @@ angular.module('jointVentureApp', [
                 url: "/",
                 params: {
                     'scrollTo': {
-                        'value': null
+                        'value': 'top'
                     }
                 },
                 views: {
@@ -24,8 +24,12 @@ angular.module('jointVentureApp', [
                 }
             })
             .state('home', {
-                url: "/home",
-
+                url: "/home?scrollTo",
+                params: {
+                    'scrollTo': {
+                        'value': 'top'
+                    }
+                },
                 views: {
                     'top-section': {
                         templateUrl: "views/section-home.html",

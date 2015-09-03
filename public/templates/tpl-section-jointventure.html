@@ -9,12 +9,13 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s6 m3 l1"><a href="#test1">Agriculture</a></li>
-                                <li class="tab col s6 m3 l1"><a class="active" href="#test2">Commercial</a></li>
+                                <li class="tab col s6 m3 l1"><a href="#tabAgriculture">Agriculture</a></li>
+                                <li class="tab col s6 m3 l1"><a class="active" href="#tabCommercial">Commercial</a></li>
                             </ul>
                         </div>
-                        <div id="test1" class="col s12 white">
+                        <div id="tabAgriculture" class="col s12 white">
                             <div class="row">
+                            <form action="#">
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s6 m3">
@@ -22,31 +23,32 @@
                                             <label for="icon_prefix" class="active">Search city</label>
                                         </div>
                                         <div class="input-field col s6 m3">
-                                            <a href="javascript:void(0);" data-beloworigin="true" data-activates="dropdown-property-type" class="dropdown-button" data-constrainwidth="false"><span class="toggle-text">Property Type</span>  <b class="fa fa-chevron-down"></b></a>
-                                            <ul class="dropdown-content" id="dropdown-property-type">
+                                            <a href="javascript:void(0);" data-beloworigin="true" data-activates="dropdown-property-type" class="dropdown-button-custom" data-constrainwidth="false"><span class="toggle-text">Property Type</span>  <b class="fa fa-chevron-down"></b></a>
+                                            <ul class="dropdown-content-custom" id="dropdown-property-type">
                                                 <li>Residential</li>
                                                 <li class="divider"></li>
                                                 <li>
                                                     <div class="row">
-                                                        <div class="col s4 m3">
+                                                        <div class="col s6">
                                                             <div class="input-field">
-                                                                <input type="checkbox" name="prop-type" value="flat">
-                                                                <label>Flat</label>
+                                                                <input type="checkbox" id="checkboxFlat" class="form-control" name="prop-type" value="flat">
+                                                                <label for="checkboxFlat">Flat</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col s4 m3">
+                                                        <div class="col s6">
                                                             <div class="input-field">
-                                                                <input type="checkbox" name="prop-type" value="house">
-                                                                <label>House / Villa</label>
+                                                                <input type="checkbox" class="form-control" name="prop-type" id="checkboxHoue" value="house">
+                                                                <label for="checkboxHoue">House / Villa</label>
                                                             </div>
                                                         </div>
-                                                        <div class="col s4 m3">
+                                                        <div class="col s6">
                                                             <div class="input-field">
-                                                                <input type="checkbox" name="prop-type" value="plot">
-                                                                <label>Plot</label>
+                                                                <input type="checkbox" class="form-control" name="prop-type" id="checkboxPlot" value="plot">
+                                                                <label for="checkboxPlot">Plot</label>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
                                                 </li>
                                                 <li>Commercial</li>
                                                 <li class="divider"></li>
@@ -67,7 +69,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div id="test2" class="col s12">
+                        <div id="tabCommercial" class="col s12">
                             In progress
                         </div>
                     </div>

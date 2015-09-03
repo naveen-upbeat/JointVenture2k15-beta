@@ -207,8 +207,8 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-jointventure.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            $(element).find("select").material_select(), scope.addrtags = [], window.predictionsNow = [], 
-            window.initService = function(query) {
+            $(element).find("select").material_select(), $(element).find("select").scope.addrtags = [], 
+            window.predictionsNow = [], window.initService = function(query) {
                 var displaySuggestions = function(predictions, status) {
                     return window.predictionsNow = [], status != google.maps.places.PlacesServiceStatus.OK ? void alert(status) : void predictions.forEach(function(prediction) {
                         window.predictionsNow.push(prediction);
@@ -385,7 +385,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         url: "/",
         params: {
             scrollTo: {
-                value: null
+                value: "top"
             }
         },
         views: {
@@ -395,7 +395,12 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             }
         }
     }).state("home", {
-        url: "/home",
+        url: "/home?scrollTo",
+        params: {
+            scrollTo: {
+                value: "top"
+            }
+        },
         views: {
             "top-section": {
                 templateUrl: "views/section-home.html",

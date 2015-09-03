@@ -57,5 +57,20 @@ var siteWideCommonFunctions = {
                 scrollTop: $("#" + divId).offset().top
             }, 2000);
         }
-    }
+    },
+
+
 };
+
+(function($){
+
+    $.fn.dropdown_custom = function(){
+        var _this = $(this); 
+        if(_this.data(''))
+        _this.find('ul.dropdown-button-custom').appendTo(_this.closest('.row'));
+        _this.on('click',function(){
+            
+        });
+    };
+
+})(jQuery);

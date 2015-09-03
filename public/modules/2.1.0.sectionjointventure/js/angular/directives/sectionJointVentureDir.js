@@ -18,6 +18,7 @@
                 templateUrl: 'templates/tpl-section-jointventure.html',
                 link: function(scope, element, attrs, tabsCtrl) {
                     $(element).find('select').material_select();
+                    $(element).find('select').
                     //addParallax(element);
                     scope.addrtags = [];
 

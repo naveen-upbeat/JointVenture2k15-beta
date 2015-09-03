@@ -151,7 +151,7 @@ module.exports = function(grunt) {
             confSass.dist.files.push(new_SassConf);
         }
         grunt.config.set('less', conf);
-        console.log(confSass);
+        //console.log(confSass);
         grunt.config.set('sass', confSass);
     });
 
