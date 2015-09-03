@@ -4,15 +4,15 @@ var Schema = mongoose.Schema;
 var md5 = require('MD5');
 
 //UserTypes Schema
-var userTypesSchema = new Schema({
-	usertype_id:String,
-	usertype_label:String
-});
+var userTypeSchema = new Schema({
+	id: String,
+	usertype_label: String
+}, {collection: 'USERTYPE'});
 
 // create a User Schema
 var userSchema = new Schema({
-  lname: String,
-  fname: String,
+  last_name: String,
+  first_name: String,
   password: String,
   password_hash: String,
   email: {type: String, match : /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/},
@@ -20,7 +20,7 @@ var userSchema = new Schema({
   mobile: {type: String, maxlength: 9},
   alertnate_mobile: [{ type: String, maxlength:9}],
   usertype: String
-});
+},{collection: 'USER'});
 
 // custom method to encrypt the password field
 // you can create more important methods like name validations or formatting
@@ -34,16 +34,23 @@ userSchema.methods.hashPwd = function() {
 
 // Creating a venture schema
 var empSchema = new Schema({
-  fname: String,
-  lname: String
+  first_name: String,
+  last_name: String
 });
 
-// the schemas is useless so far
-// we need to create a model using it
+// City lookup schema
+var lookup_citySchema = new Schema({
+  city_name: String,
+  city_label: String
+},{collection: 'LOOKUP_CITY'});
+
+// the schemas are useless so far
+// we need to create a mongoose model using it
 var dbSchemas = {
-  'users' : mongoose.model('users', userSchema),
-  'emps' : mongoose.model('emps', empSchema),
-  'usertypes': mongoose.model('usertypes',userTypesSchema)
+  'USERTYPE': mongoose.model('USERTYPE', userTypeSchema),
+  'USER' : mongoose.model('USER', userSchema),
+  'EMP' : mongoose.model('EMP', empSchema),
+  'LOOKUP_CITY': mongoose.model('LOOKUP_CITY',lookup_citySchema)
 }
-// make this available to our users in our Node applications
+// make this available to our routes in our Node applications
 module.exports = dbSchemas;

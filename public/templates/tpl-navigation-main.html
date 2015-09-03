@@ -19,7 +19,7 @@
                     <a class="waves-effect waves-light modal-trigger" data-target="modalLogin">Login</a>
                 </li>
                 <li ng-class="{'show':appWideScope.user_session_data.is_logged_in,'hide':!appWideScope.user_session_data.is_logged_in}">
-                    <a href="javascript:void(0)" class="waves-effect waves-light dropdown-button" data-beloworigin="true" data-activates="dropdown-user"><b class="fa fa-user"></b> {{appWideScope.user_session_data.user_data.fname}} <b class="fa fa-chevron-down"></b></a>
+                    <a href="javascript:void(0)" class="waves-effect waves-light dropdown-button" data-beloworigin="true" data-activates="dropdown-user"><b class="fa fa-user"></b> {{appWideScope.user_session_data.user_data.first_name}} <b class="fa fa-chevron-down"></b></a>
                     <ul class="dropdown-content" id="dropdown-user">
                         <li><a href="#Shortlisted">Shortlisted</a></li>
                         <li><a href="#">Contacted</a></li>

@@ -1,0 +1,3 @@
+{'id':'owner','usertype_label':'Owner'}
+{'id':'agent','usertype_label':'Agent'}
+{'id':'builder','usertype_label':'Builder'}

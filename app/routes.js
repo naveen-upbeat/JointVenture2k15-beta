@@ -30,12 +30,13 @@
             });
         });
 
-        app.get('/api/getEmp', function(req, res) {
-
-            dbSchemas.emps.find({}, function(err, emplist) {
+        app.get('/api/getcities', function(req, res) {
+            //console.log('getting cities',dbSchemas.LOOKUP_CITY);
+            dbSchemas.LOOKUP_CITY.find({}, function(err, citylist) {
                 // get the Emp
                 if (err) throw err;
-                res.json(emplist);
+                console.log(citylist);
+                res.json(citylist);
             });
         });
 
@@ -54,7 +55,7 @@
             sess = req.session;
             //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
             //console.log(req.body);
-            dbSchemas.users.find({
+            dbSchemas.USER.find({
                 email: req.body.username
             }, function(err, user) {
                 if (err) throw err;
@@ -80,7 +81,7 @@
         // Check user exists
         app.get('/api/checkemailid', function(req, res) {
             //console.log(req);
-            dbSchemas.users.find({
+            dbSchemas.USER.find({
                 email: req.query.email || req.params.email
             }, function(err, user) {
                 if (err) throw err;
@@ -99,7 +100,7 @@
 
         // Get User types
         app.get('/api/getusertypes', function(req, res) {
-            dbSchemas.usertypes.find({}, function(err, usertypeslist) {
+            dbSchemas.USERTYPE.find({}, function(err, usertypeslist) {
                 // get the Emp
                 if (err) throw err;
                 res.json(usertypeslist);
