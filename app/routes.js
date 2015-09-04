@@ -6,6 +6,14 @@
     var mongo = require('mongoose')
     var fs = require('fs');
     var path = require('path');
+    var nodemailer = require('nodemailer');
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'techcompeers@gmail.com',
+            pass: 'techCompeers2k15'
+        }
+    });
     module.exports = function(app) {
         var sess;
         app.use(session({
@@ -121,6 +129,24 @@
             });
 
         });
+
+        app.post('/api/sendmail', function(req, res) {
+            var userEmail = name: req.body.username;
+
+            transporter.sendMail({
+                from: 'techcompeers@gmail.com',
+                to: userEmail,
+                subject: 'Password Reset | JointVenture2k15',
+                text: 'You forgot your password. Please reset your password by clicking here.'
+            }, function(err, info){
+                //console.log('email sent');
+                //console.log(err,info);
+            });
+
+            res.send(transporter);
+
+        });
+
         app.get('/api/captcha', function(req, res) {
 
             mypublickey = '6LdQ_QsTAAAAAM8IyCCqBrm8LMQVYkcZzZ0mQe_q';

@@ -19,20 +19,20 @@
                     <form novalidate name="loginForm" action="/api/logincheck" class="form-horizontal login-form">
                         <div class="">
                             <div class="row">
-                                <div class="input-field col s12" ng-class="{'has-error':loginForm.username.$error.required && !loginForm.username.$pristine}">
-                                    <input type="text" name="username" ng-model="modelLoginForm.username" class="validate" required>
-                                    <label for="username" ng-class="{'active':modelLoginForm.username.length}"> Username </label>
+                                <div class="input-field col s12">
+                                    <input type="text" name="username" ng-model="modelLoginForm.username" class="validate" ng-class="{'invalid':loginForm.username.$error.required && !loginForm.username.$pristine}" required>
+                                    <label for="username" data-error="Please enter Username" ng-class="{'active':modelLoginForm.username.length}" class="col s12 pad-left-0"> Username </label>
                                 </div>
                             </div>
                             <div class="row mb0">
-                                <div class="input-field col s12" ng-class="{'has-error':loginForm.password.$error.required && !loginForm.password.$pristine}">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" ng-model="modelLoginForm.password" class="validate" required>
+                                <div class="input-field col s12">
+                                    <input type="password" ng-class="{'invalid':loginForm.password.$error.required && !loginForm.password.$pristine}" name="password" ng-model="modelLoginForm.password" class="validate" required>
+                                    <label for="password" class="col s12 ml0 pad-left-0" data-error="Please enter password">Password</label>
                                 </div>
                             </div>
                             <div class="row mt2" ng-class="{'show':!modelLoginForm.is_valid,'hide':modelLoginForm.is_valid}">
                                 <div class="input-field col s12 has-error">
-                                    <span for="Error" class="" style="text-align:left;">Invalid Credentials, Please try again</span>
+                                    <span for="Error" class="red-text" style="text-align:left;">Sorry, we did not recognize the details you entered. Please try again.</span>
                                 </div>
                             </div>
                             <div class="row mb0">
@@ -55,10 +55,10 @@
                     <div class="modal-footer">
                         <div class="row">
                             <div class="col s6">
-                                <button type="button" ng-click="resetForm()" class="modal-action modal-close waves-effect waves-red btn-flat btn-brand-dismiss">Cancel</button>
+                                <button type="button" ng-click="resetForm()" class="modal-action modal-close waves-effect waves-red btn red btn-brand-dismiss">Cancel</button>
                             </div>
                             <div class="col s6">
-                                <button type="button" ng-click="fn_loginUser(modelLoginForm)" ng-disabled="!loginForm.$valid" class="modal-action waves-effect waves-green btn-flat btn-brand-primary login-button left">Login</button>
+                                <button type="button" ng-click="fn_loginUser(modelLoginForm)" ng-disabled="!loginForm.$valid" class="modal-action waves-effect waves-green btn indigo login-button left">Login</button>
                             </div>
                         </div>
                     </div>
@@ -73,12 +73,18 @@
                             <span class="">Reset Password link sent to Email</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" href="#!" class="btn btn-danger btn-back">Back</button>
-                            <button type="button" ng-click="fn_resetPassword(user)" ng-disabled="!formForgotPassword.$valid" class="btn btn-site-brand login-button">Get Password</button>
-                        </div>
+                            <div class="row">
+                                <div class="col s6">
+                                    <button type="button" href="#!" class="btn btn-back">Back</button>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <button type="button" ng-click="fn_resetPassword(user)" ng-disabled="!formForgotPassword.$valid" class="btn indigo login-button">Get Password</button>
+                                    </div>
+                                </div>
                     </form>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>

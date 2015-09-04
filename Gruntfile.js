@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'public/modules/',
+                    cwd: 'public/modules/0.0.applicationbase/sass',
                     src: ['*.scss'],
                     dest: 'public/assets/css/',
                     ext: '.css'
@@ -134,7 +134,7 @@ module.exports = function(grunt) {
             };
             var newSassConf = {
                 "expand": true,
-                "cwd": 'public/modules/' + arrDirNames[j] + "/saas/",
+                "cwd": 'public/modules/' + arrDirNames[j] + "/sass/",
                 "src": '*.scss',
                 "dest": 'public/assets/css/',
                 "ext": '.css'

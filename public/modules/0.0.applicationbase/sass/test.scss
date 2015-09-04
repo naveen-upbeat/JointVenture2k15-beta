@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+// Mixins
+@import "components/color";
+
+// Variables;
+@import "components/variables";
+
+nav.test{
+	background-color: $secondary-color;
+}

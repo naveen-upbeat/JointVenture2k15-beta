@@ -21,6 +21,11 @@
 
         //On page load set the containerHeight
         //siteWideCommonFunctions.adjustngViewContainerHeight();
+        //
+        $('body').on('click','.input-field > label', function(event){
+            $(this).addClass('active');
+            $(this).prev('input').focus();
+        });
 
     });
 })(jQuery);
@@ -57,7 +62,7 @@ var siteWideCommonFunctions = {
                 scrollTop: $("#" + divId).offset().top
             }, 2000);
         }
-    },
+    }
 
 
 };
