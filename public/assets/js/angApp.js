@@ -70,7 +70,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 password: strPassword
             }
         });
-    };
+    }, this.resetPassword = function() {};
 } ]), angular.module("submodules.sectionsignup").controller("sectionSignupCtrl", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
     $scope.signupUser = {
         emailmodel: "sample",
@@ -125,7 +125,9 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         }).error(function(data, status, headers, cfg) {
             userModel.is_valid = !1;
         });
-    }, $scope.fn_resetPassword = function() {};
+    }, $scope.fn_resetPassword = function(userModel) {
+        "" !== userModel.username;
+    };
 } ]), angular.module("submodules.3rdparty").directive("appJvBackAnimation", [ "$browser", "$location", function($browser, $location) {
     return {
         link: function(scope, element) {
@@ -207,8 +209,8 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-jointventure.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            $(element).find("select").material_select(), $(element).find("select").scope.addrtags = [], 
-            window.predictionsNow = [], window.initService = function(query) {
+            $(element).find(".dropdown-button-custom").dropdown_custom(), $(element).find("select").material_select(), 
+            $(element).find("select").scope.addrtags = [], window.predictionsNow = [], window.initService = function(query) {
                 var displaySuggestions = function(predictions, status) {
                     return window.predictionsNow = [], status != google.maps.places.PlacesServiceStatus.OK ? void alert(status) : void predictions.forEach(function(prediction) {
                         window.predictionsNow.push(prediction);
@@ -342,7 +344,8 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
     return {
         link: function(scope, element, attrs) {
             scope.$on("$locationChangeSuccess", function(event, newURL, oldURL, newState, oldState) {
-                siteWideCommonFunctions.scrollToSection(newURL.split("?scrollTo=")[1]);
+                siteWideCommonFunctions.scrollToSection(newURL.split("?scrollTo=")[1]), $(".button-collapse").sideNav("hide"), 
+                $(".lean-overlay").remove(), $(element).find("[id=sidenav-overlay]").remove();
             });
         }
     };

@@ -21,23 +21,7 @@
         }));
         // server routes ===========================================================
         // handle things like api calls
-        // Creating a Sample Emp
-        app.get('/api/createEmp', function(req, res) {
-
-            var newEmp = dbSchemas.emps({
-                // create a user using schema
-                fname: 'amit',
-                lname: 'dwivedi'
-            });
-
-            // save the user
-            newEmp.save(function(err) {
-                if (err) throw err;
-                //console.log('Emp created!');
-                res.send('Emp Created');
-            });
-        });
-
+        
         app.get('/api/getcities', function(req, res) {
             //console.log('getting cities',dbSchemas.LOOKUP_CITY);
             dbSchemas.LOOKUP_CITY.find({}, function(err, citylist) {
@@ -130,8 +114,21 @@
 
         });
 
+        // Get User types
+        app.post('/api/get_jointventure_results', function(req, res) {
+            var result_criteria = req.body;
+
+
+            dbSchemas.VENTURE.find({}, function(err, usertypeslist) {
+                // get the Emp
+                if (err) throw err;
+                res.json(usertypeslist);
+            });
+        });
+
+
         app.post('/api/sendmail', function(req, res) {
-            var userEmail = name: req.body.username;
+            var userEmail = req.body.username;
 
             transporter.sendMail({
                 from: 'techcompeers@gmail.com',

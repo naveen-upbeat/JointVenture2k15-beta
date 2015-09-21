@@ -4,9 +4,9 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-    var recaptcha_async = require('recaptcha-async');
-    var recaptcha = new recaptcha_async.reCaptcha();
-    // configuration ===========================================
+var recaptcha_async = require('recaptcha-async');
+var recaptcha = new recaptcha_async.reCaptcha();
+// configuration ===========================================
 
 // config files
 var db = require('./config/db');
@@ -25,24 +25,12 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 
-
-
-mypublickey = '6LdQ_QsTAAAAAM8IyCCqBrm8LMQVYkcZzZ0mQe_q';
-myprivatekey = '6LdQ_QsTAAAAAGA7JDUv3UNyzvfv3bFceoFfpfBS';
-
 recaptcha.on('data', function(res) {
     if (res.is_valid)
         html = "valid answer";
     else
         html = recaptcha.getCaptchaHtml(mypublickey, res.error);
 });
-
-// recaptcha.checkAnswer(myprivatekey,
-//     req.connection.remoteAddress,
-//     req.body.recaptcha_challenge_field,
-//     req.body.recaptcha_response_field);
-// model
-//require('./app/models/jv')(app); // pass our application into our jv model
 
 // routes ==================================================
 require('./app/routes')(app); // pass our application into our routes

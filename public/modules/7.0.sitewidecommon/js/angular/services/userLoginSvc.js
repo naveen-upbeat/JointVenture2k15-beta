@@ -51,4 +51,9 @@ angular.module('submodules.sitewidecommon')
                 }
             });
         };
+
+        this.resetPassword = function(){
+
+        };
+
     }]);

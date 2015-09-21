@@ -17,6 +17,8 @@
                 restrict: "AE",
                 templateUrl: 'templates/tpl-section-jointventure.html',
                 link: function(scope, element, attrs, tabsCtrl) {
+                    $(element).find('.dropdown-button-custom').dropdown_custom();
+
                     $(element).find('select').material_select();
                     $(element).find('select').
                     //addParallax(element);
@@ -80,7 +82,9 @@
                             }
                         });
                     };
+
                     scope.loadSearchCityTags();
+
                     scope.loadAddrTags = function(query) {
                         var options = {
                             input: query,
@@ -99,6 +103,8 @@
                     $(element).find('button').on('click', function(e) {
                         var value = $(e.target).parent().find('input#Area').val();
                     });
+
+                    
                     scope.$emit('childLoading');
                 }
             };

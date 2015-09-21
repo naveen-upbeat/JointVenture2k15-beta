@@ -26,6 +26,9 @@ angular.module('submodules.sitewidecommon')
                  */
                 scope.$on('$locationChangeSuccess', function(event, newURL, oldURL, newState, oldState) {
                     siteWideCommonFunctions.scrollToSection(newURL.split('?scrollTo=')[1]);
+                    $('.button-collapse').sideNav('hide');
+                    $('.lean-overlay').remove();
+                    $(element).find('[id=sidenav-overlay]').remove();
                 });
             }
         };

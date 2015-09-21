@@ -61,8 +61,10 @@ angular.module('submodules.modallogin')
             }
         };
 
-        $scope.fn_resetPassword = function() {
+        $scope.fn_resetPassword = function(userModel) {
+            if(userModel.username !== ''){
 
+            }
         };
 
     }]);
