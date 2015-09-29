@@ -126,8 +126,7 @@
             });
         });
 
-
-        app.post('/api/sendmail', function(req, res) {
+        app.post('/api/reset_password_email', function(req, res) {
             var userEmail = req.body.username;
 
             transporter.sendMail({

@@ -58,7 +58,7 @@ var lookup_citySchema = new Schema({
 
 // Venture schema
 var ventureSchema = new Schema({
-    'id': String
+    'id': String,
     'price': Number,
     'address_gps': [Number, Number],
     'address_text': String,
