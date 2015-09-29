@@ -17,7 +17,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   font-weight: bold;
 }
-.navigation-main nav .brand-logo {
+.brand-logo {
   width: 75px;
   height: 65px;
   background: url('../img/logo2.png');

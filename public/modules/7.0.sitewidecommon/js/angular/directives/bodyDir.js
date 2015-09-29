@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sitewidecommon')
-    .directive('appJvBodyDir', [ function() {
+    .directive('appJvBodyDir', [function() {
         return {
             link: function(scope, element, attrs) {
 
@@ -25,10 +25,13 @@ angular.module('submodules.sitewidecommon')
                  * @return {[type]}             [description]
                  */
                 scope.$on('$locationChangeSuccess', function(event, newURL, oldURL, newState, oldState) {
+                    console.log(newURL);
                     siteWideCommonFunctions.scrollToSection(newURL.split('?scrollTo=')[1]);
-                    $('.button-collapse').sideNav('hide');
-                    $('.lean-overlay').remove();
-                    $(element).find('[id=sidenav-overlay]').remove();
+                });
+                scope.$on('$stateChangeSuccess', function(event, newState, newStateParams, oldState, oldStateParams) {
+                    if (newStateParams.scrollTo) {
+                        siteWideCommonFunctions.scrollToSection(newStateParams.scrollTo);
+                    }
                 });
             }
         };

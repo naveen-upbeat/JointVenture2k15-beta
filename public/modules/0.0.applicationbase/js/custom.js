@@ -10,23 +10,8 @@
         siteWideCommonFunctions.initMaterialDesign();
         /* END: Materialize INIT  */
 
-        //The map is in different tab, switching tabb on clicking map-view
-        $('#rent-details-map-view').on('change', function(e) {
-            if ($(e.target).get(0).checked) {
-                $('#nav-rent-details-map').tab('show');
-            } else {
-                $('#nav-rent-details-list').tab('show');
-            }
-        });
-
         //On page load set the containerHeight
         //siteWideCommonFunctions.adjustngViewContainerHeight();
-        //
-        $('body').on('click', '.input-field > label', function(event) {
-            $(this).addClass('active');
-            $(this).prev('input').focus();
-        });
-
     });
 })(jQuery);
 
@@ -47,15 +32,22 @@ var siteWideCommonFunctions = {
     },
 
     initMaterialDesign: function() {
+
+        //materialize remove previous instance
+        //$('.button-collapse').sideNav('remove');
+        //$('.modal-trigger').leanModal('remove');
+        //$('ul.tabs').tabs('remove');
+        //$('.dropdown-button').dropdown('remove');
+
         //materialize init code
+        /*
         $('.button-collapse').sideNav();
-        $('.parallax').parallax();
         $('.modal-trigger').leanModal({
             dismissible: true
         });
         $('ul.tabs').tabs();
         $('.dropdown-button').dropdown();
-
+*/
     },
 
     scrollToSection: function(divId) {

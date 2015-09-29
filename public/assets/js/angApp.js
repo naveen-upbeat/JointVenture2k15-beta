@@ -70,7 +70,16 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 password: strPassword
             }
         });
-    }, this.resetPassword = function() {};
+    }, this.resetPassword = function(strUserName) {
+        return $http({
+            method: "POST",
+            url: "/api/reset_password_email",
+            transformRequest: transformRequestAsFormPost,
+            data: {
+                username: strUserName
+            }
+        });
+    };
 } ]), angular.module("submodules.sectionsignup").controller("sectionSignupCtrl", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
     $scope.signupUser = {
         emailmodel: "sample",
@@ -100,7 +109,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             data.length > 0 && ($scope.usertypes = data);
         }).error(function(data, status, headers, cfg) {});
     }, $scope.getUserTypes();
-} ]), angular.module("submodules.modallogin").controller("modalLoginCtrl", [ "$scope", "$http", "transformRequestAsFormPost", "userLoginSvc", function($scope, $http, transformRequestAsFormPost, userLoginSvc) {
+} ]), angular.module("submodules.modallogin").controller("modalLoginCtrl", [ "$scope", "$http", "transformRequestAsFormPost", "userLoginSvc", "$mdDialog", function($scope, $http, transformRequestAsFormPost, userLoginSvc, $mdDialog) {
     $scope.modelLoginForm = {
         username: "",
         password: "",
@@ -121,26 +130,17 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
     }, $scope.fn_loginUser = function(userModel) {
         ("" === userModel.username || "" === userModel.password) && (userModel.is_valid = !1, 
         $scope.loginForm.username.$setDirty(), $scope.loginForm.password.$setDirty()), (userModel.is_valid || $scope.loginForm.$valid) && userLoginSvc.validateUser(userModel.username, userModel.password).success(function(data, status, headers, cfg) {
-            data.length > 0 ? (userModel.is_valid = !0, userLoginSvc.setUserSessionData(angular.fromJson(data[0]))) : userModel.is_valid = !1;
+            data.length > 0 ? (userModel.is_valid = !0, userLoginSvc.setUserSessionData(angular.fromJson(data[0])), 
+            $mdDialog.hide()) : userModel.is_valid = !1;
         }).error(function(data, status, headers, cfg) {
             userModel.is_valid = !1;
         });
     }, $scope.fn_resetPassword = function(userModel) {
-        "" !== userModel.username;
+        "" !== userModel.username && userLoginSvc.resetPassword(userModel.username).success(function(data, status, headers, cfg) {
+            data.length > 0 && $mdDialog.hide();
+        }).error(function(data, status, headers, cfg) {});
     };
-} ]), angular.module("submodules.3rdparty").directive("appJvBackAnimation", [ "$browser", "$location", function($browser, $location) {
-    return {
-        link: function(scope, element) {
-            $browser.onUrlChange(function(newUrl) {
-                $location.absUrl() === newUrl && (console.log("Back"), element.addClass("reverse"));
-            }), scope.__childrenCount = 0, scope.$watch(function() {
-                scope.__childrenCount = element.children().length;
-            }), scope.$watch("__childrenCount", function(newCount, oldCount) {
-                newCount !== oldCount && 1 === newCount && element.removeClass("reverse");
-            });
-        }
-    };
-} ]), angular.module("submodules.navigationmain").directive("appJvNavigationMain", function(userLoginSvc) {
+} ]), angular.module("submodules.navigationmain").directive("appJvNavigationMain", function(userLoginSvc, $mdSidenav, $mdDialog, $state) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-navigation-main.html",
@@ -149,11 +149,22 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 userLoginSvc.logoutUser().success(function(data, status, headers, cfg) {
                     userLoginSvc.clearUserSessionData();
                 });
-            }, element.find(".link_logout").on("click", function() {
-                scope.$apply(function() {
-                    scope.fn_logoutUser();
+            }, scope.fn_toggle_sidenav = function(menuId) {
+                $mdSidenav(menuId).toggle();
+            }, scope.fn_open_menu = function($mdOpenMenu, ev) {
+                $mdOpenMenu(ev);
+            }, scope.fn_show_login_dialog = function(ev) {
+                $mdDialog.show({
+                    template: '<md-dialog aria-label="Login" ng-controller="modalLoginCtrl"><app-jv-modal-login></app-jv-modal-login></md-dialog>',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: !0
+                }).then(function(answer) {
+                    scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    scope.status = "You cancelled the dialog.";
                 });
-            });
+            };
         }
     };
 }), angular.module("submodules.sectionsignup").directive("appJvSectionSignup", function() {
@@ -176,24 +187,32 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             captch_script.setAttribute("src", "https://www.google.com/recaptcha/api.js"), document.head.appendChild(captch_script);
         }
     };
-}), angular.module("submodules.modallogin").directive("appJvModalLogin", function(userLoginSvc) {
+}), angular.module("submodules.modallogin").directive("appJvModalLogin", function(userLoginSvc, $mdDialog) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-modal-login.html",
+        replace: !0,
         link: function(scope, element) {
             scope.$watch(function() {
                 return userLoginSvc.getUserSessionData();
             }, function(newVal, oldVal) {
-                newVal && newVal.bln_logged_in && ($("#modalLogin").closeModal(), scope.modelLoginForm.fn_resetModel());
-            }, !0), $(element).find(".btn-back").on("click", function() {
-                scope.$apply(function() {
-                    scope.modelLoginForm.str_modal_header = "login";
-                }), $(element).find("ul.tabs").tabs("select_tab", "tabLoginForm");
-            }), $(element).find(".link-forgot-password").on("click", function() {
-                scope.$apply(function() {
-                    scope.modelLoginForm.str_modal_header = "forgotpassword";
-                }), $(element).find("ul.tabs").tabs("select_tab", "tabForgotPassword");
-            });
+                newVal && newVal.bln_logged_in && ($mdDialog.hide(), scope.modelLoginForm.fn_resetModel());
+            }, !0), scope.modalLoginTabs = {
+                tabs: [ {
+                    title: "Login"
+                }, {
+                    title: "Forgot Password"
+                } ],
+                active_tab_index: "1"
+            }, scope.fn_close = function() {
+                $mdDialog.cancel();
+            }, scope.fn_login = function(answer) {
+                $mdDialog.cancel(answer);
+            }, scope.fn_go_to_login = function(answer) {
+                scope.modalLoginTabs.active_tab_index = 0;
+            }, scope.fn_go_to_forgot_password = function(answer) {
+                scope.modalLoginTabs.active_tab_index = 1;
+            };
         }
     };
 }), angular.module("submodules.sectionhome").directive("appJvSectionHome", function() {
@@ -344,8 +363,9 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
     return {
         link: function(scope, element, attrs) {
             scope.$on("$locationChangeSuccess", function(event, newURL, oldURL, newState, oldState) {
-                siteWideCommonFunctions.scrollToSection(newURL.split("?scrollTo=")[1]), $(".button-collapse").sideNav("hide"), 
-                $(".lean-overlay").remove(), $(element).find("[id=sidenav-overlay]").remove();
+                console.log(newURL), siteWideCommonFunctions.scrollToSection(newURL.split("?scrollTo=")[1]);
+            }), scope.$on("$stateChangeSuccess", function(event, newState, newStateParams, oldState, oldStateParams) {
+                newStateParams.scrollTo && siteWideCommonFunctions.scrollToSection(newStateParams.scrollTo);
             });
         }
     };
@@ -368,7 +388,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-sample.html"
     };
-}), angular.module("submodules", [ "submodules.3rdparty", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup", "submodules.sectionsample" ]).controller("MainController", [ "$rootScope", "$scope", "userLoginSvc", function($rootScope, $scope, userLoginSvc) {
+}), angular.module("submodules", [ "submodules.3rdparty", "submodules.sitewidecommon", "submodules.navigationmain", "submodules.footermain", "submodules.servicesoffered", "submodules.sectionabout", "submodules.sectionportfolio", "submodules.sectionhome", "submodules.sectionjointventure", "submodules.sectionjointventureresults", "submodules.sectionrent", "submodules.sectionsell", "submodules.modallogin", "submodules.sectionsignup", "submodules.sectionsample" ]).controller("MainController", [ "$rootScope", "$scope", "userLoginSvc", "$state", function($rootScope, $scope, userLoginSvc, $state) {
     $scope.appWideScope = {
         str_app_title: "Joint Venture 2015",
         user_session_data: {
@@ -382,8 +402,13 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
     }, function(newVal, oldVal) {
         newVal && newVal.bln_logged_in !== oldVal.bln_logged_in && ($scope.appWideScope.user_session_data.is_logged_in = newVal.bln_logged_in, 
         $scope.appWideScope.user_session_data.user_data = newVal.user_data);
-    }, !0), $scope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {});
-} ]), angular.module("jointVentureApp", [ "ui.router", "submodules" ]).config(function($stateProvider, $urlRouterProvider) {
+    }, !0), $scope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {}), 
+    $scope.fn_goToState = function(stateName, scrollTo) {
+        scrollTo ? $state.transitionTo($state.current.name, {
+            scrollTo: scrollTo
+        }) : $state.go(stateName);
+    };
+} ]), angular.module("jointVentureApp", [ "ui.router", "ngMaterial", "submodules" ]).config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/"), $stateProvider.state("/", {
         url: "/",
         params: {

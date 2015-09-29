@@ -1,5 +1,5 @@
 angular.module('submodules', [
-        'submodules.3rdparty',  
+        'submodules.3rdparty',
         'submodules.sitewidecommon',
         'submodules.navigationmain',
         'submodules.footermain',
@@ -15,13 +15,13 @@ angular.module('submodules', [
         'submodules.sectionsignup',
         'submodules.sectionsample'
     ])
-    .controller('MainController', ['$rootScope', '$scope', 'userLoginSvc', function($rootScope, $scope, userLoginSvc) {
+    .controller('MainController', ['$rootScope', '$scope', 'userLoginSvc', '$state', function($rootScope, $scope, userLoginSvc, $state) {
 
         $scope.appWideScope = {
             'str_app_title': 'Joint Venture 2015',
             'user_session_data': {
-                'is_logged_in' : false,
-                'user_data' : {}
+                'is_logged_in': false,
+                'user_data': {}
             }
         };
 
@@ -52,5 +52,13 @@ angular.module('submodules', [
             function(event, toState, toParams, fromState, fromParams) {
 
             });
+
+        $scope.fn_goToState = function(stateName, scrollTo) {
+            if (!scrollTo) {
+                $state.go(stateName);
+            }else{
+                $state.transitionTo($state.current.name, { scrollTo: scrollTo});
+            }
+        };
 
     }]);

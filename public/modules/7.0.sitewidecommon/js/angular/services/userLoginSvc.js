@@ -52,8 +52,15 @@ angular.module('submodules.sitewidecommon')
             });
         };
 
-        this.resetPassword = function(){
-
+        this.resetPassword = function(strUserName){
+            return $http({
+                method: 'POST',
+                url: '/api/reset_password_email',
+                transformRequest: transformRequestAsFormPost,
+                data: {
+                    'username': strUserName
+                }
+            });
         };
 
     }]);

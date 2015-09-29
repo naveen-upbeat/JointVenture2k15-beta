@@ -1,4 +1,95 @@
-<!-- Modal -->
+<div style="overflow:hidden">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{modalLoginTabs.tabs[modalLoginTabs.active_tab_index].title}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="fn_close()">
+                <md-icon md-svg-src="/libs/material-design-icons/navigation/svg/production/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:800px;" class="modal_login_content">
+        <md-content class="md-padding" style="width:500px;">
+            <md-tabs md-autoselect="false" md-dynamic-height md-border-bottom md-selected="modalLoginTabs.active_tab_index" md-no-bar="false" style="padding:0 24px">
+                <md-tab label="Login" md-on-select="modalLoginTabs.active_tab_index=0">
+                    <md-content layout="row">
+                        <form flex novalidate name="loginForm" action="/api/logincheck" class="form-horizontal login-form">
+                            <div class="">
+                                <md-content layout-padding layout="row" layout-sm="column">
+                                    <md-input-container flex>
+                                        <label for="username" data-error="Please enter Username" ng-class="{'active':modelLoginForm.username.length}" class="col s12 pad-left-0"> Username </label>
+                                        <input type="text" name="username" ng-model="modelLoginForm.username" class="validate" ng-class="{'invalid':loginForm.username.$error.required && !loginForm.username.$pristine}" required>
+                                    </md-input-container>
+                                </md-content>
+                                <md-content layout-padding layout="row" layout-sm="column">
+                                    <md-input-container flex>
+                                        <label for="password" class="col s12 ml0 pad-left-0" data-error="Please enter password">Password</label>
+                                        <input type="password" ng-class="{'invalid':loginForm.password.$error.required && !loginForm.password.$pristine}" name="password" ng-model="modelLoginForm.password" class="validate" required>
+                                    </md-input-container>
+                                </md-content>
+                                <md-content layout-padding layout="row" layout-sm="column" ng-class="{'show':!modelLoginForm.is_valid,'hide':modelLoginForm.is_valid}">
+                                    <md-input-container flex>
+                                        <span for="Error" class="red-text" style="text-align:left;">Sorry, we did not recognize the details you entered. Please try again.</span>
+                                    </md-input-container>
+                                </md-content>
+                                <md-content layout-padding layout="row" layout-sm="column">
+                                    <md-input-container>
+                                        <label for="signup" class=""></label>
+                                        <a href="#!" ng-click="fn_go_to_forgot_password()" class="link-forgot-password">Forgot Password!</a>
+                                    </md-input-container>
+                                </md-content>
+                                <md-content layout-padding layout="row" layout-sm="column">
+                                    <md-input-container>
+                                        <div class="col s4 pad-left-0">
+                                            <span for="signup" class="">Don't have Username? </span>
+                                        </div>
+                                        <div class="col s6">
+                                            <a ui-sref="signup" class="link-singnup modal-close">Sign up</a>
+                                        </div>
+                                    </md-input-container>
+                                </md-content>
+                            </div>
+                        </form>
+                    </md-content>
+                    <div class="md-actions" layout="row">
+                        <md-button ng-click="fn_close()" class="md-raised md-accent md-hue-2" style="margin-right:20px;">
+                            Cancel
+                        </md-button>
+                        <md-button class="md-raised md-primary" ng-click="fn_loginUser(modelLoginForm)" ng-disabled="!loginForm.$valid">
+                            Login
+                        </md-button>
+                    </div>
+                </md-tab>
+                <md-tab label="Forgot Password" md-on-select="modalLoginTabs.active_tab_index=1">
+                    <md-content>
+                        <form flex novalidate name="formForgotPassword" action="/api/forgotPassword" class="form-horizontal form-forgot-password">
+                            <md-content>
+                                <md-input-container ng-class="{'has-error':formForgotPassword.username.$error.required && !formForgotPassword.username.$pristine}">
+                                    <label for="username" ng-class="{'active':modelLoginForm.username.length}">Username</label>
+                                    <input type="text" name="username" ng-model="modelLoginForm.username" required>
+                                </md-input-container>
+                            </md-content>
+                            <md-content>
+                                <md-input-container ng-if="formLoginPassword.$submitted">
+                                    <span class="">Reset Password link sent to Email</span>
+                                </md-input-container>
+                            </md-content>
+                        </form>
+                        <div class="md-actions" layout="row">
+                            <span flex></span>
+                            <md-button ng-click="fn_go_to_login()" class="md-raised md-accent md-hue-2" style="margin-right:20px;">
+                                Back
+                            </md-button>
+                            <md-button ng-click="fn_resetPassword(modelLoginForm)" ng-disabled="!formForgotPassword.$valid" class="md-raised md-primary">
+                                Reset Password
+                            </md-button>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </md-dialog-content>
+    <!-- Modal 
 <div class="modal" id="modalLogin">
     <div class="modal-content">
         <div class="row modal-header">
@@ -88,3 +179,5 @@
                 </div>
             </div>
         </div>
+-->
+</div>

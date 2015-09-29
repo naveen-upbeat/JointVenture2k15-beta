@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.navigationmain')
-    .directive('appJvNavigationMain', function(userLoginSvc) {
+    .directive('appJvNavigationMain', function(userLoginSvc, $mdSidenav, $mdDialog, $state) {
         return {
             restrict: "AE",
             templateUrl: 'templates/tpl-navigation-main.html',
@@ -24,11 +24,30 @@ angular.module('submodules.navigationmain')
                     });
                 };
 
-                element.find('.link_logout').on('click', function() {
-                    scope.$apply(function() {
-                        scope.fn_logoutUser();
-                    });
-                });
+                scope.fn_toggle_sidenav = function(menuId) {
+                    $mdSidenav(menuId).toggle();
+                };
+                
+                scope.fn_open_menu = function($mdOpenMenu, ev) {
+                    $mdOpenMenu(ev);
+                };
+                
+                scope.fn_show_login_dialog = function(ev) {
+                    $mdDialog.show({
+                            template: '<md-dialog aria-label="Login" ng-controller="modalLoginCtrl">' +
+                                '<app-jv-modal-login>' +
+                                '</app-jv-modal-login>' +
+                                '</md-dialog>',
+                            parent: angular.element(document.body),
+                            targetEvent: ev,
+                            clickOutsideToClose: true
+                        })
+                        .then(function(answer) {
+                            scope.status = 'You said the information was "' + answer + '".';
+                        }, function() {
+                            scope.status = 'You cancelled the dialog.';
+                        });
+                };
             }
         };
 

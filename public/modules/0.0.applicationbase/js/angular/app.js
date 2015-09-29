@@ -1,5 +1,6 @@
 angular.module('jointVentureApp', [
         'ui.router',
+        'ngMaterial',
         'submodules'
     ])
     .config(function($stateProvider, $urlRouterProvider) {

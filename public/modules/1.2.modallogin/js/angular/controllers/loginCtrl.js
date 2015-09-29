@@ -10,7 +10,7 @@
  *
  */
 angular.module('submodules.modallogin')
-    .controller('modalLoginCtrl', ['$scope', '$http', 'transformRequestAsFormPost', 'userLoginSvc', function($scope, $http, transformRequestAsFormPost, userLoginSvc) {
+    .controller('modalLoginCtrl', ['$scope', '$http', 'transformRequestAsFormPost', 'userLoginSvc', '$mdDialog', function($scope, $http, transformRequestAsFormPost, userLoginSvc, $mdDialog) {
 
         //A scope variable to hold the form data
         $scope.modelLoginForm = {
@@ -22,10 +22,10 @@ angular.module('submodules.modallogin')
                 'forgotpassword': 'Forgot Password'
             },
             is_valid: true,
-            fn_getModalHeaderText : function(){
+            fn_getModalHeaderText: function() {
                 return this.modal_header_options[this.str_modal_header];
             },
-            fn_resetModel: function(){
+            fn_resetModel: function() {
                 this.username = '';
                 this.password = '';
             }
@@ -52,6 +52,7 @@ angular.module('submodules.modallogin')
                         if (data.length > 0) {
                             userModel.is_valid = true;
                             userLoginSvc.setUserSessionData(angular.fromJson(data[0]));
+                            $mdDialog.hide();
                         } else {
                             userModel.is_valid = false;
                         }
@@ -61,9 +62,17 @@ angular.module('submodules.modallogin')
             }
         };
 
+        // a resest password function that sends a reset password link to the given email id
         $scope.fn_resetPassword = function(userModel) {
-            if(userModel.username !== ''){
-
+            if (userModel.username !== '') {
+                userLoginSvc.resetPassword(userModel.username)
+                    .success(function(data, status, headers, cfg) {
+                        if (data.length > 0) {
+                            $mdDialog.hide();
+                        } 
+                    }).error(function(data, status, headers, cfg) {
+                        
+                    });
             }
         };
 
