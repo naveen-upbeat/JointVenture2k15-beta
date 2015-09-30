@@ -140,7 +140,56 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             data.length > 0 && $mdDialog.hide();
         }).error(function(data, status, headers, cfg) {});
     };
-} ]), angular.module("submodules.navigationmain").directive("appJvNavigationMain", function(userLoginSvc, $mdSidenav, $mdDialog, $state) {
+} ]), angular.module("submodules.sectionjointventure").controller("jvSearchCtrl", [ "$scope", "transformRequestAsFormPost", "$http", function($scope, transformRequestAsFormPost, $http) {
+    $scope.modelJvSearchForm = {
+        residential: {
+            location: "",
+            bedrooms: {
+                "1": !1,
+                "2": !1,
+                "3": !1,
+                "4": !1
+            },
+            budget: {
+                min: 0,
+                max: 1
+            }
+        },
+        commercial: {
+            location: "",
+            area: {
+                unit: "",
+                min: "",
+                max: ""
+            },
+            budget: {
+                min: "",
+                max: ""
+            }
+        },
+        agricultural: {
+            location: "",
+            area: {
+                unit: "",
+                min: "",
+                max: ""
+            },
+            budget: {
+                min: "",
+                max: ""
+            }
+        }
+    }, $scope.fn_getJointVentureResults = function(form) {
+        return $http({
+            method: "POST",
+            url: "/api/get_jointventure_results",
+            transformRequest: transformRequestAsFormPost,
+            data: {
+                location: form.residential.location
+            }
+        });
+    };
+} ]), angular.module("submodules.navigationmain").directive("appJvNavigationMain", function(userLoginSvc, $mdMedia, $mdSidenav, $mdDialog, $state) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-navigation-main.html",
@@ -155,15 +204,11 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 $mdOpenMenu(ev);
             }, scope.fn_show_login_dialog = function(ev) {
                 $mdDialog.show({
-                    template: '<md-dialog aria-label="Login" ng-controller="modalLoginCtrl"><app-jv-modal-login></app-jv-modal-login></md-dialog>',
+                    template: '<md-dialog aria-label="Login" ng-controller="modalLoginCtrl" layout="row" flex="45"><app-jv-modal-login></app-jv-modal-login></md-dialog>',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: !0
-                }).then(function(answer) {
-                    scope.status = 'You said the information was "' + answer + '".';
-                }, function() {
-                    scope.status = "You cancelled the dialog.";
-                });
+                }).then(function(answer) {}, function() {});
             };
         }
     };
@@ -187,7 +232,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             captch_script.setAttribute("src", "https://www.google.com/recaptcha/api.js"), document.head.appendChild(captch_script);
         }
     };
-}), angular.module("submodules.modallogin").directive("appJvModalLogin", function(userLoginSvc, $mdDialog) {
+}), angular.module("submodules.modallogin").directive("appJvModalLogin", function(userLoginSvc, $mdDialog, $mdMedia) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-modal-login.html",
@@ -206,13 +251,15 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 active_tab_index: "1"
             }, scope.fn_close = function() {
                 $mdDialog.cancel();
-            }, scope.fn_login = function(answer) {
-                $mdDialog.cancel(answer);
-            }, scope.fn_go_to_login = function(answer) {
+            }, scope.fn_login = function() {
+                setTimeout(function() {
+                    $("#btn_back_to_login").click();
+                }, 600);
+            }, scope.fn_go_to_login = function() {
                 scope.modalLoginTabs.active_tab_index = 0;
-            }, scope.fn_go_to_forgot_password = function(answer) {
+            }, scope.fn_go_to_forgot_password = function() {
                 scope.modalLoginTabs.active_tab_index = 1;
-            };
+            }, scope.fn_login();
         }
     };
 }), angular.module("submodules.sectionhome").directive("appJvSectionHome", function() {
@@ -228,39 +275,28 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-jointventure.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            $(element).find(".dropdown-button-custom").dropdown_custom(), $(element).find("select").material_select(), 
-            $(element).find("select").scope.addrtags = [], window.predictionsNow = [], window.initService = function(query) {
+            scope.addrtags = [], scope.locationPredictionsNow = [], scope.selectedLocations = [], 
+            scope.selectedLocation = null, scope.searchLocationText = null, scope.searchTextChange = function(searchText) {
+                scope.searchLocationText = searchText, scope.modelJvSearchForm.residential.location = searchText, 
+                "" !== searchText && window.initService(searchText);
+            }, window.initService = function(query) {
                 var displaySuggestions = function(predictions, status) {
-                    return window.predictionsNow = [], status != google.maps.places.PlacesServiceStatus.OK ? void alert(status) : void predictions.forEach(function(prediction) {
-                        window.predictionsNow.push(prediction);
+                    return scope.locationPredictionsNow = [], status != google.maps.places.PlacesServiceStatus.OK ? void console.log(status) : void predictions.forEach(function(prediction) {
+                        scope.locationPredictionsNow.push(prediction);
                     });
-                }, service = new google.maps.places.AutocompleteService();
-                service.getQueryPredictions({
-                    input: query || ""
-                }, displaySuggestions);
+                };
+                if (google.maps.places) {
+                    var service = new google.maps.places.AutocompleteService();
+                    service.getQueryPredictions({
+                        input: query || ""
+                    }, displaySuggestions);
+                }
             }, scope.loadSearchCityTags = function() {
-                var googleMapsAPIScript = document.createElement("script");
-                googleMapsAPIScript.setAttribute("src", "http://maps.googleapis.com/maps/api/js?libraries=places&callback=initService"), 
-                document.head.appendChild(googleMapsAPIScript), $("#searchcity").selectize({
-                    plugins: [ "remove_button" ],
-                    persist: !1,
-                    maxItems: 4,
-                    valueField: "place_id",
-                    labelField: "description",
-                    searchField: [ "description" ],
-                    render: {
-                        item: function(item, escape) {
-                            return "<div>" + (item.description ? '<span class="item" title="' + item.description + '">' + escape(item.description).substring(0, 6) + "...</span>" : "") + "</div>";
-                        },
-                        option: function(item, escape) {
-                            var label = item.description;
-                            return '<div><span class="label">' + escape(label) + "</span></div>";
-                        }
-                    },
-                    load: function(query, callback) {
-                        initService(query), callback(window.predictionsNow);
-                    }
-                });
+                var googleAPIScriptSrc = "http://maps.googleapis.com/maps/api/js?libraries=places&window=initService";
+                if (0 === $('head script[src=""]').length) {
+                    var googleMapsAPIScript = document.createElement("script");
+                    googleMapsAPIScript.setAttribute("src", googleAPIScriptSrc), document.head.appendChild(googleMapsAPIScript);
+                }
             }, scope.loadSearchCityTags(), scope.loadAddrTags = function(query) {
                 var options = {
                     input: query,
@@ -271,9 +307,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 return googleMapsAPI.getLocationSuggestions(options).then(function(response) {
                     return "OK" == response.data.status ? response.data.predictions : void 0;
                 });
-            }, $(element).find("button").on("click", function(e) {
-                $(e.target).parent().find("input#Area").val();
-            }), scope.$emit("childLoading");
+            };
         }
     };
 } ]), angular.module("submodules.sectionjointventureresults").directive("appJvSectionJointVentureResults", [ "googleMapsAPI", function(googleMapsAPI) {
@@ -359,7 +393,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-footer-main.html"
     };
-}), angular.module("submodules.sitewidecommon").directive("appJvBodyDir", [ function() {
+}), angular.module("submodules.sitewidecommon").directive("appJvBodyDir", [ "$mdMedia", function($mdMedia) {
     return {
         link: function(scope, element, attrs) {
             scope.$on("$locationChangeSuccess", function(event, newURL, oldURL, newState, oldState) {

@@ -2,8 +2,7 @@
  * @ngdoc controller
  * @name submodules.modallogin:modalLoginController
  * @scope
- * @restrict AE
- *
+ * 
  * @description
  * The controller used for validating the login controls
  * and for authenticating using AJAX

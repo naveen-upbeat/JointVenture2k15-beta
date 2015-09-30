@@ -17,52 +17,79 @@
                 restrict: "AE",
                 templateUrl: 'templates/tpl-section-jointventure.html',
                 link: function(scope, element, attrs, tabsCtrl) {
-                    $(element).find('.dropdown-button-custom').dropdown_custom();
 
-                    $(element).find('select').material_select();
-                    $(element).find('select').
-                    //addParallax(element);
                     scope.addrtags = [];
+                    scope.locationPredictionsNow = [];
+                    scope.selectedLocations = [];
+                    scope.selectedLocation = null;
+                    scope.searchLocationText = null;
 
-                    window.predictionsNow = [];
+                    scope.searchTextChange = function(searchText) {
+                        scope.searchLocationText = searchText;
+                        scope.modelJvSearchForm.residential.location = searchText;
+                        if (searchText !== '') {
+                            window.initService(searchText);
+                        }
+                    };
+
+                    /**
+                     * Search for Locations in Predictions.
+                     */
+                    function querySearch(query) {
+                        var results = query ? scope.locationPredictionsNow.filter(createFilterFor(query)) : [];
+                        return results;
+                    }
+                    /**
+                     * Create filter function for a query string
+                     */
+                    function createFilterFor(query) {
+                        var lowercaseQuery = angular.lowercase(query);
+                        return function filterFn(location) {
+                            return (location._lowername.indexOf(lowercaseQuery) === 0) ||
+                                (location._lowertype.indexOf(lowercaseQuery) === 0);
+                        };
+                    }
 
                     window.initService = function(query) {
                         var displaySuggestions = function(predictions, status) {
-                            window.predictionsNow = [];
+                            scope.locationPredictionsNow = [];
                             if (status != google.maps.places.PlacesServiceStatus.OK) {
-                                alert(status);
+                                console.log(status);
                                 return;
                             }
-
                             predictions.forEach(function(prediction) {
-                                window.predictionsNow.push(prediction);
+                                scope.locationPredictionsNow.push(prediction);
                             });
                         };
+                        if (google.maps.places) {
 
-                        var service = new google.maps.places.AutocompleteService();
-                        service.getQueryPredictions({
-                            input: query || ''
-                        }, displaySuggestions);
+                            var service = new google.maps.places.AutocompleteService();
+                            service.getQueryPredictions({
+                                input: query || ''
+                            }, displaySuggestions);
+                        }
                     };
 
-
                     scope.loadSearchCityTags = function() {
+                        var googleAPIScriptSrc = 'http://maps.googleapis.com/maps/api/js?libraries=places&window=initService';
+                        if ($('head script[src="' + '"]').length === 0) {
+                            var googleMapsAPIScript = document.createElement('script');
+                            googleMapsAPIScript.setAttribute('src', googleAPIScriptSrc);
+                            document.head.appendChild(googleMapsAPIScript);
+                        }
 
-                        var googleMapsAPIScript = document.createElement('script');
-                        googleMapsAPIScript.setAttribute('src', 'http://maps.googleapis.com/maps/api/js?libraries=places&callback=initService');
-                        document.head.appendChild(googleMapsAPIScript);
 
-                        $('#searchcity').selectize({
+                        /* $('#searchcity').selectize({
                             plugins: ['remove_button'],
                             persist: false,
                             maxItems: 4,
                             valueField: 'place_id',
                             labelField: 'description',
                             searchField: ['description'],
-                            /*options: [{
+                            options: [{
                                 description: 'bengaluru',
                                 place_id: "ChIJbU60yXAWrjsR4E9-UejD3_g"
-                            }],*/
+                            }],
                             render: {
                                 item: function(item, escape) {
                                     return '<div>' +
@@ -77,10 +104,10 @@
                                 }
                             },
                             load: function(query, callback) {
-                                initService(query);
-                                callback(window.predictionsNow);
+window initService(query);
+                                callback(window.locationPredictionsNow);
                             }
-                        });
+                        }); */
                     };
 
                     scope.loadSearchCityTags();
@@ -100,12 +127,6 @@
                             });
                     };
 
-                    $(element).find('button').on('click', function(e) {
-                        var value = $(e.target).parent().find('input#Area').val();
-                    });
-
-                    
-                    scope.$emit('childLoading');
                 }
             };
 

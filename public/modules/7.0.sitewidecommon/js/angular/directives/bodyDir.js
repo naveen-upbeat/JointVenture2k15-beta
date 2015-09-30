@@ -11,7 +11,7 @@
  *
  */
 angular.module('submodules.sitewidecommon')
-    .directive('appJvBodyDir', [function() {
+    .directive('appJvBodyDir', ['$mdMedia', function($mdMedia) {
         return {
             link: function(scope, element, attrs) {
 

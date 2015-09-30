@@ -4,34 +4,35 @@
             <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
         </md-button>
         <a ui-sref="home" class="col left s12 brand-logo"></a>
-        <div layout="row" layout-align="start center" flex="10" ng-if="$mdMedia('gt-sm')">
+        <div layout="row" layout-align="start center" flex="10" hide-sm>
             <md-menu>
-                <md-button flex="5" aria-label="Open interactions menu" class="md-icon-button" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                <md-button flex="5" aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
                     <span>Joint Venture</span>
+                    <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
                 </md-button>
                 <md-menu-content width="4">
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('jointventure')">
-                            <!-- <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_home_24px.svg" md-menu-align-target></md-icon>
                             Buy
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('sell')">
-                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_explore_24px.svg"></md-icon>
                             Sell
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button disabled="disabled" ng-click="fn_goToState('sell')">
-                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_room_24px.svg"></md-icon>
                             Rent
                         </md-button>
                     </md-menu-item>
                     <md-menu-divider></md-menu-divider>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','about')">
-                            <!-- <md-icon md-svg-icon="social:notifications-{{notificationsEnabled ? 'off' : 'on'}}"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_perm_contact_calendar_24px.svg"></md-icon>
                             About
                         </md-button>
                     </md-menu-item>
@@ -39,69 +40,72 @@
             </md-menu>
         </div>
         <span flex></span>
-        <div layout="row" layout-align="end center" ng-if="$mdMedia('gt-sm')">
-            <md-button aria-label="login menu" class="md-icon-button" ng-click="fn_show_login_dialog($event)" ng-class="{'show':!appWideScope.user_session_data.is_logged_in,'hide':appWideScope.user_session_data.is_logged_in}">
+        <div layout="row" layout-align="end center" hide-sm>
+            <md-button aria-label="login menu" ng-click="fn_show_login_dialog($event)" ng-class="{'show':!appWideScope.user_session_data.is_logged_in,'hide':appWideScope.user_session_data.is_logged_in}">
+                <md-icon md-svg-icon="/libs/material-design-icons/communication/svg/production/ic_vpn_key_24px.svg"></md-icon>
                 <span>Login</span>
             </md-button>
             <md-menu ng-class="{'show':appWideScope.user_session_data.is_logged_in,'hide':!appWideScope.user_session_data.is_logged_in}">
-                <md-button aria-label="Open interactions menu" class="md-icon-button" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                <md-button aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                    <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_face_24px.svg"></md-icon>
                     <span>{{appWideScope.user_session_data.user_data.first_name}}</span>
                 </md-button>
                 <md-menu-content width="4">
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','top')">
-                            <!-- <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_favorite_24px.svg" md-menu-align-target></md-icon>
                             Shortlisted
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','top')">
-                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/communication/svg/production/ic_phone_24px.svg"></md-icon>
                             Contacted
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','top')">
-                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/social/svg/production/ic_notifications_24px.svg"></md-icon>
                             Alert
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','top')">
-                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_account_box_24px.svg"></md-icon>
                             Profile
                         </md-button>
                     </md-menu-item>
                     <md-menu-divider></md-menu-divider>
                     <md-menu-item>
                         <md-button ng-click="fn_logoutUser()">
-                            <!-- <md-icon md-svg-icon="social:notifications-{{notificationsEnabled ? 'off' : 'on'}}"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_exit_to_app_24px.svg"></md-icon>
                             Logout
                         </md-button>
                     </md-menu-item>
                 </md-menu-content>
             </md-menu>
             <md-menu>
-                <md-button aria-label="Open interactions menu" class="md-icon-button" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                <md-button aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                    <md-icon md-svg-icon="/libs/material-design-icons/editor/svg/production/ic_format_list_numbered_24px.svg"></md-icon>
                     <span>Quick Links</span>
                 </md-button>
                 <md-menu-content width="4">
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('home')">
-                            <!-- <md-icon md-svg-icon="call:dialpad" md-menu-align-target></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_home_24px.svg"></md-icon>
                             Home
                         </md-button>
                     </md-menu-item>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','about')">
-                            <!-- <md-icon md-svg-icon="call:voicemail"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_perm_contact_calendar_24px.svg"></md-icon>
                             About
                         </md-button>
                     </md-menu-item>
                     <md-menu-divider></md-menu-divider>
                     <md-menu-item>
                         <md-button ng-click="fn_goToState('','contact')">
-                            <!-- <md-icon md-svg-icon="social:notifications-{{notificationsEnabled ? 'off' : 'on'}}"></md-icon> -->
+                            <md-icon md-svg-icon="/libs/material-design-icons/communication/svg/production/ic_email_24px.svg"></md-icon>
                             Contact Us
                         </md-button>
                     </md-menu-item>
@@ -111,10 +115,10 @@
     </div>
 </md-toolbar>
 <div layout="row" flex>
-    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-sidenav layout="column" class="md-sidenav-left md-primary-z2" md-component-id="left">
         <div layout="column" layout-align="start center" flex="10">
             <md-menu>
-                <md-button flex="5" aria-label="Open interactions menu" class="md-icon-button" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                <md-button flex="5" aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
                     <span>Joint Venture</span>
                 </md-button>
                 <md-menu-content width="4">
@@ -147,11 +151,11 @@
             </md-menu>
         </div>
         <div layout="column" layout-align="start center">
-            <md-button aria-label="login menu" class="md-icon-button" ng-click="fn_show_login_dialog($event)" ng-class="{'show':!appWideScope.user_session_data.is_logged_in,'hide':appWideScope.user_session_data.is_logged_in}">
+            <md-button aria-label="login menu" ng-click="fn_show_login_dialog($event)" ng-class="{'show':!appWideScope.user_session_data.is_logged_in,'hide':appWideScope.user_session_data.is_logged_in}">
                 <span>Login</span>
             </md-button>
             <md-menu ng-class="{'show':appWideScope.user_session_data.is_logged_in,'hide':!appWideScope.user_session_data.is_logged_in}">
-                <md-button aria-label="Open interactions menu" class="md-icon-button" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                <md-button aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
                     <span>{{appWideScope.user_session_data.user_data.first_name}}</span>
                 </md-button>
                 <md-menu-content width="4">
@@ -189,7 +193,7 @@
                 </md-menu-content>
             </md-menu>
             <md-menu>
-                <md-button aria-label="Open interactions menu" class="md-icon-button" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                <md-button aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
                     <span>Quick Links</span>
                 </md-button>
                 <md-menu-content width="4">

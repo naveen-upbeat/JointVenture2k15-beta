@@ -1,3 +1,116 @@
+<md-content class="md-padding" layout="column" layout-align="center center" flex="45" style="background-color:transparent;">
+    <div layout="row" class="md-padding white-text" flex layout-align="center center" flex="100">
+        <h1>Search Joint Ventures </h1>
+    </div>
+    <div layout="row" style="background-color:#fff;">
+        <md-tabs md-dynamic-height md-border-bottom flex="100">
+            <md-tab label="Residential">
+                <md-content class="md-padding">
+                    <md-content layout-padding layout="row" layout-sm="column">
+                        <md-chips ng-model="selectedLocations" md-autocomplete-snap md-require-match="true">
+                            <md-autocomplete md-search-text-change="searchTextChange(searchLocationText)" md-selected-item="selectedLocation" md-search-text="searchLocationText" md-items="location in querySearch(searchLocationText)" md-item-text="location.name" placeholder="Search for a Locality or Landmark">
+                                <span md-highlight-text="searchLocationText">{{location.name}}</span>
+                            </md-autocomplete>
+                            <md-chip-template>
+                                <span>
+                                    <strong>{{$chip.name}}</strong>
+                                </span>
+                            </md-chip-template>
+                        </md-chips>
+                        <md-input-container>
+                            <md-menu md-offset="0 50">
+                                <md-button flex="5" aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                                    <span>Bedrooms</span>
+                                </md-button>
+                                <md-menu-content width="6">
+                                    <md-menu-item>
+                                        <md-list md-menu-align-target>
+                                            <md-list-item>
+                                                <p> 1 BHK </p>
+                                                <md-checkbox value="1" class="md-secondary" ng-model="modelJvSearchForm.residential.bedrooms['1']"></md-checkbox>
+                                            </md-list-item>
+                                        </md-list>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-list md-menu-align-target>
+                                            <md-list-item>
+                                                <p> 2 BHK </p>
+                                                <md-checkbox value="2" class="md-secondary" ng-model="modelJvSearchForm.residential.bedrooms['2']"></md-checkbox>
+                                            </md-list-item>
+                                        </md-list>
+                                    </md-menu-item>
+                                    <md-menu-item>
+                                        <md-list md-menu-align-target>
+                                            <md-list-item>
+                                                <p> 3 BHK </p>
+                                                <md-checkbox value="3" class="md-secondary" ng-model="modelJvSearchForm.residential.bedrooms['3']"></md-checkbox>
+                                            </md-list-item>
+                                        </md-list>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </md-input-container>
+                        <md-input-container>
+                            <md-menu md-offset="0 50">
+                                <md-button flex="5" aria-label="Open interactions menu" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                                    <span>Budget</span>
+                                </md-button>
+                                <md-menu-content width="4">
+                                    <md-menu-item md-menu-align-target>
+                                        <md-list>
+                                            <md-list-item>
+                                                <md-input-container flex>
+                                                    <label>Min</label>
+                                                    <input ng-model="modelJvSearchForm.residential.budget.min">
+                                                </md-input-container>
+                                                <md-input-container flex>
+                                                    <label>Max</label>
+                                                    <input ng-model="modelJvSearchForm.residential.budget.max">
+                                                </md-input-container>
+                                            </md-list-item>
+                                        </md-list>
+                                    </md-menu-item>
+                                    <md-menu-item md-menu-align-target>
+                                        <div flex="10" layout layout-align="center center">
+                                            <label>Min</label>
+                                        </div>
+                                        <md-input-container>
+                                            <md-slider flex min="0" max="100" ng-model="modelJvSearchForm.residential.budget.min" aria-label="min" id="red-slider-min">
+                                            </md-slider>
+                                        </md-input-container>
+                                    </md-menu-item>
+                                    <md-menu-item md-menu-align-target>
+                                        <div flex="10" layout layout-align="center center">
+                                            <label>Max</label>
+                                        </div>
+                                        <md-input-container flex>
+                                            <md-slider class="md-primary" flex min="1" max="100" ng-model="modelJvSearchForm.residential.budget.max" aria-label="max" id="blue-slider-max">
+                                            </md-slider>
+                                        </md-input-container>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </md-input-container>
+                        <md-input-container>
+                            <md-button class="md-raised md-primary" ng-click="fn_getJointVentureResults(modelJvSearchForm)">Search</md-button>
+                        </md-input-container>
+                    </md-content>
+                </md-content>
+            </md-tab>
+            <md-tab label="Commercial" ng-disabled="true">
+                <md-content class="md-padding" flex="100" style="width:100%">
+                    <h1 class="md-display-2">Work in Progress..</h1>
+                </md-content>
+            </md-tab>
+            <md-tab label="Agricultural" ng-disabled="true">
+                <md-content class="md-padding" style="width:100%">
+                    <h1 class="md-display-2">Work in Progress..</h1>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </div>
+</md-content>
+<!--
 <div class="">
     <div class="row vertical-center">
         <div class="col s12 content-bg-layer">
@@ -75,3 +188,4 @@
         </div>
     </div>
 </div>
+-->

@@ -12,3 +12,6 @@ footer.main-footer.mt0 {
 footer.main-footer .social-plugins a {
   color: #fff;
 }
+footer.page-footer .footer-copyright {
+  background-color: #000 !important;
+}
