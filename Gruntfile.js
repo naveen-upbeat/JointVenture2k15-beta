@@ -97,7 +97,7 @@ module.exports = function(grunt) {
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('assemble-less');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    //grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-execute');
 
     // Default task(s).
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
                 "dest": "public/assets/css/",
                 "ext": '.css'
             };
-            var newSassConf = {
+            /*var newSassConf = {
                 "expand": true,
                 "cwd": 'public/modules/' + arrDirNames[j] + "/sass/",
                 "src": '*.scss',
@@ -145,14 +145,14 @@ module.exports = function(grunt) {
                 "src": '*_.scss',
                 "dest": 'public/assets/css/',
                 "ext": '.css'
-            };
+            };*/
             conf.components.files.push(newConf);
-            confSass.dist.files.push(newSassConf);
-            confSass.dist.files.push(new_SassConf);
+            //confSass.dist.files.push(newSassConf);
+            //confSass.dist.files.push(new_SassConf);
         }
         grunt.config.set('less', conf);
         //console.log(confSass);
-        grunt.config.set('sass', confSass);
+        //grunt.config.set('sass', confSass);
     });
 
 
@@ -185,6 +185,6 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask('preparecss', ['includeAllLessSass', 'less', 'sass', 'createSingleCssFile']);
+    grunt.registerTask('preparecss', ['includeAllLessSass', 'less', 'createSingleCssFile']);
     grunt.registerTask('preparejs', ['uglify']);
 };
