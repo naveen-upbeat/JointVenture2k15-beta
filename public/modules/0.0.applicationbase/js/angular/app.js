@@ -89,4 +89,19 @@ angular.module('jointVentureApp', [
         $mdThemingProvider.theme('default')
             .primaryPalette('indigo')
             .accentPalette('deep-orange');
+    })
+    /* material icons */
+    .config(function($mdIconProvider) {
+        $mdIconProvider
+            .iconSet('social', '/libs/core-icons/social-icons.html', 24)
+            .iconSet('av', '/libs/core-icons/av-icons.html', 24)
+            .iconSet('communication', '/libs/core-icons/communication-icons.html', 24)
+            .iconSet('social', '/libs/core-icons/social-icons.html', 24)
+            .iconSet('device', '/libs/core-icons/device-icons.html', 24)
+            .iconSet('editor', '/libs/core-icons/editor-icons.html', 24)
+            .iconSet('hardware', '/libs/core-icons/hardware-icons.html', 24)
+            .iconSet('image', '/libs/core-icons/image-icons.html', 24)
+            .iconSet('maps', '/libs/core-icons/maps-icons.html', 24)
+            .iconSet('notification', '/libs/core-icons/notification-icons.html', 24)
+            .defaultIconSet('/libs/core-icons/core-icons.html', 24);
     });
