@@ -1,7 +1,7 @@
 // grab the mongoose module
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var md5 = require('MD5');
+var md5 = require('md5');
 
 //Status Schema
 var statusSchema = new Schema({
