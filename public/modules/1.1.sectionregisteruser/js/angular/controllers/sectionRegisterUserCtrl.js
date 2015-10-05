@@ -24,7 +24,8 @@ angular.module('submodules.sectionsignup')
             alternate_mobile: '',
             city: '',
             captcha_valid: false,
-            valid: true
+            valid: true,
+            success:false
         };
 
         $scope.usertypes = {
@@ -67,7 +68,7 @@ angular.module('submodules.sectionsignup')
 
         // Register User
         $scope.fn_register_user = function(modelRegisterUserForm) {
-            return $http({
+            $http({
                 method: 'POST',
                 url: '/api/register_user',
                 transformRequest: transformRequestAsFormPost,
@@ -81,6 +82,10 @@ angular.module('submodules.sectionsignup')
                     'mobile': modelRegisterUserForm.mobile,
                     'alternate_mobile': modelRegisterUserForm.alternate_mobile,
                     'usertype': modelRegisterUserForm.usertype
+                }
+            }).then(function(data){
+                if(data.data.id){
+                    modelRegisterUserForm.success = true;
                 }
             });
         };

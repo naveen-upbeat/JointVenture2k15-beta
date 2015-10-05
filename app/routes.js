@@ -18,7 +18,12 @@
     module.exports = function(app) {
         var sess;
         app.use(session({
-            secret: 'ssshhhhh'
+            secret: 'ssshhhhh2',
+            resave: false,
+            saveUninitialized: true,
+            cookie: {
+                secure: true
+            }
         }));
         // server routes ===========================================================
         // handle things like api calls
@@ -52,7 +57,7 @@
             dbSchemas.STATUS.find({
                 'status_label': 'user_locked'
             }, function(err, status) {
-                status_locked = status.id;
+                status_locked = status[0].id;
             });
             var fn_increment_invalid_login_attempt = function(id) {
                 dbSchemas.USER.update({
@@ -84,7 +89,7 @@
                             fn_increment_invalid_login_attempt(user[0].id);
                             res.json({
                                 'error': 'invalid_login',
-                                'error_text': 'You have ' + (5 - user[0].login_attempt) + 'before account gets locked'
+                                'error_text': 'You have ' + (5 - user[0].login_attempt) + ' attempts, before your account gets locked'
                             });
                         }
                     } else {
@@ -150,8 +155,12 @@
             dbSchemas.STATUS.find({
                 'status_label': 'user_created'
             }, function(err, row) {
-                status_user_created = row.id;
+                if (err) throw err;
+                console.log(row);
+                status_user_created = row[0].id;
             });
+
+            var activation_code = md5(user_details.email + create_date);
 
             var new_user = new dbSchemas.USER({
                 create_date: create_date,
@@ -163,13 +172,25 @@
                 city: user_details.city,
                 mobile: user_details.mobile,
                 usertype: user_details.usertype,
-                activation_code: md5(user_details.activation_code + create_date),
+                activation_code: activation_code,
                 status: status_user_created
             });
             new_user.save(function(err, user) {
                 if (err) throw err;
                 // object of the user
                 //console.log(user);
+                var userEmail = user_details.email;
+
+                transporter.sendMail({
+                    from: 'techcompeers@gmail.com',
+                    to: userEmail,
+                    subject: 'Activate User | JointVenture2k15',
+                    html: 'You have recently registered with us. It is recommended to verify your email id. Please click this link \
+                        <a href="' + req.get('host') + '/api/activate_user?activation_code=' + activation_code + '">Here<a>. Thank you!'
+                }, function(err2, info) {
+                    //console.log('email sent');
+                    if(err2) throw err2;
+                });
                 res.json(user);
             });
 

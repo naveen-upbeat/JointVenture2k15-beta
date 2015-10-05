@@ -93,7 +93,8 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         alternate_mobile: "",
         city: "",
         captcha_valid: !1,
-        valid: !0
+        valid: !0,
+        success: !1
     }, $scope.usertypes = {}, $scope.origUserCopy = angular.copy($scope.user), $scope.resetForm = function() {
         $scope.user = angular.copy($scope.origUserCopy);
     }, $scope.checkUserExists = function(email) {
@@ -112,7 +113,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             data.length > 0 && ($scope.usertypes = data);
         }).error(function(data, status, headers, cfg) {});
     }, $scope.fn_register_user = function(modelRegisterUserForm) {
-        return $http({
+        $http({
             method: "POST",
             url: "/api/register_user",
             transformRequest: transformRequestAsFormPost,
@@ -127,6 +128,8 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 alternate_mobile: modelRegisterUserForm.alternate_mobile,
                 usertype: modelRegisterUserForm.usertype
             }
+        }).then(function(data) {
+            data.data.id && (modelRegisterUserForm.success = !0);
         });
     }, $scope.getUserTypes();
 } ]), angular.module("submodules.modallogin").controller("modalLoginCtrl", [ "$scope", "$http", "transformRequestAsFormPost", "userLoginSvc", "$mdDialog", function($scope, $http, transformRequestAsFormPost, userLoginSvc, $mdDialog) {
@@ -372,7 +375,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             };
         }
     };
-}), angular.module("submodules.sectionsignup").directive("appJvSectionRegisterUser", function() {
+}), angular.module("submodules.sectionsignup").directive("appJvSectionRegisterUser", function($mdDialog, $state) {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-register-user.html",
@@ -382,6 +385,14 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 var captch_script = document.createElement("script");
                 captch_script.setAttribute("src", recaptchaSrc), document.head.appendChild(captch_script);
             }
+            scope.$watch("modelRegisterUserForm.success", function(newVal, oldVal) {
+                if (newVal && newVal === !0) {
+                    var confirm = $mdDialog.confirm().title("User Registration Successful!").content("Please verify your email id to login with your credentials.").ariaLabel("Lucky day").ok("Go to Home");
+                    $mdDialog.show(confirm).then(function() {
+                        $state.go("home");
+                    }, function() {});
+                }
+            }, !0);
         }
     };
 }), angular.module("submodules.modallogin").directive("appJvModalLogin", function(userLoginSvc, $mdDialog, $mdMedia) {
