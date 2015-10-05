@@ -3,6 +3,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var md5 = require('MD5');
 
+//Status Schema
+var statusSchema = new Schema({
+    id: String,
+    status_label: String,
+    status_code: Number
+}, {
+    collection: 'STATUS'
+});
+
+
 //UserTypes Schema
 var userTypeSchema = new Schema({
     id: String,
@@ -13,13 +23,14 @@ var userTypeSchema = new Schema({
 
 // create a User Schema
 var userSchema = new Schema({
+    id: String,
     last_name: String,
     first_name: String,
     password: String,
     password_hash: String,
     email: {
-        type: String,
-        match: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/
+        type: String
+
     },
     create_date: {
         type: Date,
@@ -27,13 +38,19 @@ var userSchema = new Schema({
     },
     mobile: {
         type: String,
-        maxlength: 9
+        maxlength: 10
     },
-    alertnate_mobile: [{
+    alertnate_mobile: {
         type: String,
-        maxlength: 9
-    }],
-    usertype: String
+        maxlength: 10
+    },
+    usertype: String,
+    activation_code: String,
+    status: Number,
+    login_attempt : {
+        type: Number,
+        default : 0
+    }
 }, {
     collection: 'USER'
 });
@@ -41,12 +58,13 @@ var userSchema = new Schema({
 // custom method to encrypt the password field
 // you can create more important methods like name validations or formatting
 // you can also do queries and find similar users 
-userSchema.methods.hashPwd = function() {
-    // convert password to hash
-    var hash = md5(this.password + this.create_date.toString());
-    this.password_hash = hash;
-    return hash;
-};
+// userSchema.methods.hashPwd = function() {
+//     // convert password to hash
+//     var hash = md5(this.password + this.create_date.toString());
+//     this.password_hash = hash;
+//     this.password = 'passwordhashed';
+//     return hash;
+// };
 
 // City lookup schema
 var lookup_citySchema = new Schema({
@@ -58,18 +76,25 @@ var lookup_citySchema = new Schema({
 
 // Venture schema
 var ventureSchema = new Schema({
-    'id': String,
-    'price': Number,
-    'address_gps': [Number, Number],
-    'address_text': String,
-    'configuration': String,
-    'area': Number,
+    'image_url': Array,
+    'user_details': {
+        'usertype': String,
+        'email': String,
+        'mobile': String,
+        'alternate_mobile': String
+    },
+    'address': String,
+    'city': String,
+    'price_unit': String,
+    'price': String,
+    'is_negotiable': Boolean,
     'area_unit': String,
+    'built_area': String,
+    'possession_type': String,
+    'possession_details': String,
+    'property_description': String,
     'status': String,
-    'furnishing': String,
-    'project_society': String,
-    'brokerage_response': String,
-    'owner_id': String
+    'near_by': String
 }, {
     collection: 'VENTURE'
 });
@@ -78,6 +103,7 @@ var ventureSchema = new Schema({
 // the schemas are useless so far
 // we need to create a mongoose model using it
 var dbSchemas = {
+        'STATUS': mongoose.model('STATUS', statusSchema),
         'USERTYPE': mongoose.model('USERTYPE', userTypeSchema),
         'USER': mongoose.model('USER', userSchema),
         'VENTURE': mongoose.model('VENTURE', ventureSchema),

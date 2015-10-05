@@ -25,7 +25,6 @@ angular.module('submodules.sitewidecommon')
                  * @return {[type]}             [description]
                  */
                 scope.$on('$locationChangeSuccess', function(event, newURL, oldURL, newState, oldState) {
-                    console.log(newURL);
                     siteWideCommonFunctions.scrollToSection(newURL.split('?scrollTo=')[1]);
                 });
                 scope.$on('$stateChangeSuccess', function(event, newState, newStateParams, oldState, oldStateParams) {

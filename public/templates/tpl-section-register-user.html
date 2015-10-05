@@ -1,0 +1,116 @@
+<div layout='row' layout-align="space-around center">
+<div flex-sm="5" flex-gt-sm="25"></div>
+<div flex-sm="75" flex-gt-sm="50" layout="column">
+    <md-content style="margin-top:40px; margin-bottom:80px;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Register</span>
+                </h2>
+            </div>
+        </md-toolbar>
+        <form name="formUserSignup" novalidate>
+            <md-content class="md-padding">
+                <div layout="row">
+                    <div layout="column" layout-align="center center" flex="40">
+                        <label for="usertype" class="col-sm-2 control-label">User Type</label>
+                    </div>
+                    <div flex="60">
+                        <div layout="column">
+                            <md-input-container class="radio-user-types">
+                                <md-radio-group ng-model="modelRegisterUserForm.usertype" ng-required="true">
+                                    <md-radio-button ng-repeat="usertype in usertypes" id="userTypeRadios{{usertype.id}}" value="{{usertype.id}}">{{usertype.usertype_label}}</md-radio-button>
+                                </md-radio-group>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" class="" id="textFName" ng-model="modelRegisterUserForm.first_name" ng-required="true">
+                    </md-input-container>
+                    <md-input-container flex="50">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" class="" id="textLName" ng-model="modelRegisterUserForm.last_name" ng-required="true">
+                    </md-input-container>
+                </div>
+                <md-input-container ng-class="{'has-error':signupUser.valid===false}">
+                    <label>Email</label>
+                    <input type="text" app-jv-verfiy-unique="checkUserExists" name="email" id="inputEmail" ng-model="modelRegisterUserForm.email" ng-required="true">
+                    <p class="help-block" ng-show="signupUser.valid===false"> Email ID address exists. Please use another email</p>
+                </md-input-container>
+                <div layout="row">
+                    <div flex="70">
+                        <md-input-container>
+                            <label for="inputPassword" class="">Password</label>
+                            <input type="{{modelRegisterUserForm.show_password ? 'text' : 'password'}}" name="password" class="form-control" id="inputPassword" ng-model="modelRegisterUserForm.password" ng-required="true">
+                        </md-input-container>
+                    </div>
+                    <div flex="30">
+                        <div layout="column" layout-align="end center">
+                            <label flex="90">{{modelRegisterUserForm.show_password ? 'Hide Password' : 'Show Password'}}</label>
+                        </div>
+                        <md-input-container>
+                            <md-button ng-class="{'md-accent':!modelRegisterUserForm.show_password}" ng-click="modelRegisterUserForm.show_password=!modelRegisterUserForm.show_password">
+                                <md-icon class="show-password-icon" md-svg-icon="/libs/material-design-icons/image/svg/production/ic_remove_red_eye_24px.svg">
+                                </md-icon>
+                            </md-button>
+                        </md-input-container>
+                    </div>
+                </div>
+                <md-input-container ng-if="!modelRegisterUserForm.show_password">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control" id="inputConfirmPassword" ng-model="modelRegisterUserForm.confirm_password" ng-disabled="modelRegisterUserForm.show_password" ng-required="true" >
+                </md-input-container>
+                <div layout="row">
+                <md-input-container flex="50">
+                    <label>Mobile</label>
+                    <input type="text" name="mobile" ng-model="modelRegisterUserForm.mobile" ng-maxlength="10" ng-minlength="10" ng-required="true">
+                </md-input-container>
+                <md-input-container flex="50">
+                    <label>Alternate Mobile</label>
+                    <input type="text" name="alternate_mobile" ng-model="modelRegisterUserForm.alternate_mobile">
+                </md-input-container>
+                </div>
+                <md-input-container>
+                    <label>City</label>
+                    <md-select ng-model="modelRegisterUserForm.city" id="selectCity" name="city" ng-required="true">
+                        <md-option value="Bangalore">Bangalore</md-option>
+                        <md-option value="Pune">Pune</md-option>
+                        <md-option vavlue="Hyderabad">Hyderabad</md-option>
+                        <md-option value="Mumbai">Mumbai</md-option>
+                    </md-select>
+                </md-input-container>
+                <div layout="row" md-padding>
+                    <!-- model :{{signupUser.emailmodel}} -->
+                    <div flex="20">
+                        <div class="valign-wrapper">
+                            <div class="valign">
+                                <label for="captcha" class="">Captcha</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div flex="60">
+                        <div class="valign-wrapper">
+                            <div class="valign" app-jv-verify-captcha ng-model="modelRegisterUserForm.captcha_valid">
+                                <div class="g-recaptcha col-sm-9" data-sitekey="6LdQ_QsTAAAAAM8IyCCqBrm8LMQVYkcZzZ0mQe_q"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-input-container></md-input-container>
+                <div layout="row" md-padding>
+                    <md-input-container flex="50">
+                        <md-button type="reset" class="md-raised md-accent">Reset</md-button>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                        <md-button ng-disabled="formUserSignup.$invalid" ng-click="fn_register_user(modelRegisterUserForm)" class="md-raised md-primary">Register Now!</md-button>
+                    </md-input-container>
+                </div>
+            </md-content>
+        </form>
+    </md-content>
+</div>
+<div flex-sm="5" flex-gt-sm="25"></div>
+</div>

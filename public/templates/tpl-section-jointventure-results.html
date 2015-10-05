@@ -1,139 +1,250 @@
-<div class="">
-    <div class="row">
-        <nav class="nav-wrapper test">
-            <div class="">
-                <a class="btn-flat disabled">Filter:</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".searchresults-navbar-responsive-collapse">
-                    <span class="fa fa-chevron-down"></span>
-                </button>
+<md-content layout="column" layout-align="center center" style="background:transparent;">
+    <md-content style="width:90%; margin-top:20px;margin-bottom:20px;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-chips ng-model="selectedLocations" md-autocomplete-snap md-require-match="true">
+                    <md-autocomplete md-search-text-change="searchTextChange(searchLocationText)" md-selected-item="selectedLocation" md-search-text="searchLocationText" md-items="location in querySearch(searchLocationText)" md-item-text="location.name" placeholder="Search for a Locality or Landmark">
+                        <span md-highlight-text="searchLocationText">{{location.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                                    <strong>{{$chip.name}}</strong>
+                                </span>
+                    </md-chip-template>
+                </md-chips>
+                <md-menu>
+                    <md-button class="md-raised md-primary" aria-label="Property Type" hide-sm ng-click="fn_open_menu($mdOpenMenu, $event)">
+                        <md-icon md-svg-icon="/libs/material-design-icons/action/svg/design/ic_home_24px.svg"></md-icon>
+                        <span>Property Type</span>
+                        <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button>
+                                Residential
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>
+                                Commercial
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>
+                                Agricultural
+                            </md-button>
+                        </md-menu-item>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button class="md-raised md-primary" aria-label="Budget" hide-sm ng-click="fn_open_menu($mdOpenMenu, $event)">
+                        <span>Budget</span>
+                        <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item md-menu-align-target>
+                            <md-list>
+                                <md-list-item>
+                                    <md-input-container flex>
+                                        <label>Min</label>
+                                        <input ng-model="modelJvSearchForm.residential.budget.min" maxlength="3">
+                                    </md-input-container>
+                                    <md-input-container flex>
+                                        <label>Max</label>
+                                        <input ng-model="modelJvSearchForm.residential.budget.max" maxlength="3">
+                                    </md-input-container>
+                                </md-list-item>
+                            </md-list>
+                        </md-menu-item>
+                        <md-menu-item md-menu-align-target>
+                            <div flex="10" layout layout-align="center center">
+                                <label>Min</label>
+                            </div>
+                            <md-input-container>
+                                <md-slider flex min="0" max="100" ng-model="modelJvSearchForm.residential.budget.min" aria-label="min" id="red-slider-min">
+                                </md-slider>
+                            </md-input-container>
+                        </md-menu-item>
+                        <md-menu-item md-menu-align-target>
+                            <div flex="10" layout layout-align="center center">
+                                <label>Max</label>
+                            </div>
+                            <md-input-container flex>
+                                <md-slider class="md-primary" flex min="1" max="100" ng-model="modelJvSearchForm.residential.budget.max" aria-label="max" id="blue-slider-max">
+                                </md-slider>
+                            </md-input-container>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button class="md-raised md-primary" aria-label="Bedroom" hide-sm ng-click="fn_open_menu($mdOpenMenu, $event)">
+                        <span>Bed Rooms</span>
+                        <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-list md-menu-align-target>
+                                <md-list-item>
+                                    <p> 1 BHK </p>
+                                    <md-checkbox value="1" class="md-secondary" ng-model="modelJvSearchForm.residential.bedrooms['1']"></md-checkbox>
+                                </md-list-item>
+                            </md-list>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-list md-menu-align-target>
+                                <md-list-item>
+                                    <p> 2 BHK </p>
+                                    <md-checkbox value="2" class="md-secondary" ng-model="modelJvSearchForm.residential.bedrooms['2']"></md-checkbox>
+                                </md-list-item>
+                            </md-list>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-list md-menu-align-target>
+                                <md-list-item>
+                                    <p> 3 BHK </p>
+                                    <md-checkbox value="3" class="md-secondary" ng-model="modelJvSearchForm.residential.bedrooms['3']"></md-checkbox>
+                                </md-list-item>
+                            </md-list>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button class="md-raised md-primary" aria-label="Posted By" hide-sm ng-click="fn_open_menu($mdOpenMenu, $event)">
+                        <span>Posted By</span>
+                        <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button>
+                                Agent
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>
+                                User
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <div flex></div>
+                <md-button class="md-raised md-primary" aria-label="More Filters">
+                    <md-icon md-svg-icon="/libs/material-design-icons/content/svg/design/ic_filter_list_24px.svg"></md-icon>
+                    <span>More Filters</span>
+                </md-button>
             </div>
-            <div class="navbar-collapse searchresults-navbar-responsive-collapse collapse">
-                <form class="form-inline">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <div class="form-group col-xs-12">
-                                <select label="Select Type" id="farmtype" multiple="multiple">
-                                    <option value="1">Agriculture </option>
-                                    <option value="2" selected="selected">Farm Land</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group col-xs-12 btn-group">
-                                <label class="sr-only" for="area">Area</label>
-                                <tags-input ng-model="addrtags" display-property="description" key-property="place_id" type="text" id="Area" placeholder="Location">
-                                    <auto-complete display-property="description" key-property="place_id" source="loadAddrTags($query)"></auto-complete>
-                                </tags-input>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group col-xs-12">
-                                <select title="Select Budget" id="budget" multiple="multiple">
-                                    <option>less than 2 Lakh</option>
-                                    <option>2 - 3 lakh</option>
-                                    <option>3 - 10 lakh</option>
-                                    <option>10 - 20 lakh</option>
-                                    <option>20+ lakh</option>
-                                </select>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <div class="form-group col-xs-12 col-md-3">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group col-xs-12">
-                                <select title="Posted By" id="postedby" multiple="multiple">
-                                    <option>Owners</option>
-                                    <option>Brokers</option>
-                                    <option>Builders</option>
-                                </select>
-                            </div>
-                        </li>
-                    </ul>
-                </form>
-            </div>
-        </nav>
-    </div>
-    <div class="row vertical-center">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 content-bg-layer">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <div ng-repeat="venture in ventures">
-                        <div class="panel panel-default text-left">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                            <h3> {{venture.name}}</h3>
-                                            <span>{{venture.company}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                Location: {{venture.location}}
-                                            </div>
-                                            <div class="col-xs-12">
-                                                Status: {{venture.status}}
-                                            </div>
-                                            <div class="col-xs-12">
-                                                Details: {{venture.details}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 mt15">
-                                        <div class="col-xs-4">
-                                            <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="price">
-                                                    {{venture.price}}
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="sftprice">
-                                                    {{venture.sftprice}}
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 venture-dp">
-                                            <div class="row">
-                                            <div class="col-xs-12">
-                                                <img ng-src="{{venture.dp}}">
-                                                <div class="venture-dp-count">
-                                                    Available Pics: {{venture.dpcount}}
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
+        </md-toolbar>
+        <md-content>
+            <div layout="column">
+                <div class="list-refine" layout="row" class="md-padding">
+                    <div flex="30" layout="column" layout-align="center center">
+                        <span>Displaying results</span>
+                    </div>
+                    <div flex="30">
+                        <md-menu>
+                            <md-button class="md-raised" aria-label="Sort By" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                                <md-icon md-svg-icon="/libs/material-design-icons/content/svg/production/ic_sort_24px.svg"></md-icon>
+                                <span hide-sm>Sort By</span>
+                                <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button>
+                                        Relevance
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Latest
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Lowest Price
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Highest Price
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                    <div flex="30">
+                        <md-menu>
+                            <md-button class="md-raised" aria-label="View" ng-click="fn_open_menu($mdOpenMenu, $event)">
+                                <md-icon md-svg-icon="/libs/material-design-icons/image/svg/production/ic_view_compact_24px.svg"></md-icon>
+                                <span hide-sm>List / Map View</span>
+                                <md-icon md-svg-icon="/libs/material-design-icons/navigation/svg/production/ic_expand_more_24px.svg"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button>
+                                        List
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button>
+                                        Map
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+                <md-divider></md-divider>
+                <md-content class="search-results md-padding">
+                    <div layout="row">
+                        <div flex="70">
+                            <div layout="column" style="height:400px;">
+                                <div class="property-heading" layout="row" flex>
+                                    <h4 flex="70">Property 1</h4>
+                                    <div flex="30">Price: 50Lac</div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3">
-                                        <div class="btn btn-sm btn-material-red-500 contact-builder">Contact Builder</div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3">
-                                        <div class="btn btn-sm btn-material-grey-500 view-phone-number">View Phone Number</div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-4 col-sm-offset-2 text-center">
-                                        <div class="btn-group">
-                                            <div class="btn btn-xs btn-material-grey-100 report">
-                                            <span class="fa fa-times"></span>Report</div>
-                                            <div class="btn btn-xs btn-material-grey-100 shortlist"> Shortlist
-                                                <span class="fa fa-heart-o"></span> </div>
-                                            
+                                <div class="location" flex>
+                                    Location: Bangalore
+                                </div>
+                                <div class="Status" flex>
+                                    Status: Ready To Move
+                                </div>
+                                <div layout="column" layout-align="center end" flex>
+                                    <div flex="100" layout="row" layout-fill layout-padding layout-align="space-around center">
+                                        <md-button class="md-raised md-accent">
+                                            <md-icon hide-gt-sm md-svg-icon="/libs/material-design-icons/action/svg/production/ic_perm_phone_msg_24px.svg"></md-icon>
+                                            <span hide-sm>Contact Agent</span>
+                                        </md-button>
+                                        <md-button class="md-raised md-primary">
+                                            <md-icon hide-gt-sm md-svg-icon="/libs/material-design-icons/action/svg/production/ic_account_box_24px.svg"></md-icon>
+                                            <span hide-sm>View Phone No</span>
+                                        </md-button>
+                                        <div flex>
+                                            Posted on: 02-Oct-2015
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div flex="30">
+                            <md-card>
+                                <img ng-src="/assets/img/rent/rent-list-1.jpg" class="md-card-image" alt="Property">
+                                <md-card-content>
+                                    <h4 class="md-title">Property1</h4>
+                                    <div class="md-actions" layout="row" layout-fill layout-align="center center" flex-wrap>
+                                        <md-button>
+                                            <md-icon md-svg-icon="/libs/material-design-icons/content/svg/production/ic_clear_24px.svg"></md-icon>
+                                            <span hide-sm>Report</span>
+                                        </md-button>
+                                        <md-button>
+                                            <md-icon md-svg-icon="/libs/material-design-icons/action/svg/production/ic_favorite_24px.svg"></md-icon>
+                                            <span hide-sm>Shortlist</span></md-button>
+                                    </div>
+                                </md-card-content>
+                            </md-card>
+                        </div>
                     </div>
-                </div>
+                </md-content>
             </div>
-        </div>
-    </div>
-</div>
+        </md-content>
+    </md-content>
+</md-content>

@@ -1,0 +1,4 @@
+{'id':101,'status_label':'user_created', 'status_code':101}
+{'id':102,'status_label':'user_verified', 'status_code':102}
+{'id':103,'status_label':'user_locked', 'status_code':103}
+{'id':104,'status_label':'user_deleted', 'status_code':104}

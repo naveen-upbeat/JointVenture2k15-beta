@@ -1,95 +1,148 @@
-<div class="container-fluid">
-    <div class="row vertical-center">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-            <form class="form-horizontal">
-                <fieldset>
-                    <h2>List Property</h2>
-                    <hr>
-                    <div class="form-group">
-                        <label for="userType" class="col-xs-12 col-sm-2 control-label">You are</label>
-                        <div class="radio radio-primary col-xs-12 col-sm-9">
-                            <label>
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Owner"> Owner
-                            </label>
-                            <label>
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Agent"> Agent
-                            </label>
-                            <label>
-                                <input type="radio" name="userTypeRadios" id="userTypeRadios" value="Builder"> Builder
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="select" class="col-xs-12 col-sm-2 control-label">List for</label>
-                        <div class="col-xs-12 col-sm-9">
-                            <select class="form-control" id="selectCity">
-                                <option>Rent</option>
-                                <option>Sale</option>
-                                <option>PG Hostels</option>
-                                <option>Farm</option>
-                                <option>Property</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="fullName" class="col-xs-12 col-sm-2 control-label">Full Name</label>
-                        <div class="col-xs-12 col-sm-9">
-                            <input type="text" class="form-control" id="textFullName" placeholder="Your Full Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="textArea" class="col-xs-12 col-sm-2 control-label">Address</label>
-                        <div class="col-xs-12 col-sm-9">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-xs-12 col-sm-2 control-label">Email</label>
-                        <div class="col-xs-12 col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPhone" class="col-xs-12 col-sm-2 control-label">Phone</label>
-                        <div class="col-xs-12 col-sm-9">
-                            <input type="phone" class="form-control" id="inputPhone" placeholder="Phone Number">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="select" class="col-xs-12 col-sm-2 control-label">City</label>
-                        <div class="col-xs-12 col-sm-9">
-                            <select class="form-control" id="selectCity">
-                                <option>Bangalore</option>
-                                <option>Pune</option>
-                                <option>Hyderabad</option>
-                                <option>Pune</option>
-                                <option>Mumbai</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="captcha" class="col-xs-12 col-sm-2 control-label">Catcha</label>
-                        <img id="captcha" src="/captcha" alt="CAPTCHA Image" />
-                        <a href="#" onclick="document.getElementById('captcha').src = '/captcha?' + Math.random(); return false" class="btn btn-site-brand btn-sm">Show a Different Image</a>
-                    </div>
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label class="col-xs-12 col-sm-2"></label>
-                        <div class="col-xs-12 col-sm-9">
-                            <input type="text" class="form-control" name="captcha_code" id="captcha_code" placeholder="For security, please enter the code displayed in the box." />
-                            <span class="help-block" style="display: none;">Please enter the code displayed within the image.</span>
-                            <label class="col-lg-2"></label>
-                            <span class="help-block" style="display: none;">Please enter a the security code.</span>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12 col-xs-offset-1 col-sm-5 col-sm-offset-4">
-                                <button type="reset" class="btn btn-danger">Reset</button>
-                                <button type="submit" class="btn btn-primary">Send Details</button>
+<div layout="row">
+    <div flex-sm="5" flex-gt-sm="10"></div>
+    <div flex-sm="85" flex-gt-sm="80" >
+        <md-content layout="column" layout-align="space-between center" style="margin-top:20px;margin-bottom:20px;">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                    <span>Sell Property</span>
+                </h2>
+                </div>
+            </md-toolbar>
+            <md-content layout="row" layout-fill class="md-padding">
+                <form name="formSellProperty" novalidate flex="100">
+                    <div layout="column">
+                        <div layout="row">
+                            <div class="input-1" flex="60">
+                                <div layout="row">
+                                    <md-input-container flex="30">
+                                        <label>Price:</label>
+                                        <input ng-model="modelSellForm.price" ng-required="true" />
+                                    </md-input-container>
+                                    <md-input-container flex="40">
+                                        <label>Unit:</label>
+                                        <md-select ng-model="modelSellForm.price_unit">
+                                            <md-option value="Rupee">Rs</md-option>
+                                            <md-option value="Lakh">Lakhs</md-option>
+                                            <md-option value="Crore">Crores</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container flex="30">
+                                        <md-checkbox value="1" class="md-secondary" ng-model="modelSellForm.is_negotiable">
+                                            <label>Negotiable</label>
+                                        </md-checkbox>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <md-input-container flex="30">
+                                        <label>Builtup Area</label>
+                                        <input type="text" name="builtup_area" ng-model="modelSellForm.built_area" ng-required="true" />
+                                    </md-input-container>
+                                    <md-input-container flex="45">
+                                        <label>Unit:</label>
+                                        <md-select ng-model="modelSellForm.area_unit" style="margin-top:14px;">
+                                            <md-option value="acre">Acre</md-option>
+                                            <md-option value="sft">Square Feet</md-option>
+                                            <md-option value="gunta">Gunta</md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container flex></md-input-container>
+                                </div>
+                            </div>
+                            <div flex="40">
+                                <md-input-container layout="column" layout-align="space-around center" layout-fill style="background-image:url('/assets/img/bg-home3.jpg');height:200px;">
+                                    <md-button class="md-raised md-accent" ng-click="upload_images()">Upload Images</md-button>
+                                    <!-- <input type="hidden" role="uploadcare-uploader" data-images-only="true" data-multiple="true" /> -->
+                                </md-input-container>
                             </div>
                         </div>
-                </fieldset>
-            </form>
-            </div>
-        </div>
+                        <div layout="row">
+                            <md-input-container flex="45">
+                                <label>Possession Type</label>
+                                <md-select ng-model="modelSellForm.possesion_type" style="margin-top:14px;">
+                                    <md-option value="Immediate">Immediate</md-option>
+                                    <md-option value="date">Date</md-option>
+                                    <md-option value="3months">Within 3 Months</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container flex="50">
+                                <label>Possession Details</label>
+                                <input type="text" name="possession_time" class="" id="textLName" ng-model="modelSellForm.possession_details" ng-required="true">
+                            </md-input-container>
+                        </div>
+                        <md-input-container>
+                            <label>Property Description</label>
+                            <textarea class="form-control" rows="3" id="textArea" ng-model="modelSellForm.property_description
+                    "></textarea>
+                        </md-input-container>
+                        <!-- <md-input-container>
+                <label>Project Details</label>
+                <textarea class="form-control" rows="3" id="textArea"></textarea>
+            </md-input-container>
+            <md-input-container>
+                <label>Project Features</label>
+                <textarea class="form-control" rows="3" id="textArea"></textarea>
+            </md-input-container> -->
+                        <div layout="row">
+                            <md-input-container flex="50">
+                                <label>Address</label>
+                                <textarea class="form-control" rows="3" id="textArea" ng-model="modelSellForm.address"></textarea>
+                            </md-input-container>
+                            <md-input-container flex="50">
+                                <label>City</label>
+                                <md-select ng-model="modelSellForm.city" id="selectCity" name="city" ng-required="true">
+                                    <md-option value="Bangalore">Bangalore</md-option>
+                                    <md-option value="Pune">Pune</md-option>
+                                    <md-option vavlue="Hyderabad">Hyderabad</md-option>
+                                    <md-option value="Mumbai">Mumbai</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <md-input-container>
+                            <label>Nearby</label>
+                            <textarea class="form-control" rows="3" id="textArea" ng-model="modelSellForm.near_by"></textarea>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Email</label>
+                            <input type="email" id="inputEmail" value="" placeholder="Email" ng-disabled="true" ng-model="modelSellForm.user_details.email">
+                        </md-input-container>
+                        <div layout="row">
+                            <md-input-container flex="50">
+                                <label>Phone</label>
+                                <input type="phone" class="form-control" id="inputPhone" placeholder="Phone Number" ng-disabled="true" ng-model="modelSellForm.user_details.mobile">
+                            </md-input-container>
+                            <md-input-container flex="50">
+                                <label>Alternate Phone</label>
+                                <input type="phone" ng-model="modelSellForm.user_details.alternate_mobile"></input>
+                            </md-input-container>
+                        </div>
+                        <div layout="row" md-padding>
+                            <!-- model :{{signupUser.emailmodel}} -->
+                            <div flex="20" layout="column" layout-align="center end">
+                                <div>
+                                    <label for="captcha" class="">Captcha</label>
+                                </div>
+                            </div>
+                            <div flex="60" layout="column" layout-align="center center">
+                                <div class="valign-wrapper">
+                                    <div class="valign" app-jv-verify-captcha ng-model="modelRegisterUserForm.captcha_valid">
+                                        <div class="g-recaptcha col-sm-9" data-sitekey="6LdQ_QsTAAAAAM8IyCCqBrm8LMQVYkcZzZ0mQe_q"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <md-content flex="50" class="md-padding" layout="column" layout-align="center end">
+                                <md-button type="reset" class="md-raised md-accent">Reset</md-button>
+                            </md-content>
+                            <md-content flex="50" class="md-padding">
+                                <md-button type="button" class="md-raised md-primary" ng-click="fn_sell_property(modelSellForm)">Save Details</md-button>
+                            </md-content>
+                        </div>
+                    </div>
+                </form>
+            </md-content>
+        </md-content>
     </div>
+    <div flex-sm="5" flex-gt-sm="10"></div>
+</div>

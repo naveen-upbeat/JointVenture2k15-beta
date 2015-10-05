@@ -14,6 +14,7 @@
             pass: 'techCompeers2k15'
         }
     });
+    var https = require('https');
     module.exports = function(app) {
         var sess;
         app.use(session({
@@ -21,7 +22,7 @@
         }));
         // server routes ===========================================================
         // handle things like api calls
-        
+
         app.get('/api/getcities', function(req, res) {
             //console.log('getting cities',dbSchemas.LOOKUP_CITY);
             dbSchemas.LOOKUP_CITY.find({}, function(err, citylist) {
@@ -47,6 +48,23 @@
             sess = req.session;
             //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
             //console.log(req.body);
+            var status_locked;
+            dbSchemas.STATUS.find({
+                'status_label': 'user_locked'
+            }, function(err, status) {
+                status_locked = status.id;
+            });
+            var fn_increment_invalid_login_attempt = function(id) {
+                dbSchemas.USER.update({
+                    id: id
+                }, {
+                    $inc: {
+                        login_attempt: 1
+                    }
+                }, function(err, user) {
+
+                });
+            }
             dbSchemas.USER.find({
                 email: req.body.username
             }, function(err, user) {
@@ -54,24 +72,49 @@
                 //console.log(user[0].password_hash);
                 // object of the user
                 if (user.length > 0) {
-                    var passwordHash = md5(req.body.password + user[0].create_date.getTime());
-                    //console.log('password',req.body.password,'text',req.body.password + user[0].create_date.getTime(),'hash',passwordHash);
-                    //console.log('success');
-                    //console.log(user2);
-                    if (user[0].password_hash === passwordHash) {
-                        sess.user_data = user[0];
-                        res.json(user);
+                    if (user[0].login_attempt < 5) {
+                        var passwordHash = md5(req.body.password + user[0].create_date.getTime());
+                        //console.log('password',req.body.password,'text',req.body.password + user[0].create_date.getTime(),'hash',passwordHash);
+                        //console.log('success');
+                        //console.log(user2);
+                        if (user[0].password_hash === passwordHash) {
+                            sess.user_data = user[0];
+                            res.json(user);
+                        } else {
+                            fn_increment_invalid_login_attempt(user[0].id);
+                            res.json({
+                                'error': 'invalid_login',
+                                'error_text': 'You have ' + (5 - user[0].login_attempt) + 'before account gets locked'
+                            });
+                        }
                     } else {
-                        res.json([]);
+                        dbSchemas.USER.update({
+                                id: user[0].id
+                            }, {
+                                $set: {
+                                    status: status_locked
+                                }
+                            },
+                            function(err, user) {
+
+                            });
+
+                        res.json({
+                            'error': 'account_locked',
+                            'error_text': 'You have locked your account. Please reset password or call technical support for more assistance'
+                        });
                     }
                 } else {
-                    res.json([]);
+                    res.json({
+                        'error': 'invalid_user',
+                        'error_text': 'Couldnot verify credentials. Please dont try to hack!'
+                    });
                 }
             });
         });
 
         // Check user exists
-        app.get('/api/checkemailid', function(req, res) {
+        app.get('/api/check_email_exists', function(req, res) {
             //console.log(req);
             dbSchemas.USER.find({
                 email: req.query.email || req.params.email
@@ -100,16 +143,137 @@
         });
 
         // add a new user
-        app.post('/api/adduser', function(req, res) {
-            //res.send('UserName:' + req.param('username') + ' Password: '+req.param('password'));
-            //console.log(req.body);
-            User.find({
-                name: req.body.username
-            }, function(err, user) {
+        app.post('/api/register_user', function(req, res) {
+            var user_details = req.body,
+                create_date = new Date().getTime();
+            var status_user_created;
+            dbSchemas.STATUS.find({
+                'status_label': 'user_created'
+            }, function(err, row) {
+                status_user_created = row.id;
+            });
+
+            var new_user = new dbSchemas.USER({
+                create_date: create_date,
+                id: user_details.email,
+                first_name: user_details.first_name,
+                last_name: user_details.last_name,
+                email: user_details.email,
+                password: md5(user_details.password + create_date),
+                city: user_details.city,
+                mobile: user_details.mobile,
+                usertype: user_details.usertype,
+                activation_code: md5(user_details.activation_code + create_date),
+                status: status_user_created
+            });
+            new_user.save(function(err, user) {
                 if (err) throw err;
                 // object of the user
                 //console.log(user);
                 res.json(user);
+            });
+
+        });
+
+        // add a new user
+        app.get('/api/activate_user', function(req, res) {
+            var user_details = req.body,
+                create_date = new Date().getTime();
+
+            dbSchemas.USER.find({
+                create_date: create_date,
+                id: user_details.email,
+                first_name: user_details.first_name,
+                last_name: user_details.last_name,
+                email: user_details.email,
+                password: user_details.password,
+                city: user_details.city,
+                mobile: user_details.mobile,
+                usertype: user_details.usertype
+
+            });
+            new_user.save(function(err, user) {
+                if (err) throw err;
+                // object of the user
+                //console.log(user);
+                res.json(user);
+            });
+
+        });
+
+        app.post('/api/list_sell', function(req, res) {
+
+            function putImage(image_url) {
+                var postheaders = {
+                    'Content-Type': 'text/plain',
+                    'Authorization': 'Uploadcare.Simple 9892b9acceb2acadf4a9:9515dd736cc158915b10'
+                };
+
+                console.log(image_url.substr(image_url.indexOf('.com/') + 4));
+                // the post options
+                var optionspost = {
+                    host: 'api.uploadcare.com',
+                    port: 443,
+                    path: '/files/' + image_url.substr(image_url.indexOf('.com/') + 4) + 'storage/',
+                    method: 'PUT',
+                    headers: postheaders
+                };
+
+                // do the POST call
+                var reqPost = https.request(optionspost, function(res) {
+                    console.log("statusCode: ", res.statusCode);
+                    // uncomment it for header details
+                    //  console.log("headers: ", res.headers);
+
+                    res.on('data', function(d) {
+                        console.info('POST result:\n');
+                        //process.stdout.write(d);
+                        console.info('\n\nPOST completed');
+                    });
+                });
+
+                // write the json data
+                //reqPost.write(jsonObject);
+                reqPost.end();
+                reqPost.on('error', function(e) {
+                    console.error(e);
+                });
+
+            }
+            var property_details = req.body,
+                create_date = new Date().getTime();
+
+            for (var i = 0; i < property_details.image_url.length; i++) {
+                putImage(property_details.image_url[i]);
+            }
+
+
+            var list_new_sell = new dbSchemas.VENTURE({
+                image_url: property_details.image_url,
+                user_details: {
+                    usertype: property_details.user_details.usertype,
+                    email: property_details.user_details.email,
+                    mobile: property_details.user_details.mobile,
+                    alternate_mobile: property_details.user_details.alternate_mobile,
+                },
+                address: property_details.address,
+                city: property_details.city,
+                price_unit: property_details.price_unit,
+                price: property_details.price,
+                is_negotiable: property_details.is_negotiable,
+                area_unit: property_details.area_unit,
+                built_area: property_details.built_area,
+                possession_type: property_details.possession_type,
+                possession_details: property_details.possession_details,
+                property_description: property_details.property_description,
+                status: property_details.status,
+                near_by: property_details.near_by
+            });
+            list_new_sell.save(function(err, sell) {
+                if (err) throw err;
+                // object of the user
+                //console.log(user);
+                res.json(sell);
             });
 
         });
@@ -134,7 +298,7 @@
                 to: userEmail,
                 subject: 'Password Reset | JointVenture2k15',
                 text: 'You forgot your password. Please reset your password by clicking here.'
-            }, function(err, info){
+            }, function(err, info) {
                 //console.log('email sent');
                 //console.log(err,info);
             });

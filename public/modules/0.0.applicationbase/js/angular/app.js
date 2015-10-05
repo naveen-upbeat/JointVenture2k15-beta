@@ -39,6 +39,15 @@ angular.module('jointVentureApp', [
                 }
 
             })
+            .state('register_user', {
+                url: "/register_user",
+                views: {
+                    'top-section': {
+                        templateUrl: "views/section-register-user.html",
+                        controller: 'MainController'
+                    }
+                }
+            })
             .state('jointventure', {
                 url: "/jointventure",
                 views: {
@@ -49,20 +58,19 @@ angular.module('jointVentureApp', [
                 }
 
             })
+            .state('jointventureresults', {
+                url: "/jointventureresults",
+                views: {
+                    'top-section': {
+                        templateUrl: "views/section-jointventure-results.html"
+                    }
+                }
+            })
             .state('sell', {
                 url: "/sell",
                 views: {
                     'top-section': {
                         templateUrl: "views/section-sell.html",
-                        controller: 'MainController'
-                    }
-                }
-            })
-            .state('signup', {
-                url: "/signup",
-                views: {
-                    'top-section': {
-                        templateUrl: "views/section-signup.html",
                         controller: 'MainController'
                     }
                 }
@@ -74,13 +82,11 @@ angular.module('jointVentureApp', [
                         templateUrl: "views/section-rent.html"
                     }
                 }
-            })
-            .state('jointventureresults', {
-                url: "/jointventureresults",
-                views: {
-                    'top-section': {
-                        templateUrl: "views/section-jointventure-results.html"
-                    }
-                }
             });
+    })
+    /* Theming settings used by angular material */
+    .config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('indigo')
+            .accentPalette('deep-orange');
     });

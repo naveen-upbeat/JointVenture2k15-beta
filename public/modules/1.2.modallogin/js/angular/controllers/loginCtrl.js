@@ -21,6 +21,7 @@ angular.module('submodules.modallogin')
                 'forgotpassword': 'Forgot Password'
             },
             is_valid: true,
+            error_text: '',
             fn_getModalHeaderText: function() {
                 return this.modal_header_options[this.str_modal_header];
             },
@@ -54,6 +55,7 @@ angular.module('submodules.modallogin')
                             $mdDialog.hide();
                         } else {
                             userModel.is_valid = false;
+                            userModel.error_text = data.error_text;
                         }
                     }).error(function(data, status, headers, cfg) {
                         userModel.is_valid = false;

@@ -28,8 +28,8 @@
     </script>
     <script src="/api/getcss/?callback=loadCompiledCSS"></script>
     <!-- Custom Fonts -->
-    <link href="libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="libs/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,15 +38,17 @@
     <![endif]-->
     <!-- jQuery -->
     <script src="libs/jquery/dist/jquery.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+
 </head>
 
 <body app-jv-body-dir="" layout="column">
     <!-- Navigation -->
-    <div class="navigation-main" app-jv-navigation-main="">
+    <div class="navigation-main" app-jv-navigation-main="" id="top">
     </div>
     <div class="">
         <!-- ANGULAR DYNAMIC CONTENT -->
-        <div class="ng-view-container" id="top">
+        <div class="ng-view-container ui-view-container">
             <div ui-view="top-section" class="page slide page-view" app-jv-site-wide-common="initMaterialDesign"></div>
         </div>
         <!-- <div services-offered="le">
@@ -84,6 +86,12 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> -->
 <!-- Custom Javascript -->
 <script src="modules/0.0.applicationbase/js/custom.js"></script>
+<script>
+  UPLOADCARE_LOCALE = "en";
+  UPLOADCARE_TABS = "file";
+  UPLOADCARE_DO_NOT_STORE = true;
+  UPLOADCARE_PUBLIC_KEY = "9892b9acceb2acadf4a9";
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqcOqmg_reo9bk1PRb80acNU-lx1ukRjQ&signed_in=true&libraries=places&callback=initService"
         async defer></script>
 </html>

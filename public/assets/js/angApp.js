@@ -80,26 +80,29 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             }
         });
     };
-} ]), angular.module("submodules.sectionsignup").controller("sectionSignupCtrl", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
-    $scope.signupUser = {
-        emailmodel: "sample",
+} ]), angular.module("submodules.sectionsignup").controller("sectionRegisterUserCtrl", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
+    $scope.modelRegisterUserForm = {
+        usertype: "",
+        email: "",
+        first_name: "",
+        last_name: "",
+        password: "",
+        confirm_password: "",
+        show_password: "",
+        mobile: "",
+        alternate_mobile: "",
+        city: "",
+        captcha_valid: !1,
         valid: !0
-    }, $scope.$watch("signupUser", function(newVal, oldVal) {
-        newVal.emailmodel !== oldVal.emailmodel && $scope.checkUserExists(newVal);
-    }, !0), $scope.usertypes = {}, $scope.origUserCopy = angular.copy($scope.user), 
-    $scope.resetForm = function() {
+    }, $scope.usertypes = {}, $scope.origUserCopy = angular.copy($scope.user), $scope.resetForm = function() {
         $scope.user = angular.copy($scope.origUserCopy);
-    }, $scope.checkUserExists = function(signupUser) {
-        $http({
+    }, $scope.checkUserExists = function(email) {
+        return $http({
             method: "GET",
-            url: "/api/checkemailid",
+            url: "/api/check_email_exists",
             params: {
-                email: signupUser.emailmodel
+                email: email
             }
-        }).success(function(data, status, headers, cfg) {
-            data.length > 0 ? signupUser.valid = !1 : signupUser.valid = !0;
-        }).error(function(data, status, headers, cfg) {
-            signupUser.valid = !1;
         });
     }, $scope.getUserTypes = function(userModel) {
         $http({
@@ -108,6 +111,23 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         }).success(function(data, status, headers, cfg) {
             data.length > 0 && ($scope.usertypes = data);
         }).error(function(data, status, headers, cfg) {});
+    }, $scope.fn_register_user = function(modelRegisterUserForm) {
+        return $http({
+            method: "POST",
+            url: "/api/register_user",
+            transformRequest: transformRequestAsFormPost,
+            data: {
+                id: modelRegisterUserForm,
+                first_name: modelRegisterUserForm.first_name,
+                last_name: modelRegisterUserForm.last_name,
+                email: modelRegisterUserForm.email,
+                password: modelRegisterUserForm.password,
+                city: modelRegisterUserForm.city,
+                mobile: modelRegisterUserForm.mobile,
+                alternate_mobile: modelRegisterUserForm.alternate_mobile,
+                usertype: modelRegisterUserForm.usertype
+            }
+        });
     }, $scope.getUserTypes();
 } ]), angular.module("submodules.modallogin").controller("modalLoginCtrl", [ "$scope", "$http", "transformRequestAsFormPost", "userLoginSvc", "$mdDialog", function($scope, $http, transformRequestAsFormPost, userLoginSvc, $mdDialog) {
     $scope.modelLoginForm = {
@@ -119,6 +139,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             forgotpassword: "Forgot Password"
         },
         is_valid: !0,
+        error_text: "",
         fn_getModalHeaderText: function() {
             return this.modal_header_options[this.str_modal_header];
         },
@@ -131,7 +152,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         ("" === userModel.username || "" === userModel.password) && (userModel.is_valid = !1, 
         $scope.loginForm.username.$setDirty(), $scope.loginForm.password.$setDirty()), (userModel.is_valid || $scope.loginForm.$valid) && userLoginSvc.validateUser(userModel.username, userModel.password).success(function(data, status, headers, cfg) {
             data.length > 0 ? (userModel.is_valid = !0, userLoginSvc.setUserSessionData(angular.fromJson(data[0])), 
-            $mdDialog.hide()) : userModel.is_valid = !1;
+            $mdDialog.hide()) : (userModel.is_valid = !1, userModel.error_text = data.error_text);
         }).error(function(data, status, headers, cfg) {
             userModel.is_valid = !1;
         });
@@ -140,7 +161,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             data.length > 0 && $mdDialog.hide();
         }).error(function(data, status, headers, cfg) {});
     };
-} ]), angular.module("submodules.sectionjointventure").controller("jvSearchCtrl", [ "$scope", "transformRequestAsFormPost", "$http", function($scope, transformRequestAsFormPost, $http) {
+} ]), angular.module("submodules.sectionjointventure").controller("jvSearchCtrl", [ "$scope", "transformRequestAsFormPost", "$http", "$state", function($scope, transformRequestAsFormPost, $http, $state) {
     $scope.modelJvSearchForm = {
         residential: {
             location: "",
@@ -180,15 +201,154 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             }
         }
     }, $scope.fn_getJointVentureResults = function(form) {
-        return $http({
+        $http({
             method: "POST",
             url: "/api/get_jointventure_results",
             transformRequest: transformRequestAsFormPost,
             data: {
                 location: form.residential.location
             }
+        }).then(function(data) {
+            $state.go("jointventureresults");
         });
     };
+} ]), angular.module("submodules.sectionjointventure").controller("jvSearchResultCtrl", [ "$scope", "transformRequestAsFormPost", "$http", "$state", function($scope, transformRequestAsFormPost, $http, $state) {
+    $scope.modelJvSearchForm = {
+        residential: {
+            location: "",
+            bedrooms: {
+                "1": !1,
+                "2": !1,
+                "3": !1,
+                "4": !1
+            },
+            budget: {
+                min: 0,
+                max: 1
+            }
+        },
+        commercial: {
+            location: "",
+            area: {
+                unit: "",
+                min: "",
+                max: ""
+            },
+            budget: {
+                min: "",
+                max: ""
+            }
+        },
+        agricultural: {
+            location: "",
+            area: {
+                unit: "",
+                min: "",
+                max: ""
+            },
+            budget: {
+                min: "",
+                max: ""
+            }
+        }
+    }, $scope.modelJvSearchResults = {}, $scope.fn_getJointVentureResults = function(form) {
+        $http({
+            method: "POST",
+            url: "/api/get_jointventure_results",
+            transformRequest: transformRequestAsFormPost,
+            data: {
+                location: form.residential.location
+            }
+        }).then(function(data) {});
+    };
+} ]), angular.module("submodules.sectionrent").controller("sectionRentPropertyCtrl", [ "$scope", "$http", "transformRequestAsFormPost", function($scope, $http, transformRequestAsFormPost) {
+    $scope.modelRentPropertyForm = {
+        usertype: "",
+        email: "",
+        first_name: "",
+        last_name: "",
+        password: "",
+        confirm_password: "",
+        show_password: "",
+        mobile: "",
+        alternate_mobile: "",
+        city: "",
+        captcha_valid: !1,
+        valid: !0
+    }, $scope.usertypes = {}, $scope.origUserCopy = angular.copy($scope.user), $scope.resetForm = function() {
+        $scope.user = angular.copy($scope.origUserCopy);
+    }, $scope.checkUserExists = function(email) {
+        return $http({
+            method: "GET",
+            url: "/api/check_email_exists",
+            params: {
+                email: email
+            }
+        });
+    }, $scope.getUserTypes = function(userModel) {
+        $http({
+            method: "GET",
+            url: "/api/getusertypes"
+        }).success(function(data, status, headers, cfg) {
+            data.length > 0 && ($scope.usertypes = data);
+        }).error(function(data, status, headers, cfg) {});
+    }, $scope.fn_rent_property = function(modelRentPropertyForm) {
+        return $http({
+            method: "POST",
+            url: "/api/register_user",
+            transformRequest: transformRequestAsFormPost,
+            data: {
+                id: modelRentPropertyForm,
+                first_name: modelRentPropertyForm.first_name,
+                last_name: modelRentPropertyForm.last_name,
+                email: modelRentPropertyForm.email,
+                password: modelRentPropertyForm.password,
+                city: modelRentPropertyForm.city,
+                mobile: modelRentPropertyForm.mobile,
+                alternate_mobile: modelRentPropertyForm.alternate_mobile,
+                usertype: modelRentPropertyForm.usertype
+            }
+        });
+    }, $scope.getUserTypes();
+} ]), angular.module("submodules.sectionsell").controller("sectionSellCtrl", [ "$scope", "$http", "transformRequestAsFormPost", "userLoginSvc", function($scope, $http, transformRequestAsFormPost, userLoginSvc) {
+    $scope.modelSellForm = {
+        image_ref: "",
+        image_url: [],
+        user_details: {
+            usertype: userLoginSvc.getUserSessionData().user_data.usertype,
+            email: userLoginSvc.getUserSessionData().user_data.id,
+            mobile: userLoginSvc.getUserSessionData().user_data.mobile,
+            alternate_mobile: userLoginSvc.getUserSessionData().user_data.alternate_mobile
+        },
+        address: "",
+        city: "",
+        price_unit: "",
+        price: "",
+        is_negotiable: !1,
+        area_unit: "",
+        built_area: "",
+        possession_type: "",
+        possession_details: "",
+        property_description: "",
+        status: "",
+        near_by: "",
+        captcha_valid: !1,
+        valid: !0
+    }, $scope.usertypes = {}, $scope.getUserTypes = function(userModel) {
+        $http({
+            method: "GET",
+            url: "/api/getusertypes"
+        }).success(function(data, status, headers, cfg) {
+            data.length > 0 && ($scope.usertypes = data);
+        }).error(function(data, status, headers, cfg) {});
+    }, $scope.fn_sell_property = function(modelSellForm) {
+        return $http({
+            method: "POST",
+            url: "/api/list_sell",
+            transformRequest: transformRequestAsFormPost,
+            data: modelSellForm
+        });
+    }, $scope.getUserTypes();
 } ]), angular.module("submodules.navigationmain").directive("appJvNavigationMain", function(userLoginSvc, $mdMedia, $mdSidenav, $mdDialog, $state) {
     return {
         restrict: "AE",
@@ -212,24 +372,16 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             };
         }
     };
-}), angular.module("submodules.sectionsignup").directive("appJvSectionSignup", function() {
+}), angular.module("submodules.sectionsignup").directive("appJvSectionRegisterUser", function() {
     return {
         restrict: "AE",
-        templateUrl: "templates/tpl-section-signup.html",
+        templateUrl: "templates/tpl-section-register-user.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            $(element).find("select").material_select(), scope.$watch("usertypes", function(newVal, oldVal) {
-                newVal.length !== oldVal.length && scope.$emit("childLoading");
-            }), $(element).find("#inputEmail").on("blur", function(event) {
-                scope.$apply(function() {
-                    scope.signupUser.emailmodel = $(event.target).val();
-                });
-            }), $(element).find("#showPassword field-confirm-password").on("change", function(event) {
-                this.checked;
-            }), scope.signupNewUser = function(formSignupUser) {
-                console.log(formSignupUser);
-            }, scope.$emit("childLoading");
-            var captch_script = document.createElement("script");
-            captch_script.setAttribute("src", "https://www.google.com/recaptcha/api.js"), document.head.appendChild(captch_script);
+            var recaptchaSrc = "https://www.google.com/recaptcha/api.js";
+            if (0 === $('head script[src="' + recaptchaSrc + '"]').length) {
+                var captch_script = document.createElement("script");
+                captch_script.setAttribute("src", recaptchaSrc), document.head.appendChild(captch_script);
+            }
         }
     };
 }), angular.module("submodules.modallogin").directive("appJvModalLogin", function(userLoginSvc, $mdDialog, $mdMedia) {
@@ -315,54 +467,23 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-jointventure-results.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            scope.addrtags = [], scope.ventures = [ {
-                name: "Agricultural Land",
-                company: "",
-                location: "Bangalore",
-                status: "Ready to Move",
-                details: "Dimensions 147.7 x 147.6 ft",
-                price: "Rs. 88.5Lac",
-                sftprice: "406 per sft",
-                dpcount: "2"
-            }, {
-                name: "Agricultural Land",
-                company: "",
-                location: "Kanakpura Road",
-                status: "Resale Freehold",
-                details: "",
-                price: "Rs. 19 Lac",
-                sftprice: "Negotiable",
-                dpcount: "5"
-            } ], scope.loadAddrTags = function(query) {
-                var options = {
-                    input: query,
-                    types: "geocode",
-                    location: "12.9539975,77.6309395",
-                    radius: 25e3
-                };
-                return googleMapsAPI.getLocationSuggestions(options).then(function(response) {
-                    return "OK" == response.data.status ? response.data.predictions : void 0;
-                });
-            }, $(element).find("button").on("click", function(e) {
-                $(e.target).parent().find("input#Area").val();
-            }), $(element).find("#farmtype,#budget,#postedby").multiselect({
-                buttonWidth: "100%",
-                buttonText: function(options, select) {
-                    if (0 === options.length) return $(select).attr("id").toString();
-                    var labels = [];
-                    return options.each(function() {
-                        void 0 !== $(this).attr("label") ? labels.push($(this).attr("label")) : labels.push($(this).html());
-                    }), labels.join(", ") + "";
-                }
-            }), scope.$emit("childLoading");
+            scope.addrtags = [], scope.locationPredictionsNow = [], scope.selectedLocations = [], 
+            scope.selectedLocation = null, scope.searchLocationText = null, scope.searchTextChange = function(searchText) {
+                scope.searchLocationText = searchText, scope.modelJvSearchForm.residential.location = searchText, 
+                "" !== searchText && window.initService(searchText);
+            }, scope.$emit("childLoading");
         }
     };
 } ]), angular.module("submodules.sectionrent").directive("appJvSectionRent", function() {
     return {
         restrict: "AE",
         templateUrl: "templates/tpl-section-rent.html",
-        link: function(scope, element, attrs, tabsCtrl) {
-            addParallax(element);
+        link: function(scope, element, attrs) {
+            var recaptchaSrc = "https://www.google.com/recaptcha/api.js";
+            if (0 === $('head script[src="' + recaptchaSrc + '"]').length) {
+                var captch_script = document.createElement("script");
+                captch_script.setAttribute("src", recaptchaSrc), document.head.appendChild(captch_script);
+            }
         }
     };
 }), angular.module("submodules.sectionsell").directive("appJvSectionSell", function() {
@@ -370,7 +491,28 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
         restrict: "AE",
         templateUrl: "templates/tpl-section-sell.html",
         link: function(scope, element, attrs, tabsCtrl) {
-            scope.$emit("childLoading");
+            var recaptchaSrc = "https://www.google.com/recaptcha/api.js";
+            $('head script[src="' + recaptchaSrc + '"]').length && $('head script[src="' + recaptchaSrc + '"]').remove();
+            var captch_script = document.createElement("script");
+            captch_script.setAttribute("src", recaptchaSrc), document.head.appendChild(captch_script);
+            var uploadCareSrc = "https://ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.min.js";
+            scope.fn_onUploadCare = function(files) {
+                var uploadDialog = uploadcare.openDialog(files, {
+                    imagesOnly: !0,
+                    multiple: !0
+                });
+                uploadDialog.done(function(file) {
+                    scope.modelSellForm.image_ref = file, scope.modelSellForm.image_url = [];
+                    for (var fileDone = function(fileInfo) {
+                        scope.modelSellForm.image_url.push(fileInfo.cdnUrl);
+                    }, i = 0; i < uploadDialog.fileColl.__items.length; i++) uploadDialog.fileColl.__items[0].then(fileDone);
+                });
+            }, scope.upload_images = function() {
+                var files = scope.modelSellForm.image_ref ? scope.modelSellForm.image_ref.files() : null;
+                "undefined" == typeof uploadcare ? $.getScript(uploadCareSrc, function() {
+                    scope.fn_onUploadCare(files);
+                }) : scope.fn_onUploadCare(files);
+            };
         }
     };
 }), angular.module("submodules.servicesoffered").directive("appJvServicesOffered", function() {
@@ -397,7 +539,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
     return {
         link: function(scope, element, attrs) {
             scope.$on("$locationChangeSuccess", function(event, newURL, oldURL, newState, oldState) {
-                console.log(newURL), siteWideCommonFunctions.scrollToSection(newURL.split("?scrollTo=")[1]);
+                siteWideCommonFunctions.scrollToSection(newURL.split("?scrollTo=")[1]);
             }), scope.$on("$stateChangeSuccess", function(event, newState, newStateParams, oldState, oldStateParams) {
                 newStateParams.scrollTo && siteWideCommonFunctions.scrollToSection(newStateParams.scrollTo);
             });
@@ -415,6 +557,34 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
             scope.$on("childLoading", function() {
                 for (var commonFns = attrs.appJvSiteWideCommon.split(","), i = 0; i < commonFns.length; i++) "undefined" != typeof siteWideCommonFunctions[commonFns[i].toString().trim()] && siteWideCommonFunctions[commonFns[i].toString().trim()]();
             });
+        }
+    };
+} ]), angular.module("submodules.sitewidecommon").directive("appJvVerifyCaptcha", [ "$q", "$interval", function($q, $interval) {
+    return {
+        restrict: "A",
+        require: "ngModel",
+        link: function(scope, element, attrs, ngModel) {
+            window.intervalRef = null;
+            var captchaTxtArea = $(element).find("#g-recaptcha-response");
+            captchaTxtArea || clearInterval(window.intervalRef);
+        }
+    };
+} ]), angular.module("submodules.sitewidecommon").directive("appJvVerfiyUnique", [ "$q", "$interval", function($q, $interval) {
+    return {
+        restrict: "A",
+        require: "ngModel",
+        scope: {
+            appJvVerfiyUnique: "&"
+        },
+        link: function(scope, element, attrs, ngModel) {
+            var intervalRef, isValid = !1;
+            scope.$parent.$watch(attrs.ngModel, function(newVal, oldVal) {
+                angular.isDefined(intervalRef) ? ($interval.cancel(intervalRef), intervalRef = void 0) : intervalRef = $interval(function() {
+                    scope.appJvVerfiyUnique()(newVal).then(function(res) {
+                        isValid = 0 === res.data.length ? !0 : !1, ngModel.$setValidity(attrs.ngModel, isValid);
+                    });
+                }, 500, 1);
+            }, !0);
         }
     };
 } ]), angular.module("submodules.sectionsample").directive("appJvSectionSample", function() {
@@ -469,12 +639,27 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 controller: "MainController"
             }
         }
+    }).state("register_user", {
+        url: "/register_user",
+        views: {
+            "top-section": {
+                templateUrl: "views/section-register-user.html",
+                controller: "MainController"
+            }
+        }
     }).state("jointventure", {
         url: "/jointventure",
         views: {
             "top-section": {
                 templateUrl: "views/section-jointventure.html",
                 controller: "MainController"
+            }
+        }
+    }).state("jointventureresults", {
+        url: "/jointventureresults",
+        views: {
+            "top-section": {
+                templateUrl: "views/section-jointventure-results.html"
             }
         }
     }).state("sell", {
@@ -485,14 +670,6 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 controller: "MainController"
             }
         }
-    }).state("signup", {
-        url: "/signup",
-        views: {
-            "top-section": {
-                templateUrl: "views/section-signup.html",
-                controller: "MainController"
-            }
-        }
     }).state("rent", {
         url: "/rent",
         views: {
@@ -500,12 +677,7 @@ angular.module("submodules.sectionsample", []), angular.module("submodules.sitew
                 templateUrl: "views/section-rent.html"
             }
         }
-    }).state("jointventureresults", {
-        url: "/jointventureresults",
-        views: {
-            "top-section": {
-                templateUrl: "views/section-jointventure-results.html"
-            }
-        }
     });
+}).config(function($mdThemingProvider) {
+    $mdThemingProvider.theme("default").primaryPalette("indigo").accentPalette("deep-orange");
 });

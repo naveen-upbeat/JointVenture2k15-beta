@@ -1,16 +1,16 @@
     /**
      * @ngdoc controller
-     * @name submodules.sectionjointventure:jvSearchCtrl
+     * @name submodules.sectionjointventureresults:jvSearchResultCtrl
      * @scope
      * 
      * @description
-     * The controller is used for Joint Venture section, stores search options
+     * The controller is used for Joint Venture Result section, displays search results
      *
      * @param {object}  field   A field object
      *
      */
     angular.module('submodules.sectionjointventure')
-        .controller('jvSearchCtrl', ['$scope', 'transformRequestAsFormPost', '$http','$state', function($scope, transformRequestAsFormPost, $http, $state) {
+        .controller('jvSearchResultCtrl', ['$scope', 'transformRequestAsFormPost', '$http','$state', function($scope, transformRequestAsFormPost, $http, $state) {
 
             $scope.modelJvSearchForm = {
                 'residential': {
@@ -52,6 +52,8 @@
                 }
             };
 
+            $scope.modelJvSearchResults={}; 
+
             $scope.fn_getJointVentureResults = function(form) {
                 $http({
                     method: 'POST',
@@ -61,7 +63,7 @@
                         'location': form.residential.location
                     }
                 }).then(function(data){
-                    $state.go('jointventureresults');
+                    
                 });
             };
 

@@ -30,6 +30,7 @@
                                 <md-content layout-padding layout="row" layout-sm="column" ng-class="{'show':!modelLoginForm.is_valid,'hide':modelLoginForm.is_valid}">
                                     <md-input-container flex>
                                         <span for="Error" class="red-text" style="text-align:left;">Sorry, we did not recognize the details you entered. Please try again.</span>
+                                        <span ng-if="modelLoginForm.error_text" for="Error" class="red-text" style="text-align:left;">{{modelLoginForm.error_text}}</span>
                                     </md-input-container>
                                 </md-content>
                                 <md-content layout-padding layout="row" layout-sm="column">
@@ -44,7 +45,7 @@
                                             <span for="signup" class="">Don't have Username? </span>
                                         </div>
                                         <div class="col s6">
-                                            <a ui-sref="signup" class="link-singnup modal-close">Sign up</a>
+                                            <a ui-sref="register_user" ng-click="fn_close()" class="link-singnup modal-close">Register!</a>
                                         </div>
                                     </md-input-container>
                                 </md-content>

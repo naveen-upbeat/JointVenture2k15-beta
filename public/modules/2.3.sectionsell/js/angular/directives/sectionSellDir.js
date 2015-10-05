@@ -17,8 +17,47 @@ angular.module('submodules.sectionsell')
             restrict: "AE",
             templateUrl: 'templates/tpl-section-sell.html',
             link: function(scope, element, attrs, tabsCtrl) {
-                //addParallax(element);
-                scope.$emit('childLoading');
+                var recaptchaSrc = "https://www.google.com/recaptcha/api.js";
+                if ($('head script[src="' + recaptchaSrc + '"]').length) {
+                    $('head script[src="' + recaptchaSrc + '"]').remove();
+                }
+                var captch_script = document.createElement('script');
+                captch_script.setAttribute('src', recaptchaSrc);
+                document.head.appendChild(captch_script);
+
+                var uploadCareSrc = "https://ucarecdn.com/widget/2.5.5/uploadcare/uploadcare.min.js";
+
+                scope.fn_onUploadCare = function(files) {
+                    var uploadDialog = uploadcare.openDialog(files, {
+                        imagesOnly: true,
+                        multiple: true
+                    });
+
+                    uploadDialog.done(function(file) {
+                        scope.modelSellForm.image_ref = file;
+                        scope.modelSellForm.image_url = [];
+                        var fileDone = function(fileInfo) {
+
+                            scope.modelSellForm.image_url.push(fileInfo.cdnUrl);
+                        };
+
+                        for (var i = 0; i < uploadDialog.fileColl.__items.length; i++) {
+                            uploadDialog.fileColl.__items[0].then(fileDone);
+                        }
+
+                    });
+                };
+
+                scope.upload_images = function() {
+                    var files = scope.modelSellForm.image_ref ? scope.modelSellForm.image_ref.files() : null;
+                    if (typeof uploadcare === 'undefined') {
+                        $.getScript(uploadCareSrc, function() {
+                            scope.fn_onUploadCare(files);
+                        });
+                    } else {
+                        scope.fn_onUploadCare(files);
+                    }
+                };
             }
         };
     });
