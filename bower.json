@@ -4,9 +4,9 @@
   "dependencies": {
     "angular": "~1.4.6",
     "angular-animate": "latest",
-    "angular-material": "latest",
     "angular-ui-router": "~0.2.15",
     "components-font-awesome": "~4.4.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "core-icons": "polymer/core-icons#~0.5.6"
   }
 }
