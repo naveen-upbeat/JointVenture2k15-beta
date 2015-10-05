@@ -12,10 +12,10 @@ var recaptcha = new recaptcha_async.reCaptcha();
 var db = require('./config/db');
 
 var port = process.env.PORT || 8080; // set our port
+console.log(process.env.production);
 if (process.env === 'production') {
 	mongoose.connect(db.url_prod);
 } else {
-
     mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 }
 // get all data/stuff of the body (POST) parameters
