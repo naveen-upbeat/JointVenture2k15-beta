@@ -186,10 +186,10 @@
                     to: userEmail,
                     subject: 'Activate User | JointVenture2k15',
                     html: 'You have recently registered with us. It is recommended to verify your email id. Please click this link \
-                        <a href="' + req.get('host') + '/api/activate_user?activation_code=' + activation_code + '">Here<a>. Thank you!'
+                        ' + req.get('host') + '/api/activate_user?activation_code=' + activation_code + 'Here. Thank you!'
                 }, function(err2, info) {
                     //console.log('email sent');
-                    if(err2) throw err2;
+                    if (err2) throw err2;
                 });
                 res.json(user);
             });
@@ -198,26 +198,40 @@
 
         // add a new user
         app.get('/api/activate_user', function(req, res) {
-            var user_details = req.body,
-                create_date = new Date().getTime();
-
-            dbSchemas.USER.find({
-                create_date: create_date,
-                id: user_details.email,
-                first_name: user_details.first_name,
-                last_name: user_details.last_name,
-                email: user_details.email,
-                password: user_details.password,
-                city: user_details.city,
-                mobile: user_details.mobile,
-                usertype: user_details.usertype
-
-            });
-            new_user.save(function(err, user) {
+            var activation_code = req.params.activation_code || req.query.activation_code;
+            
+            var status_user_verified;
+            dbSchemas.STATUS.find({
+                'status_label': 'user_verified'
+            }, function(err, row) {
                 if (err) throw err;
-                // object of the user
-                //console.log(user);
-                res.json(user);
+                status_user_verified = row[0].id;
+
+                if (typeof activation_code !== 'undefined') {
+
+                    dbSchemas.USER.find({
+                        activation_code: activation_code
+                    }, function(err, user) {
+
+                        if (user.length > 0) {
+
+                            dbSchemas.USER.update({
+                                id: user[0].id
+                            }, {
+                                $set: {
+                                    status: status_user_verified
+                                }
+                            }, function(err2, user2) {
+                                res.send('User veified. Click <a href="http://' + req.get('host') + '/#home">Home</a> to use the site');
+                            });
+                        } else {
+                            res.send('Invalid activation_code');
+                        }
+                    });
+
+                } else {
+                    res.send('invalid request');
+                }
             });
 
         });
